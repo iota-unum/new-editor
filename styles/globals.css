@@ -1,0 +1,78 @@
+/* 
+
+:root {
+  --containerWidth: 100vw;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --containerWidth: 50vw;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --containerWidth: 67vw;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --containerWidth: 50vw;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --containerWidth: 50vw;
+  }
+} */
+
+
+:root {
+  --containerWidth: 100vw;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --containerWidth: 70vw;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --containerWidth: 60vw;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --containerWidth: 50vw;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --containerWidth: 33vw;
+  }
+}
+
+
+
+
+
+#__next {
+  height: 100%;
+}
+
+html,
+body {
+
+  padding: 0;
+  margin: 0;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    height: 100vh;}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
