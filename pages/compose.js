@@ -51,7 +51,7 @@ function Compose() {
       <style jsx>
         {`
           .compose {
-            background-color: #15202b;
+            background-color: var(--mainColor);
             height: 100%;
             min-height: 100vh;
             width: var(--containerWidth);
