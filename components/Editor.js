@@ -1,19 +1,21 @@
 import { useEffect, useRef } from 'react';
 import ProgressBar from './ProgressBar';
 import useStore from '../store';
+import {positionCursorToEnd} from '../helpers/cursorfunction'
 function Editor({ handleChange, content, overflow, progress, preview }) {
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
 
   const refEditor = useRef();
 
-  // useEffect(()=> {
+  useEffect(()=> {
 
-  //   const el = document.querySelector('.editor');
-  //   el.focus()
-  //   positionCursorToEnd(el)
+    const el = document.querySelector('.editor');
+    el.scrollTop = el.scrollHeight
+    el.focus()
+    positionCursorToEnd(el)
 
-  // }, [fontColor, selectedColor, preview])
+  }, [ preview])
 
   function handleSelect() {
     const selectState = {
