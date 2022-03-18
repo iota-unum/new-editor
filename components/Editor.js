@@ -1,22 +1,21 @@
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react';
 import ProgressBar from './ProgressBar';
 import useStore from '../store';
 function Editor({ handleChange, content, overflow, progress, preview }) {
-  const { selectedColor, fontColor, fontSize, commandState, setCommandState } = useStore();
+  const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
+    useStore();
 
+  const refEditor = useRef();
 
-  const refEditor = useRef()
+  // useEffect(()=> {
 
-// useEffect(()=> {
+  //   const el = document.querySelector('.editor');
+  //   el.focus()
+  //   positionCursorToEnd(el)
 
-//   const el = document.querySelector('.editor');  
-//   el.focus()
-//   positionCursorToEnd(el)
-
-// }, [fontColor, selectedColor, preview])
+  // }, [fontColor, selectedColor, preview])
 
   function handleSelect() {
-
     const selectState = {
       bold: document.queryCommandState('bold'),
       italic: document.queryCommandState('italic'),
@@ -39,8 +38,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
 
   return (
     <div
-
-    ref={refEditor}
+      ref={refEditor}
       className='editor'
       spellCheck={!preview}
       contentEditable={!preview}
@@ -56,7 +54,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
         {`
           .editor {
             font-weight: 400;
-outline: none;
+            outline: none;
             min-height: calc(var(--containerWidth) * 0.5625);
             max-height: ${preview
               ? `calc(var(--containerWidth) * 1.333333)`
@@ -66,6 +64,12 @@ outline: none;
             padding: 0.5rem;
             font-size: ${fontSize}rem;
             color: ${fontColor};
+          }
+          @media (min-width: 768px) {
+            .editor {
+              overflow: hidden;
+              max-height: calc(var(--containerWidth) * 1.33333);
+            }
           }
         `}
       </style>

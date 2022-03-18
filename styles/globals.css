@@ -32,22 +32,22 @@
 
 @media (min-width: 576px) {
   :root {
-    --containerWidth: 70vw;
+    --containerWidth: 65vw;
   }
 }
 @media (min-width: 768px) {
   :root {
-    --containerWidth: 60vw;
+    --containerWidth: 40vw;
   }
 }
 @media (min-width: 992px) {
   :root {
-    --containerWidth: 50vw;
+    --containerWidth: 35vw;
   }
 }
 @media (min-width: 1200px) {
   :root {
-    --containerWidth: 33vw;
+    --containerWidth: 30vw;
   }
 }
 
