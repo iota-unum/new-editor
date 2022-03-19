@@ -18,7 +18,7 @@ setFontSize: (fontSize) => set(fontSize),
 setSelectedColor: color => set({selectedColor: color}),
 setFontColor: color => set({fontColor: color}),
 increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.1})),
-decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.76?  state.fontSize - 0.1 : 0.75}))
+decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.75 ?  state.fontSize - 0.1 : 0.75}))
 
 }));
 

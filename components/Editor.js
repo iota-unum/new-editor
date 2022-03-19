@@ -69,6 +69,8 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
             padding: 0.5rem;
             font-size: ${fontSize}rem;
             color: ${fontColor};
+            overflow-wrap: break-word;
+            
           }
           @media (min-width: 768px) {
             .editor {

@@ -1,0 +1,1 @@
+- mettere max-width on preview
