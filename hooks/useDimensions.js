@@ -20,12 +20,12 @@ useEffect(() => {
     // console.log('contentHEIGHT', content);
 
     if(overflow ) {
-        setFontSize(state => ({fontSize: state.fontSize - 0.02 > 0.75 ? state.fontSize - 0.02 : 0.75 }))
+        setFontSize(state => ({fontSize: state.fontSize - 0.02 >= 0.75 ? state.fontSize - 0.02 : 0.75 }))
     }
     setProgress(contentHeight / maxHeight);
     setOverflow(progress > 1);
     setScrollHeight(scrollHeight)
-  }, [ content, progress, overflow, scrollHeight]);
+  }, [ content, progress, overflow, scrollHeight, fontSize]);
 
 
 

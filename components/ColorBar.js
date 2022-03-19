@@ -1,5 +1,6 @@
 import React from 'react';
 import ColorGroup from './ColorGroup';
+import FontGroup from './FontGroup';
 
 function ColorBar({}) {
   const bgColors = [
@@ -17,6 +18,7 @@ function ColorBar({}) {
     <div className='colorbar'>
      
       <ColorGroup colors={fontColors} target='font'/>
+      <FontGroup />
       <ColorGroup colors={[]} />
       <ColorGroup colors={bgColors} target='background'/>
 
@@ -28,6 +30,7 @@ function ColorBar({}) {
             background-color: #273340;
             display: flex;
             justify-content: space-between;
+            align-items: center;
           }
         `}
       </style>

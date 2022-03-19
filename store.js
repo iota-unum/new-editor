@@ -16,7 +16,9 @@ setCommandState: (commandState) => set(state => ({...state.commandState, command
 setOverflow: (overflow)=>set({overflow}),
 setFontSize: (fontSize) => set(fontSize),
 setSelectedColor: color => set({selectedColor: color}),
-setFontColor: color => set({fontColor: color})
+setFontColor: color => set({fontColor: color}),
+increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.1})),
+decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.76?  state.fontSize - 0.1 : 0.75}))
 
 }));
 

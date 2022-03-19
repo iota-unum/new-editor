@@ -62,7 +62,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
               ? `calc(var(--containerWidth) * 1.333333)`
               : `calc(var(--containerWidth) * 0.5625)`};
             background-color: var(--selectedColor);
-            overflow: auto;
+            overflow: ${preview ? 'hidden' : 'auto'};
             padding: 0.5rem;
             font-size: ${fontSize}rem;
             color: ${fontColor};
