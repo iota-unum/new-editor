@@ -60,7 +60,6 @@ function EditBar() {
           .editbar {
             display: flex;
             justify-content: space-around;
-            padding-top: 5px;
           }
         `}
       </style>

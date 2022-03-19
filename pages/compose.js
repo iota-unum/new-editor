@@ -36,7 +36,6 @@ function Compose() {
         />
       </Head>
       <AppBar />
-      {!preview && <EditBar />}
 
       <Editor
         handleChange={handleChange}
@@ -44,7 +43,8 @@ function Compose() {
         progress={progress}
         preview={preview}
         content={content}
-      />
+        />
+        {!preview && <EditBar />}
       {!preview && <ColorBar />}
       {!preview && <ProgressBar overflow={overflow} progress={progress} />}
       {preview && <button>Done</button>}
