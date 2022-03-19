@@ -37,7 +37,7 @@ function EditButton({ cmd, arg, name, children }) {
             padding: 0.5rem;
             flex-grow: 1;
             background-color: #15202b;
-            border: 1px solid #a2a2a2;
+            border: 1px solid #273340;
             color: #a2a2a2;
           }
 
