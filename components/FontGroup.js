@@ -17,8 +17,8 @@ function FontGroup() {
     }
     if (symbol === 'minus') {
       decreaseFontsize();
-      positionCursorToEnd(editor);
     }
+    positionCursorToEnd(editor);
     editor.scrollTop = editor.scrollHeight
     console.log('INCREASEdECREASE');
   }
