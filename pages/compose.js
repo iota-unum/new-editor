@@ -48,12 +48,12 @@ function Compose() {
       {!preview && <ColorBar />}
       {!preview && <ProgressBar overflow={overflow} progress={progress} />}
 
-      <footer>
+      {/* <footer> */}
 
 
       {preview && <button>Done</button>}
 
-      </footer>
+      {/* </footer> */}
       <style jsx>
         {`
           .compose {
@@ -66,13 +66,6 @@ function Compose() {
             margin: 0 auto;
           }
 
-          footer {
-            background-color: var(--mainColor);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-          }
           button {
             display: block;
             background-color: var(--selectedColor);
@@ -91,3 +84,11 @@ function Compose() {
 }
 
 export default Compose;
+
+{/* footer {
+  background-color: var(--mainColor);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+} */}
