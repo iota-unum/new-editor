@@ -43,19 +43,35 @@ function Compose() {
         progress={progress}
         preview={preview}
         content={content}
-        />
-        {!preview && <EditBar />}
+      />
+      {!preview && <EditBar />}
       {!preview && <ColorBar />}
       {!preview && <ProgressBar overflow={overflow} progress={progress} />}
+
+      <footer>
+
+
       {preview && <button>Done</button>}
+
+      </footer>
       <style jsx>
         {`
           .compose {
+            display: flex;
+            flex-direction: column;
             background-color: var(--mainColor);
-            height: 100%;
+            height: 100vh;
             min-height: 100vh;
             width: var(--containerWidth);
             margin: 0 auto;
+          }
+
+          footer {
+            background-color: var(--mainColor);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
           }
           button {
             display: block;
