@@ -1,39 +1,54 @@
 import React from 'react';
-import {
-  FaAlignCenter,
-  FaAlignLeft,
-  FaBold,
-  FaItalic,
-  FaUndo,
-  FaParagraph,
-  FaHeading,
-} from 'react-icons/fa';
+import { BsFillPlusCircleFill, BsFillDashCircleFill } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
 import useStore from '../store';
+import { positionCursorToEnd } from '../helpers/cursorfunction';
 
 function FontGroup() {
+  const fontSize = useStore((state) => state.FontSize);
+  const increaseFontsize = useStore((state) => state.increaseFontsize);
+  const decreaseFontsize = useStore((state) => state.decreaseFontsize);
 
+  function handleIncreaseDecrease(symbol) {
+    const editor = document.querySelector('.editor');
 
-  const fontSize = useStore(state => state.FontSize)
-  const increaseFontsize = useStore(state => state.increaseFontsize)
-  const decreaseFontsize = useStore(state => state.decreaseFontsize)
-  return <div className='font-group'>
-<span className='symbol' onClick={increaseFontsize} >+</span>
-<span className='symbol' onClick={decreaseFontsize} >-</span>
-
-<style jsx>
-  {`
-  .font-group {
-    color: white
+    if (symbol === 'plus') {
+      increaseFontsize();
+    }
+    if (symbol === 'minus') {
+      decreaseFontsize();
+    }
+    editor.scrollTop = editor.scrollHeight
+    positionCursorToEnd(editor);
+    console.log('INCREASEdECREASE');
   }
-  .symbol {
-    padding: 0 .4rem;
-    font-size: 1.5rem;
-  }
-  `}
-</style>
+  return (
+    <div className='font-group'>
+      <div className='symbol'>
+        <BsFillPlusCircleFill onClick={() => handleIncreaseDecrease('plus')} />
+      </div>
+      <div className='symbol'>
+        <BsFillDashCircleFill onClick={() => handleIncreaseDecrease('minus')} />
+      </div>
+      {/* <div className='symbol' onClick={increaseFontsize} >+</div>
+<div className='symbol' onClick={decreaseFontsize} >-</div> */}
 
-  </div>;
+      <style jsx>
+        {`
+          .font-group {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .symbol {
+            margin: 0.5rem;
+            height: 1rem;
+          }
+        `}
+      </style>
+    </div>
+  );
 }
 
 export default FontGroup;
