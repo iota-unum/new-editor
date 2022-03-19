@@ -36,6 +36,9 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
     e.preventDefault();
     const text = e.clipboardData.getData('text/plain');
     document.execCommand('insertHTML', false, text);
+    const editor = document.querySelector('.editor');
+    positionCursorToEnd(editor);
+    editor.scrollTop = editor.scrollHeight
   }
 
   return (
