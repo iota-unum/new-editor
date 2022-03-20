@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import ProgressBar from './ProgressBar';
 import useStore from '../store';
 import {positionCursorToEnd} from '../helpers/cursorfunction'
+import ContentEditable from 'react-contenteditable';
 function Editor({ handleChange, content, overflow, progress, preview }) {
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
@@ -26,10 +27,8 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
       center: document.queryCommandState('justifyCenter'),
       left: document.queryCommandState('justifyLeft'),
     };
-    console.log('bold', document.queryCommandState('bold'));
-    console.log('qmvl', document.queryCommandValue('formatBlock'));
+   
     setCommandState(selectState);
-    console.log('CommandSTATE', commandState);
   }
 
   function handlePaste(e) {
@@ -41,19 +40,25 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
     editor.scrollTop = editor.scrollHeight
   }
 
+
+
   return (
-    <div
+    <div>
+
+    <ContentEditable
       ref={refEditor}
       className='editor'
       spellCheck={!preview}
       contentEditable={!preview}
-      onInput={handleChange}
       suppressContentEditableWarning={true}
       // value={content}
       onSelect={handleSelect}
       onPaste={handlePaste}
+      html={content}
+      onChange={(e)=>handleChange(e)} 
     >
-      {content === '' ? <div></div> : <div></div>}
+
+    </ContentEditable>
 
       <style jsx global>
         {`
@@ -80,6 +85,9 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
           }
         `}
       </style>
+
+
+
     </div>
   );
 }

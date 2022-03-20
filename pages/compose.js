@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AppBar from '../components/AppBar';
 import ProgressBar from '../components/ProgressBar';
 import Editor from '../components/Editor';
@@ -7,17 +7,20 @@ import useStore from '../store';
 import EditBar from '../components/EditBar';
 import Head from 'next/head';
 import ColorBar from '../components/ColorBar';
+import Preview from '../components/Preview';
 
 function Compose() {
   const overflow = useStore((state) => state.overlfow);
   const [content, setContent] = useState('');
-  const { progress } = useDimensions(content);
+  const text = useRef('');
+
+  const { progress } = useDimensions(text.current);
   const preview = useStore((state) => state.preview);
-  function handleChange(e) {
-    const newContent = e.currentTarget.innerHTML;
-    console.log(content);
-    setContent(newContent);
-  }
+  // function handleChange(e) {
+  //   const newContent = e.currentTarget.innerHTML;
+  //   console.log(content);
+  //   setContent(newContent);
+  // }
 
   useEffect(() => {
     if (navigator && navigator.virtualKeyboard) {
@@ -26,6 +29,10 @@ function Compose() {
       return;
     }
   }, []);
+  function handleChange(e) {
+    text.current = e.target.value;
+    console.log(text.current);
+  }
 
   return (
     <div className='compose'>
@@ -36,20 +43,27 @@ function Compose() {
         />
       </Head>
       <AppBar />
-
-      <Editor
-        handleChange={handleChange}
-        overflow={overflow}
-        progress={progress}
-        preview={preview}
-        content={content}
-      />
+      {preview ? (
+        <Preview
+          overflow={overflow}
+          progress={progress}
+          preview={preview}
+          content={text.current}
+        />
+      ) : (
+        <Editor
+          handleChange={handleChange}
+          overflow={overflow}
+          progress={progress}
+          preview={preview}
+          content={text.current}
+        />
+      )}
       {!preview && <EditBar />}
       {!preview && <ColorBar />}
       {!preview && <ProgressBar overflow={overflow} progress={progress} />}
 
       {/* <footer> */}
-
 
       {preview && <button>Done</button>}
 
@@ -85,10 +99,12 @@ function Compose() {
 
 export default Compose;
 
-{/* footer {
+{
+  /* footer {
   background-color: var(--mainColor);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: end;
-} */}
+} */
+}
