@@ -1,7 +1,8 @@
 import create from 'zustand';
 
 const useStore = create((set) => ({
-
+html: '<div></div>',
+setHtml: newHtml => set({html: newHtml}),
 containerWidth: '100%',
 height: 0,
 preview: false,
@@ -11,7 +12,8 @@ selectedColor:  'rgb(0, 186, 124)',
 fontColor: 'white',
 commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
 setWidth: width => set({containerWidth: width}),
-setPreview:()=> set(state => ({preview: !state.preview})),
+togglePreview:()=> set(state => ({preview: !state.preview})),
+setPreviewToFalse: ()=> set({preview:false}),
 setCommandState: (commandState) => set(state => ({...state.commandState, commandState})),
 setOverflow: (overflow)=>set({overflow}),
 setFontSize: (fontSize) => set(fontSize),

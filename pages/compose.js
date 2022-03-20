@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import AppBar from '../components/AppBar';
 import ProgressBar from '../components/ProgressBar';
 import Editor from '../components/Editor';
@@ -10,12 +11,10 @@ import ColorBar from '../components/ColorBar';
 import Preview from '../components/Preview';
 
 function Compose() {
-  const overflow = useStore((state) => state.overlfow);
-  const [content, setContent] = useState('');
-  const text = useRef('');
+  const {html, setHtml, overflow, preview, setPreviewToFalse} = useStore()
+  const text = useRef(html);
 
   const { progress } = useDimensions(text.current);
-  const preview = useStore((state) => state.preview);
   // function handleChange(e) {
   //   const newContent = e.currentTarget.innerHTML;
   //   console.log(content);
@@ -23,15 +22,20 @@ function Compose() {
   // }
 
   useEffect(() => {
+    setPreviewToFalse()
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
     } else {
       return;
     }
+    
   }, []);
+  
   function handleChange(e) {
+    
     text.current = e.target.value;
     console.log(text.current);
+    setHtml(text.current)
   }
 
   return (
@@ -65,7 +69,10 @@ function Compose() {
 
       {/* <footer> */}
 
-      {preview && <button>Done</button>}
+      {preview && 
+       <Link href='/send'>
+        <button>Done</button>
+      </Link>}
 
       {/* </footer> */}
       <style jsx>

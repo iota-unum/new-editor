@@ -3,7 +3,7 @@ import useStore from '../store';
 function Preview({ overflow, content, progress, preview }) {
     const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
-  return <div className='preview editor'
+  return <div className='preview editor '
   
  
   
