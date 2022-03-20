@@ -1,21 +1,20 @@
 import { useEffect, useRef } from 'react';
 import ProgressBar from './ProgressBar';
 import useStore from '../store';
-import {positionCursorToEnd} from '../helpers/cursorfunction'
+import { positionCursorToEnd } from '../helpers/cursorfunction';
+import ContentEditable from 'react-contenteditable';
 function Editor({ handleChange, content, overflow, progress, preview }) {
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
 
   const refEditor = useRef();
 
-  useEffect(()=> {
-
+  useEffect(() => {
     const el = document.querySelector('.editor');
-    el.scrollTop = el.scrollHeight
-    el.focus()
-    positionCursorToEnd(el)
-
-  }, [ preview])
+    el.focus();
+    positionCursorToEnd(el);
+    el.scrollTop = 1000;
+  }, [preview]);
 
   function handleSelect() {
     const selectState = {
@@ -26,10 +25,8 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
       center: document.queryCommandState('justifyCenter'),
       left: document.queryCommandState('justifyLeft'),
     };
-    console.log('bold', document.queryCommandState('bold'));
-    console.log('qmvl', document.queryCommandValue('formatBlock'));
+
     setCommandState(selectState);
-    console.log('CommandSTATE', commandState);
   }
 
   function handlePaste(e) {
@@ -38,22 +35,23 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
     document.execCommand('insertHTML', false, text);
     const editor = document.querySelector('.editor');
     positionCursorToEnd(editor);
-    editor.scrollTop = editor.scrollHeight
+    editor.scrollTop = editor.scrollHeight;
   }
 
   return (
-    <div
-      ref={refEditor}
-      className='editor'
-      spellCheck={!preview}
-      contentEditable={!preview}
-      onInput={handleChange}
-      suppressContentEditableWarning={true}
-      // value={content}
-      onSelect={handleSelect}
-      onPaste={handlePaste}
-    >
-      {content === '' ? <div></div> : <div></div>}
+    <div className='prova'>
+      <ContentEditable
+        ref={refEditor}
+        className='editor'
+        spellCheck={!preview}
+        contentEditable={!preview}
+        suppressContentEditableWarning={true}
+        // value={content}
+        onSelect={handleSelect}
+        onPaste={handlePaste}
+        html={content}
+        onChange={(e) => handleChange(e)}
+      ></ContentEditable>
 
       <style jsx global>
         {`
@@ -70,7 +68,6 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
             font-size: ${fontSize}rem;
             color: ${fontColor};
             overflow-wrap: break-word;
-            
           }
           @media (min-width: 768px) {
             .editor {

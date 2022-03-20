@@ -2,11 +2,11 @@ import React from 'react';
 import useStore from '../store';
 import Avatar from './Avatar';
 function AppBar() {
-  const { preview, setPreview } = useStore();
+  const { preview, togglePreview } = useStore();
   return (
     <div className='appbar'>
       <Avatar />
-      <button onClick={setPreview}>{preview ? 'back' : 'preview'}</button>
+      <button onClick={togglePreview}>{preview ? 'back' : 'preview'}</button>
 
       <style jsx>
         {`
