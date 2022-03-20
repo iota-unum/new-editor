@@ -18,7 +18,7 @@ function Compose() {
     console.log(content);
     setContent(newContent);
   }
-
+//fake comment
   useEffect(() => {
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
