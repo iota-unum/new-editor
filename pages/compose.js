@@ -24,6 +24,7 @@ function Compose() {
   useEffect(() => {
   
     setPreviewToFalse();
+
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
     } else {
@@ -86,6 +87,8 @@ function Compose() {
           }
           .main {
             height: 100%;
+            flex-basis: 0%;
+            flex-shrink: 1;
             flex-grow: 1;
           }
           footer {
