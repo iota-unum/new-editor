@@ -23,6 +23,6 @@ const store = (set) => ({
     decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.75 ?  state.fontSize - 0.1 : 0.75}))
     
     })
-const useStore = create(devtools(persist(store)));
+const useStore = create(devtools(store));
 
 export default useStore

@@ -22,6 +22,7 @@ function Compose() {
   // }
 
   useEffect(() => {
+  
     setPreviewToFalse();
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
