@@ -85,8 +85,7 @@ function Compose() {
             display: flex;
             flex-direction: column;
             background-color: var(--mainColor);
-            height: 100vh;
-            min-height: 100vh;
+            height: 100%;
             width: var(--containerWidth);
             margin: 0 auto;
           }
