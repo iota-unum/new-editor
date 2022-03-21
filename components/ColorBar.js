@@ -19,7 +19,6 @@ function ColorBar({}) {
      
       <ColorGroup colors={fontColors} target='font'/>
       <FontGroup />
-      <ColorGroup colors={[]} />
       <ColorGroup colors={bgColors} target='background'/>
 
       <style jsx>

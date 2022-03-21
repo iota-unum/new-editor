@@ -11,7 +11,7 @@ import ColorBar from '../components/ColorBar';
 import Preview from '../components/Preview';
 
 function Compose() {
-  const {html, setHtml, overflow, preview, setPreviewToFalse} = useStore()
+  const { html, setHtml, overflow, preview, setPreviewToFalse } = useStore();
   const text = useRef(html);
 
   const { progress } = useDimensions(text.current);
@@ -22,20 +22,18 @@ function Compose() {
   // }
 
   useEffect(() => {
-    setPreviewToFalse()
+    setPreviewToFalse();
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
     } else {
       return;
     }
-    
   }, []);
-  
+
   function handleChange(e) {
-    
     text.current = e.target.value;
     console.log(text.current);
-    setHtml(text.current)
+    setHtml(text.current);
   }
 
   return (
@@ -47,37 +45,33 @@ function Compose() {
         />
       </Head>
       <AppBar />
-      <div className="main">
-
-      {preview ? (
-        <Preview
-          overflow={overflow}
-          progress={progress}
-          preview={preview}
-          content={text.current}
-        />
-      ) : (
-        <Editor
-          handleChange={handleChange}
-          overflow={overflow}
-          progress={progress}
-          preview={preview}
-          content={text.current}
-        />
-      )}
-      {!preview && <EditBar />}
-      {!preview && <ColorBar />}
-      {!preview && <ProgressBar overflow={overflow} progress={progress} />}
-
-
+      <div className='main'>
+        {preview ? (
+          <Preview
+            overflow={overflow}
+            progress={progress}
+            preview={preview}
+            content={text.current}
+          />
+        ) : (
+          <Editor
+            handleChange={handleChange}
+            overflow={overflow}
+            progress={progress}
+            preview={preview}
+            content={text.current}
+          />
+        )}
+        {!preview && <EditBar />}
+        {!preview && <ColorBar />}
+        {!preview && <ProgressBar overflow={overflow} progress={progress} />}
       </div>
       <footer>
-
-      {preview && 
-       <Link href='/send'>
-        <button>Done</button>
-      </Link>}
-
+        {preview && (
+          <Link href='/send'>
+            <button>Done</button>
+          </Link>
+        )}
       </footer>
       <style jsx>
         {`
@@ -92,6 +86,9 @@ function Compose() {
           .main {
             height: 100%;
             flex-grow: 1;
+          }
+          footer {
+            height: 10%;
           }
 
           button {
