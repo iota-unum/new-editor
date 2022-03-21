@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
 
     <Layout>
       <Head>
-        <meta name="viewport user-scalable=no" />
+      <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
       </Head>
 
       <Component {...pageProps} />
