@@ -11,18 +11,16 @@ function EditButton({ cmd, arg, name, children }) {
       onMouseDown={(evt) => {
         evt.preventDefault(); // Avoids loosing focus from the editable area
         document.execCommand(cmd, false, arg); // Send the command to the browser
-        //     const newCommandState = {...commandState, [name]: !commandState[name], left:!commandState.center, center: !commandState.left}
         const selectState = {
           bold: document.queryCommandState('bold'),
           italic: document.queryCommandState('italic'),
           heading: document.queryCommandValue('formatBlock') === 'h1',
           text: document.queryCommandValue('formatBlock') === 'div',
-          center: document.queryCommandState('justifyCenter'),
           left: document.queryCommandState('justifyLeft'),
+          center: document.queryCommandState('justifyCenter'),
         };
         setCommandState(selectState);
-        // setCommandState(prev => ({...commandState, [name]: !commandState.name}))
-        // setCommandState({...commandState, heading: !commandState.text, left: !commandState.center})
+        
         console.log('commando', commandState[name]);
         console.log(commandState);
       }}
@@ -32,13 +30,11 @@ function EditButton({ cmd, arg, name, children }) {
       <style jsx>
         {`
           .edit-button {
-            display: block;
-            width: 7rem;
-            padding: 0.5rem;
-            flex-grow: 1;
-            background-color: #15202b;
-            border: 1px solid #273340;
-            color: #a2a2a2;
+           background-color: var(--mainColor);
+           color: white;
+           border: none;
+           padding: .5rem;
+
           }
 
           .active {
