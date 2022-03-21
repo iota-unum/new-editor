@@ -41,10 +41,8 @@ function Compose() {
   return (
     <div className='compose'>
       <Head>
-        <meta
-          content='width=device-width, initial-scale=1, shrink-to-fit=no'
-          name='viewport'
-        />
+        
+      <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
       </Head>
       <AppBar />
       <div className='main'>
