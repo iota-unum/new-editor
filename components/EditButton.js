@@ -17,7 +17,9 @@ function EditButton({ cmd, arg, name, children }) {
           heading: document.queryCommandValue('formatBlock') === 'h1',
           text: document.queryCommandValue('formatBlock') === 'div',
           left: document.queryCommandState('justifyLeft'),
+          right: document.queryCommandState('justifyRight'),
           center: document.queryCommandState('justifyCenter'),
+          justified: document.queryCommandState('justifyFull'),
         };
         setCommandState(selectState);
         

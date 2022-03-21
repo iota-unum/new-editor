@@ -1,20 +1,13 @@
 import React from 'react';
 import useStore from '../store';
 function Preview({ overflow, content, progress, preview }) {
-    const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
+  const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
-  return <div className='preview editor '
-  
- 
-  
-  >
-  <div  dangerouslySetInnerHTML={{__html: content}}>
+  return (
+    <div className='preview editor '>
+      <div dangerouslySetInnerHTML={{ __html: content }}></div>
 
-
-
-  </div>
-  
-  <style jsx global>
+      <style jsx global>
         {`
           .editor {
             font-weight: 400;
@@ -29,13 +22,20 @@ function Preview({ overflow, content, progress, preview }) {
             font-size: ${fontSize}rem;
             color: ${fontColor};
             overflow-wrap: break-word;
-            
           }
 
-          .editor span {
+          .editor span,
+          h1 {
             font-size: ${fontSize}rem !important;
             //without the font doesnt increase or decrease
-
+          }
+          h1 {
+            font-size: ${fontSize * 2}rem !important;
+            margin: 0;
+          }
+          h1 span {
+            font-size: ${fontSize * 2}rem !important;
+            margin: 0;
           }
           @media (min-width: 768px) {
             .editor {
@@ -45,9 +45,8 @@ function Preview({ overflow, content, progress, preview }) {
           }
         `}
       </style>
-
-  
-  </div>;
+    </div>
+  );
 }
 
 export default Preview;

@@ -22,8 +22,10 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
       italic: document.queryCommandState('italic'),
       heading: document.queryCommandValue('formatBlock') === 'h1',
       text: document.queryCommandValue('formatBlock') === 'div',
-      center: document.queryCommandState('justifyCenter'),
       left: document.queryCommandState('justifyLeft'),
+      right: document.queryCommandState('justifyRight'),
+      center: document.queryCommandState('justifyCenter'),
+      justified: document.queryCommandState('justifyFull'),
     };
 
     setCommandState(selectState);
@@ -70,10 +72,17 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
             overflow-wrap: break-word;
           }
 
-          .editor span {
+          .editor span,
+          h1 {
             font-size: ${fontSize}rem !important;
-
-
+          }
+          h1 {
+            font-size: ${fontSize * 2}rem !important;
+            margin: 0;
+          }
+          h1 span {
+            font-size: ${fontSize * 2}rem !important;
+            margin: 0;
           }
           @media (min-width: 768px) {
             .editor {
