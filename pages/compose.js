@@ -47,6 +47,8 @@ function Compose() {
         />
       </Head>
       <AppBar />
+      <div className="main">
+
       {preview ? (
         <Preview
           overflow={overflow}
@@ -67,14 +69,16 @@ function Compose() {
       {!preview && <ColorBar />}
       {!preview && <ProgressBar overflow={overflow} progress={progress} />}
 
-      {/* <footer> */}
+
+      </div>
+      <footer>
 
       {preview && 
        <Link href='/send'>
         <button>Done</button>
       </Link>}
 
-      {/* </footer> */}
+      </footer>
       <style jsx>
         {`
           .compose {
@@ -85,6 +89,10 @@ function Compose() {
             min-height: 100vh;
             width: var(--containerWidth);
             margin: 0 auto;
+          }
+          .main {
+            height: 100%;
+            flex-grow: 1;
           }
 
           button {
