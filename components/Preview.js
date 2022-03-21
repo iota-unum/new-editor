@@ -31,6 +31,12 @@ function Preview({ overflow, content, progress, preview }) {
             overflow-wrap: break-word;
             
           }
+
+          .editor span {
+            font-size: ${fontSize}rem !important;
+            //without the font doesnt increase or decrease
+
+          }
           @media (min-width: 768px) {
             .editor {
               overflow: hidden;
