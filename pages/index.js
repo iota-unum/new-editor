@@ -35,52 +35,61 @@ export default function Home() {
 
       <style jsx>
         {`
-      .container {
-        background-color: #00ba7c;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        width: var(--containerWidth);
-        height: 100vh;
-        font-family: Comfortaa, cursive;
-        color: white;      
-      }
+        header {
+          height: 20%;
+          padding: 3rem;
+        }
+          .container {
+            background-color: #00ba7c;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: var(--containerWidth);
+            height: 100%;
+            font-family: Comfortaa, cursive;
+            color: white;
+          }
+          .headline {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0%;
+            height: 100%;
+          }
+          h1.bold {
+            font-size: 3rem !important;
+          }
 
-      h1.bold {
-font-size: 3rem!important;  
-
-      }
-
-      h1 {
-        font-weight: 700;
-      }
-      p {
-        text-align: center;
-        line-height: 1.8rem;
-        font-size: 1.3rem;
-        padding: 2rem;
-        font-weight: 700;
-      }
-a {
-
-  font-family: Arial, Helvetica, sans-serif;
-          background-color:white;
+          h1 {
+            font-weight: 700;
+          }
+          p {
+            text-align: center;
+            line-height: 1.8rem;
+            font-size: 1.3rem;
+            padding: 2rem;
+            font-weight: 700;
+          }
+          footer {
+            height: 20%;
+          }
+          a {
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
             border: 2px solid white;
             border-radius: 1.5rem;
-            margin: 0 10px;
+            margin: 0 100px;
             color: ${'#15202b'};
-            padding: .5rem 2rem;
+            padding: 0.5rem 5rem;
             font-weight: bolder;
             font-size: 0.8rem;
             color: green;
             font-weight: bolder !important;
             font-size: 1rem;
-}
-
-        }
-      `}
+          }
+        `}
       </style>
     </div>
   );
