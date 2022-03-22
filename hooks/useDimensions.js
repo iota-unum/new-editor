@@ -5,7 +5,8 @@ export default function useDimensions(content) {
     const {fontSize, setFontSize, overflow, setOverflow} = useStore();
     const [scrollHeight, setScrollHeight] = useState(0);
     const [progress, setProgress] = useState(0);
-
+    const [editorWidth, setEditorWidth] = useState(0)
+    const [editorHeight, setEditorHeight] = useState(0)
 
 useEffect(() => {
     const editor = document.querySelector('.editor');
@@ -25,7 +26,9 @@ useEffect(() => {
     setProgress(contentHeight / maxHeight);
     setOverflow(progress > 1);
     setScrollHeight(scrollHeight)
-  }, [ content, progress, overflow, scrollHeight, fontSize]);
+    setEditorHeight(editorHeight)
+    setEditorWidth(editorWidth)
+  }, [ content, progress, overflow, scrollHeight, fontSize, ]);
 
 
 
@@ -38,6 +41,7 @@ useEffect(() => {
 
     return {
         overflow, progress,
+        editorWidth, editorHeight
 
     }
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import AppBar from '../components/AppBar';
 import ProgressBar from '../components/ProgressBar';
 import Editor from '../components/Editor';
@@ -10,19 +11,24 @@ import Head from 'next/head';
 import ColorBar from '../components/ColorBar';
 import Preview from '../components/Preview';
 import Loader from '../components/Loader';
-
+import useScreenshot from '../hooks/useScreenshot';
 function Compose() {
-  const { html, setHtml, overflow, preview, setPreviewToFalse, imgUrl } =
-    useStore();
+  const {
+    html,
+    setHtml,
+    overflow,
+    preview,
+    setPreviewToFalse,
+    imgUrl,
+    setImgUrl,
+  } = useStore();
   const text = useRef(html);
-  const [loading, setLoading] = useState(true);
+  const editorRef = useRef();
+  const [loading, setLoading] = useState(false);
 
-  const { progress } = useDimensions(text.current);
-  // function handleChange(e) {
-  //   const newContent = e.currentTarget.innerHTML;
-  //   console.log(content);
-  //   setContent(newContent);
-  // }
+  const { progress, editorHeight, editorWidth } = useDimensions(text.current);
+  const { generateImage } = useScreenshot();
+  const router = useRouter()
 
   useEffect(() => {
     setPreviewToFalse();
@@ -39,7 +45,17 @@ function Compose() {
     console.log(text.current);
     setHtml(text.current);
   }
-
+  async function handleImageGeneration() {
+    setLoading(true);
+    const previewDiv = document.querySelector('.preview');
+    const width = previewDiv.offsetWidth;
+    const height = previewDiv.offsetHeight;
+    const generatedImgUrl = await generateImage(previewDiv, [width, height]);
+    setImgUrl(generatedImgUrl);
+    console.log('fatto', imgUrl);
+    router.push('/send')
+    setLoading(false);
+  }
   return (
     <div className='compose'>
       <Head>
@@ -59,6 +75,7 @@ function Compose() {
           />
         ) : (
           <Editor
+            ref={editorRef}
             handleChange={handleChange}
             overflow={overflow}
             progress={progress}
@@ -74,9 +91,7 @@ function Compose() {
         {!preview ? null : loading ? (
           <Loader />
         ) : (
-          <Link href='/send'>
-            <button>Done</button>
-          </Link>
+          <button onClick={handleImageGeneration}>Done</button>
         )}
       </footer>
       <style jsx>

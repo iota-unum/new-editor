@@ -3,12 +3,12 @@ import Preview from '../components/Preview'
 import useStore from '../store'
 function Send() {
 
-    const {html} = useStore()
+    const {html, imgUrl} = useStore()
   return (
     <div>
 
-
-        <Preview content={html}></Preview>
+<p>Qua ci deve stare l'immagine</p>
+       <img src={imgUrl} alt="" />
     </div>
   )
 }
