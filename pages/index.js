@@ -40,7 +40,7 @@ export default function Home() {
           padding: 3rem;
         }
           .container {
-            background-color: #00ba7c;
+            background-color: var(--selectedColor);
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -85,7 +85,7 @@ export default function Home() {
             padding: 0.5rem 5rem;
             font-weight: bolder;
             font-size: 0.8rem;
-            color: green;
+            color: var(--selectedColor);
             font-weight: bolder !important;
             font-size: 1rem;
           }
