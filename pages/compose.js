@@ -12,6 +12,8 @@ import ColorBar from '../components/ColorBar';
 import Preview from '../components/Preview';
 import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
+import Avatar from '../components/Avatar';
+import ActionBtn from '../components/ActionBtn';
 function Compose() {
   const {
     html,
@@ -19,6 +21,7 @@ function Compose() {
     overflow,
     preview,
     setPreviewToFalse,
+    togglePreview,
     imgUrl,
     setImgUrl,
   } = useStore();
@@ -64,7 +67,11 @@ function Compose() {
           content='initial-scale=1, viewport-fit=cover, user-scalable=no'
         />
       </Head>
-      <AppBar />
+      <AppBar > 
+<Avatar/>
+<ActionBtn action={togglePreview} content={preview ? 'back' : 'preview'}outlined={preview}/>
+
+      </AppBar>
       <div className='main'>
         {preview ? (
           <Preview
