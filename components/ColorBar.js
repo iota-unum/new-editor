@@ -4,22 +4,27 @@ import FontGroup from './FontGroup';
 
 function ColorBar({}) {
   const bgColors = [
-    'rgb(29, 155, 240)',
-    'rgb(255, 212, 0)',
-    'rgb(249, 24, 128)',
-    'rgb(120, 86, 255)',
-    'rgb(255, 122, 0)',
-    'rgb(0, 186, 124)',
+    // 'rgb(29, 155, 240)',
+    // 'rgb(255, 212, 0)',
+    // 'rgb(249, 24, 128)',
+    // 'rgb(120, 86, 255)',
+    // 'rgb(255, 122, 0)',
+    // 'rgb(0, 186, 124)',
+
+    '#1d9bf0',
+    '#ffd400',
+    '#f91880',
+    '#7856ff',
+    '#ff7a00',
+    '#00ba7c',
   ];
 
-
-  const fontColors = [ 'black', 'white']
+  const fontColors = ['black', 'white'];
   return (
     <div className='colorbar'>
-     
-      <ColorGroup colors={fontColors} target='font'/>
+      <ColorGroup colors={fontColors} target='font' />
       <FontGroup />
-      <ColorGroup colors={bgColors} target='background'/>
+      <ColorGroup colors={bgColors} target='background' />
 
       <style jsx>
         {`

@@ -11,6 +11,8 @@ const store = (set) => ({
     selectedColor:  'rgb(0, 186, 124)',
     fontColor: 'white',
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
+    imgUrl: '',
+    setImgUrl: url => set({imgUrl: url}),
     setWidth: width => set({containerWidth: width}),
     togglePreview:()=> set(state => ({preview: !state.preview})),
     setPreviewToFalse: ()=> set({preview:false}),

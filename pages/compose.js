@@ -9,10 +9,13 @@ import EditBar from '../components/EditBar';
 import Head from 'next/head';
 import ColorBar from '../components/ColorBar';
 import Preview from '../components/Preview';
+import Loader from '../components/Loader';
 
 function Compose() {
-  const { html, setHtml, overflow, preview, setPreviewToFalse } = useStore();
+  const { html, setHtml, overflow, preview, setPreviewToFalse, imgUrl } =
+    useStore();
   const text = useRef(html);
+  const [loading, setLoading] = useState(true);
 
   const { progress } = useDimensions(text.current);
   // function handleChange(e) {
@@ -22,7 +25,6 @@ function Compose() {
   // }
 
   useEffect(() => {
-  
     setPreviewToFalse();
 
     if (navigator && navigator.virtualKeyboard) {
@@ -41,9 +43,10 @@ function Compose() {
   return (
     <div className='compose'>
       <Head>
-        
-      <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
-      
+        <meta
+          name='viewport'
+          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
+        />
       </Head>
       <AppBar />
       <div className='main'>
@@ -68,7 +71,9 @@ function Compose() {
         {!preview && <ProgressBar overflow={overflow} progress={progress} />}
       </div>
       <footer>
-        {preview && (
+        {!preview ? null : loading ? (
+          <Loader />
+        ) : (
           <Link href='/send'>
             <button>Done</button>
           </Link>
@@ -92,6 +97,9 @@ function Compose() {
           }
           footer {
             height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           button {
@@ -99,12 +107,11 @@ function Compose() {
             background-color: var(--selectedColor);
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
-            margin: 1rem auto;
             color: #15202b;
             width: 9rem;
             padding: 0.5rem 0.7rem;
             font-weight: bolder;
-            font-size: .8rem;
+            font-size: 0.8rem;
           }
         `}
       </style>
