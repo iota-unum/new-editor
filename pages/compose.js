@@ -43,6 +43,7 @@ function Compose() {
       <Head>
         
       <meta name="viewport" content="initial-scale=1, viewport-fit=cover, user-scalable=no"/>
+      
       </Head>
       <AppBar />
       <div className='main'>
