@@ -8,7 +8,7 @@ const store = (set) => ({
     preview: false,
     overflow: false,
     fontSize: 1,
-    selectedColor:  'rgb(0, 186, 124)',
+    selectedColor:  '#ff7a00',
     fontColor: 'white',
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',
