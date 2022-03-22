@@ -1,7 +1,7 @@
 import create from 'zustand';
 import {persist, devtools} from 'zustand/middleware'
 const store = (set) => ({
-    html: '<div></div>',
+    html: '',
     setHtml: newHtml => set({html: newHtml}),
     containerWidth: '100%',
     height: 0,
@@ -23,6 +23,6 @@ const store = (set) => ({
     decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.75 ?  state.fontSize - 0.1 : 0.75}))
     
     })
-const useStore = create(devtools(store));
+const useStore = create(persist(devtools(store)));
 
 export default useStore
