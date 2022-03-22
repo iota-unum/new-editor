@@ -29,6 +29,7 @@ function AppBar() {
             height: 2.1rem;
             padding: 0 2rem;
             font-weight: bolder;
+            font-size: 0.8rem;
           }
         `}
       </style>

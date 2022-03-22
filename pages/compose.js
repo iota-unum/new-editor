@@ -104,6 +104,7 @@ function Compose() {
             width: 9rem;
             padding: 0.5rem 0.7rem;
             font-weight: bolder;
+            font-size: .8rem;
           }
         `}
       </style>

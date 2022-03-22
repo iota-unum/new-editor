@@ -5,26 +5,39 @@
   --containerWidth: 100vw;
 }
 
-@media (min-width: 576px) {
-  :root {
-    --containerWidth: 65vw;
-  }
-}
 @media (min-width: 768px) {
   :root {
-    --containerWidth: 40vw;
+    --containerWidth: 80vw;
+    font-size: 24px;
   }
 }
 @media (min-width: 992px) {
   :root {
-    --containerWidth: 35vw;
+    --containerWidth: 60vw;
   }
 }
 @media (min-width: 1200px) {
   :root {
-    --containerWidth: 30vw;
+    --containerWidth: 50vw;
   }
 }
+@media (min-width: 1500px) {
+  :root {
+    --containerWidth: 40vw;
+  }
+}
+@media (min-width: 1900px) {
+  :root {
+    --containerWidth: 35vw;
+    font-size: 30px;
+  }
+}
+@media (min-width: 2100px) {
+  :root {
+    --containerWidth: 25vw;
+  }
+}
+
 
 
 
