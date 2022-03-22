@@ -7,7 +7,6 @@ function Send() {
   return (
     <div>
 
-<p>Qua ci deve stare l'immagine</p>
        <img src={imgUrl} alt="" />
     </div>
   )
