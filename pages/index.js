@@ -28,7 +28,7 @@ export default function Home() {
       </header>
       <div className='headline'>
         <p>
-          Write your <i>mucho texto </i> here <br />
+          Write your  <em>mucho texto </em> here <br />
           and tweet it as a perfect-fit image!
         </p>
       </div>
@@ -60,10 +60,13 @@ export default function Home() {
             overflow: hidden;
           }
           .headline {
+            display: flex;
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 0%;
             height: 100%;
+            justify-content: center;
+            align-items: center;
           }
           .thin {
 font-weight: 100;
