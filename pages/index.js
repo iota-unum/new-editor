@@ -27,9 +27,10 @@ export default function Home() {
         <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
       </header>
       <div className='headline'>
+        <h5>Running out of characters?</h5>
         <p>
-          Write your  <em>mucho texto </em> here <br />
-          and tweet it as a perfect-fit image!
+          Tweet your  <em>mucho texto </em> <br />
+        as a perfect-fit image!
         </p>
       </div>
 
@@ -43,7 +44,7 @@ export default function Home() {
         {`
           header {
             height: 20%;
-            padding: 3rem;
+            padding: rem;
           }
           .container {
             background-color: var(--selectedColor);
@@ -61,12 +62,13 @@ export default function Home() {
           }
           .headline {
             display: flex;
+            flex-direction: column;
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 0%;
             height: 100%;
             justify-content: center;
-            align-items: center;
+            align-items:;
           }
           .thin {
 font-weight: 100;
@@ -77,10 +79,14 @@ font-weight: 100;
             font-weight: 900;
             font-size: 3rem;
           }
+          h5 {
+            font-size: 1.4rem;
+            font-weight:lighter;
+          }
           p {
             text-align: center;
             line-height: 1.8rem;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             padding: 2rem;
             font-weight: 700;
           }
