@@ -99,7 +99,7 @@ function Compose() {
         {!preview ? null : loading ? (
           <Loader />
         ) : (
-          <button onClick={handleImageGeneration}>Done</button>
+          <button onClick={handleImageGeneration}>Generate Image</button>
         )}
       </footer>
       <style jsx>
