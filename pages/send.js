@@ -11,7 +11,7 @@ function Send() {
 
   useEffect(() => {
     const el = document.querySelector('.text-area');
-    positionCursorToEnd(el);
+    // positionCursorToEnd(el);
     el.focus();
     // el.scrollTop = 1000;
   }, []);
