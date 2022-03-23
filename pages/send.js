@@ -17,44 +17,47 @@ function Send() {
           }}
         />
       </AppBar>
-      <div className='form'>
-        <form onSubmit={()=>{}}>
-          <textarea
-            name='status'
-            placeholder= "Add a comment..."
-            maxLength={279}
-          />
-        
-        </form>{' '}
+
+      <div className='section-form'>
+        <div className='form'>
+          <form onSubmit={() => {}}>
+            <textarea
+              name='status'
+              placeholder='Add a comment...'
+              maxLength={279}
+            />
+          </form>{' '}
+        </div>
       </div>
-
-<div className="section-img">
-
-      <div className='img-container'>
-        <img src={imgUrl} alt='' />
+      <div className='section-img'>
+        <div className='img-container'>
+          <img src={imgUrl} alt='' />
+        </div>
       </div>
-
-
-
-</div>
 
 
       <style jsx>
         {`
           .twitter-compose {
             background-color: var(--mainColor);
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .section-form {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0%;
           }
           .section-img {
             display: flex;
             justify-content: end;
-            flex-grow: 1;
-            flex-shrink: 1;
-            flex-basis: 0%;
-            height: 100vh;
           }
           .img-container {
             width: 80%;
-          margin-right: .4rem;
+            margin-right: 0.4rem;
           }
 
           .img-container img {
@@ -63,15 +66,16 @@ function Send() {
           }
           textarea {
             width: 100%;
-            height: 20vh;
+            min-height: 20vh;
             background-color: var(--mainColor);
             border: none;
-            outline:0;
+            outline: 0;
             color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
             margin-top: 2rem;
             padding: 1rem;
             border: 1px solid rgb(82, 82, 82);
+            font-size: 1.3rem;
           }
         `}
       </style>

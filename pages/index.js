@@ -17,6 +17,12 @@ export default function Home() {
 
   return (
     <div className='container'>
+      <Head>
+        <meta
+          name='viewport'
+          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
+        />
+      </Head>
       <header>
         <h1 className='bold'>muchotwitto</h1>
       </header>
@@ -35,13 +41,13 @@ export default function Home() {
 
       <style jsx>
         {`
-        header {
-          height: 20%;
-          padding: 3rem;
-        }
+          header {
+            height: 20%;
+            padding: 3rem;
+          }
           .container {
             background-color: var(--selectedColor);
-            margin: 0 auto;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -51,6 +57,7 @@ export default function Home() {
             font-family: Comfortaa, cursive;
             color: white;
             width: 100vw;
+            overflow: hidden;
           }
           .headline {
             flex-grow: 1;
