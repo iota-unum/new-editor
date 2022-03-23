@@ -5,7 +5,7 @@ const store = (set) => ({
     setHtml: newHtml => set({html: newHtml}),
     containerWidth: '100%',
     height: 0,
-    preview: true,
+    preview: false,
     overflow: false,
     fontSize: 1,
     selectedColor:  '#ff7a00',
