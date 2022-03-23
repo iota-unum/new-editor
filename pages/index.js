@@ -35,7 +35,7 @@ export default function Home() {
 
       <footer>
         <Link href='/compose'>
-          <a>write</a>
+          <a>get started</a>
         </Link>
       </footer>
 
@@ -88,19 +88,18 @@ font-weight: 100;
             height: 20%;
           }
           a {
-            display: block;
             font-family: Arial, Helvetica, sans-serif;
             background-color: white;
             border: 2px solid white;
             border-radius: 1.5rem;
             margin: 0 100px;
             color: ${'#15202b'};
-            padding: 0.5rem 5rem;
             font-weight: bolder;
             font-size: 0.8rem;
             color: var(--selectedColor);
             font-weight: bolder !important;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            padding: 0.5rem 3rem;
           }
         `}
       </style>
