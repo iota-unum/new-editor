@@ -9,12 +9,13 @@ function Send() {
   const { html, imgUrl } = useStore();
 
 
-  useEffect(() => {
-    const el = document.querySelector('.text-area');
-    // positionCursorToEnd(el);
-    el.focus();
-    // el.scrollTop = 1000;
-  }, []);
+  // useEffect(() => {
+  //   const el = document.querySelector('.text-area');
+  //   // positionCursorToEnd(el);
+  //   el.focus();
+  //   // el.scrollTop = 1000;
+  //   el.blur()
+  // }, []);
   return (
     <div className='twitter-compose'>
       <AppBar>
