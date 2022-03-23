@@ -17,7 +17,7 @@ function Layout(props) {
           outline: none;
         }
         .editor {
-          font-weight: 400;
+          font-weight: 700;
           outline: none;
           min-height: calc(var(--containerWidth) * 0.5625);
           max-height: ${preview
