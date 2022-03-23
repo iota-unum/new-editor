@@ -46,16 +46,16 @@ function Send() {
           }
 
           .section-form {
-            height: 100%;
-            flex-grow: 1;
-            flex-basis: 0%;
-            flex-shrink: 1;
           }
           .section-img {
             height: 100%;
             display: flex;
             justify-content: end;
             align-items: flex-end;
+            flex-grow: 1;
+            flex-basis: 0%;
+            flex-shrink: 1;
+            overflow: hidden;
           }
           .img-container {
             width: 80%;
@@ -68,7 +68,7 @@ function Send() {
           }
           textarea {
             width: 100%;
-            min-height: 30vh;
+            height: 20vh;
             background-color: var(--mainColor);
             border: none;
             outline: 0;
