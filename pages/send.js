@@ -41,19 +41,21 @@ function Send() {
           .twitter-compose {
             background-color: var(--mainColor);
             height: 100%;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
           }
 
           .section-form {
+            height: 100%;
             flex-grow: 1;
-            flex-shrink: 1;
             flex-basis: 0%;
+            flex-shrink: 1;
           }
           .section-img {
+            height: 100%;
             display: flex;
             justify-content: end;
+            align-items: flex-end;
           }
           .img-container {
             width: 80%;
@@ -66,13 +68,12 @@ function Send() {
           }
           textarea {
             width: 100%;
-            min-height: 20vh;
+            min-height: 30vh;
             background-color: var(--mainColor);
             border: none;
             outline: 0;
             color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
-            margin-top: 2rem;
             padding: 1rem;
             border: 1px solid rgb(82, 82, 82);
             font-size: 1.3rem;
