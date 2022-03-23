@@ -50,6 +50,7 @@ export default function Home() {
             height: 100%;
             font-family: Comfortaa, cursive;
             color: white;
+            width: 100%;
           }
           .headline {
             flex-grow: 1;

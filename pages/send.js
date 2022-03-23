@@ -28,21 +28,33 @@ function Send() {
         </form>{' '}
       </div>
 
-
+<div className="section-img">
 
       <div className='img-container'>
         <img src={imgUrl} alt='' />
       </div>
 
+
+
+</div>
+
+
       <style jsx>
         {`
           .twitter-compose {
             background-color: var(--mainColor);
-            height: 100%;
+          }
+          .section-img {
+            display: flex;
+            justify-content: end;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0%;
+            height: 100vh;
           }
           .img-container {
-            width: 90%;
-            margin-left: 9%;
+            width: 80%;
+          margin-right: .4rem;
           }
 
           .img-container img {
