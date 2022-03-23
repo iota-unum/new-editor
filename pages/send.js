@@ -51,7 +51,6 @@ function Send() {
             height: 100%;
             display: flex;
             justify-content: end;
-            align-items: flex-end;
             flex-grow: 1;
             flex-basis: 0%;
             flex-shrink: 1;
@@ -75,8 +74,9 @@ function Send() {
             color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
             padding: 1rem;
-            border: 1px solid rgb(82, 82, 82);
+            border-bottom: 1px solid rgb(82, 82, 82);
             font-size: 1.3rem;
+            overflow: auto;
           }
         `}
       </style>
