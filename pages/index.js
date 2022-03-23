@@ -24,7 +24,7 @@ export default function Home() {
         />
       </Head>
       <header>
-        <h1 className='bold'>muchotwitto</h1>
+        <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
       </header>
       <div className='headline'>
         <p>
@@ -65,12 +65,14 @@ export default function Home() {
             flex-basis: 0%;
             height: 100%;
           }
-          h1.bold {
-            font-size: 3rem !important;
+          .thin {
+font-weight: 100;
+
           }
 
-          h1 {
-            font-weight: 700;
+          h2 {
+            font-weight: 900;
+            font-size: 3rem;
           }
           p {
             text-align: center;
