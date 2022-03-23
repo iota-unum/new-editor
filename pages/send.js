@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import ActionBtn from '../components/ActionBtn';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
 import Preview from '../components/Preview';
 import useStore from '../store';
+import {positionCursorToEnd} from '../helpers/cursorfunction'
 function Send() {
   const { html, imgUrl } = useStore();
+
+
+  useEffect(() => {
+    const el = document.querySelector('.text-area');
+    positionCursorToEnd(el);
+    el.focus();
+    // el.scrollTop = 1000;
+  }, []);
   return (
     <div className='twitter-compose'>
       <AppBar>
@@ -22,6 +31,7 @@ function Send() {
         <div className='form'>
           <form onSubmit={() => {}}>
             <textarea
+            className='text-area'
               name='status'
               placeholder='Add a comment...'
               maxLength={279}
