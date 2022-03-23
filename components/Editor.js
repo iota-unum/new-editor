@@ -11,9 +11,9 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
 
   useEffect(() => {
     const el = document.querySelector('.editor');
-    el.focus();
     positionCursorToEnd(el);
-    el.scrollTop = 1000;
+    // el.focus();
+    // el.scrollTop = 1000;
   }, [preview]);
 
   function handleSelect() {
