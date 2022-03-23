@@ -85,9 +85,8 @@ font-weight: 100;
           }
           p {
             text-align: center;
-            line-height: 1.8rem;
-            font-size: 1.2rem;
-            padding: 2rem;
+            line-height: 2.3rem;
+            font-size: 1.6rem;
             font-weight: 700;
           }
           footer {
