@@ -21,7 +21,7 @@ function Send() {
         <form onSubmit={()=>{}}>
           <textarea
             name='status'
-            placeholder= "What's new?"
+            placeholder= "Add a comment..."
             maxLength={279}
           />
         
