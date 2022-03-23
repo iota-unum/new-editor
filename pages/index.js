@@ -44,7 +44,6 @@ export default function Home() {
         {`
           header {
             height: 20%;
-            padding: rem;
           }
           .container {
             background-color: var(--selectedColor);
@@ -59,6 +58,7 @@ export default function Home() {
             color: white;
             width: 100vw;
             overflow: hidden;
+            letter-spacing: -3px;
           }
           .headline {
             display: flex;
@@ -68,7 +68,7 @@ export default function Home() {
             flex-basis: 0%;
             height: 100%;
             justify-content: center;
-            align-items:;
+            letter-spacing: -1px;
           }
           .thin {
 font-weight: 100;
@@ -91,6 +91,7 @@ font-weight: 100;
           }
           footer {
             height: 20%;
+            letter-spacing: 0;
           }
           a {
             font-family: Arial, Helvetica, sans-serif;
