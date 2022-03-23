@@ -55,6 +55,7 @@ function Send() {
             flex-basis: 0%;
             flex-shrink: 1;
             overflow: hidden;
+            padding-top: .4rem;
           }
           .img-container {
             width: 80%;

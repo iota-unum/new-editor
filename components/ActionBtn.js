@@ -14,7 +14,7 @@ function ActionBtn({action, content, outlined}) {
               : 'var(--selectedColor)'};
             border: 2px solid var(--selectedColor);
             border-radius: 1.5rem;
-            margin: 0 10px;
+            margin: 0.4rem;
             color: ${outlined ? 'var(--selectedColor)' : '#15202b'};
             height: 2.1rem;
             padding: 0 2rem;
