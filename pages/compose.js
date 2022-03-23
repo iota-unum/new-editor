@@ -14,6 +14,7 @@ import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
+import {BsPencilFill, BsEyeFill} from 'react-icons/bs'
 function Compose() {
   const {
     html,
@@ -69,7 +70,7 @@ function Compose() {
       </Head>
       <AppBar > 
 <Avatar/>
-<ActionBtn action={togglePreview} content={preview ? 'back' : 'preview'}outlined={preview}/>
+<ActionBtn action={togglePreview} content={preview ? <span className='icon-btn'> <BsPencilFill/> Edit</span> : 'Preview'}outlined={preview}/>
 
       </AppBar>
       <div className='main'>
@@ -134,6 +135,12 @@ function Compose() {
             padding: 0.5rem 0.7rem;
             font-weight: bolder;
             font-size: 0.8rem;
+          }
+          .icon-btn {
+            display: block;
+            width: 3rem;
+            font-size: .9rem;
+            
           }
         `}
       </style>
