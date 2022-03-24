@@ -46,7 +46,7 @@ function Compose() {
     }
   }, []);
   function reset() {
-    if (confirm('Do you want delete everything and reset to initial state?')) {
+    if (confirm('Do you want delete and reset everything to initial state?')) {
       setToInitialState();
       text.current = '';
     }
