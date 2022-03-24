@@ -9,7 +9,7 @@ const initialState = {
     preview: false,
     overflow: false,
     fontSize: 1,
-    selectedColor:  '#ff7a00',
+    selectedColor:  '#1d9bf0',
     fontColor: 'white',
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',

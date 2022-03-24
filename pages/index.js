@@ -28,7 +28,7 @@ export default function Home() {
         <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
       </header>
       <div className='headline'>
-        <h5>Running out of characters on {<BsTwitter/>} <span>?</span></h5>
+        <h5>Running out of characters on <span> <BsTwitter/> </span> ? </h5>
         <p>
           Tweet your  <em>mucho texto </em> <br />
         as a perfect-fit image!
