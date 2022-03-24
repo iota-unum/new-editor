@@ -20,6 +20,7 @@ function Compose() {
     html,
     setHtml,
     overflow,
+    fontColor,
     preview,
     setPreviewToFalse,
     togglePreview,
@@ -156,7 +157,7 @@ function Compose() {
             background-color: var(--selectedColor);
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
-            color: #15202b;
+            color: ${ fontColor === 'white'? 'white' : '#15202b'};
             width: 9rem;
             padding: 0.5rem 0.7rem;
             font-weight: bolder;

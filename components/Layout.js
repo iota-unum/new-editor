@@ -11,6 +11,7 @@ function Layout(props) {
         :root {
           --selectedColor: ${selectedColor};
           --mainColor: #15202b;
+          --fontColor: ${fontColor}
         }
         .page-layout {
           height: 100%;
