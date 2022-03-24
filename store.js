@@ -14,7 +14,7 @@ const initialState = {
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',
     
-    
+    minFontSize: 0.688,
     
 }
 const store = (set) => ({
@@ -31,7 +31,7 @@ const store = (set) => ({
     setSelectedColor: color => set({selectedColor: color}),
     setFontColor: color => set({fontColor: color}),
     increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.1})),
-    decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > 0.75 ?  state.fontSize - 0.1 : 0.75})),
+    decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > state.minFontSize ?  state.fontSize - 0.1 : state.minFontSize})),
     setToInitialState: (state) => set({...state, ...initialState})
     })
 const useStore = create(persist(devtools(store)));
