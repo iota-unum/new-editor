@@ -53,11 +53,17 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
         onPaste={handlePaste}
         html={content}
         onChange={(e) => handleChange(e)}
+        placeholder={'Type or paste your text here...'}
       ></ContentEditable>
 
       <style jsx global>
         {`
-      
+          [contenteditable='true']:empty:before {
+            content: attr(placeholder);
+            display: block;
+            color: lightgrey;
+            font-size: 1.2rem;
+          }
         `}
       </style>
     </div>
