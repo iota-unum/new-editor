@@ -18,12 +18,13 @@ useEffect(() => {
     const contentHeight = ( lastChildTop - editorTop) || 0
     const maxHeight = editorWidth * 1.333333;
     const scrollHeight = editor.scrollHeight;
+    console.log('lastCHildTop', lastChildTop)
     // console.log('contentHEIGHT', content);
 
     if(overflow ) {
-        setFontSize(state => ({fontSize: state.fontSize - 0.02 >= minFontSize ? state.fontSize - 0.02 : state.minFontSize }))
+        setFontSize(state => ({fontSize: state.fontSize - 0.02 >= minFontSize ? state.fontSize - 0.01 : state.minFontSize }))
     }
-    setProgress(contentHeight / maxHeight);
+    setProgress(scrollHeight / maxHeight);
     setOverflow(progress > 1);
     setScrollHeight(scrollHeight)
     setEditorHeight(editorHeight)
