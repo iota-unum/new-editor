@@ -25,7 +25,7 @@ useEffect(() => {
         setFontSize(state => ({fontSize: state.fontSize - 0.02 >= minFontSize ? state.fontSize - 0.01 : state.minFontSize }))
     }
     setProgress(scrollHeight / maxHeight);
-    setOverflow(progress > 1);
+    setOverflow(progress >= 1);
     setScrollHeight(scrollHeight)
     setEditorHeight(editorHeight)
     setEditorWidth(editorWidth)
