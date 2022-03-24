@@ -14,7 +14,7 @@ const initialState = {
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',
     
-    minFontSize: 0.688,
+    minFontSize: 0.75,
     
 }
 const store = (set) => ({
