@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useStore from '../store';
 import ActionBtn from '../components/ActionBtn';
+import {BsTwitter} from 'react-icons/bs'
 export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
   const setWidth = useStore((state) => state.setWidth);
@@ -27,7 +28,7 @@ export default function Home() {
         <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
       </header>
       <div className='headline'>
-        <h5>Running out of characters?</h5>
+        <h5>Running out of characters on {<BsTwitter/>} <span>?</span></h5>
         <p>
           Tweet your  <em>mucho texto </em> <br />
         as a perfect-fit image!
@@ -80,8 +81,9 @@ font-weight: 100;
             font-size: 3rem;
           }
           h5 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight:lighter;
+            letter-spacing: ;
           }
           p {
             text-align: center;
