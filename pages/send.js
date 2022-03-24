@@ -71,6 +71,7 @@ function Send() {
           .img-container {
             width: 80%;
             margin-right: 0.4rem;
+            pointer-events: none;
           }
 
           .img-container img {
