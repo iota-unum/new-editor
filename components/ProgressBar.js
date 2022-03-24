@@ -19,7 +19,7 @@ function ProgressBar({ progress }) {
           .progress-status {
             background-color: ${overflow && fontSize <= 0.75
               ? 'orangered'
-              : 'white'};
+              : 'var(--selectedColor)'};
             height: 100%;
             padding: 0.2rem;
             display: ${progress < 0.1 ? 'none' : 'block'};
