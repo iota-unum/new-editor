@@ -22,7 +22,7 @@ function useScreenshot() {
       const [width, height] = imgSize
       const imgBase64 = await toJpeg(reference, {
         quality: 9,
-        pixelRatio: 1,
+        pixelRatio: 1.8,
         width,
         height
         ,
