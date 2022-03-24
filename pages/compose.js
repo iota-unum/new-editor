@@ -14,7 +14,7 @@ import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
-import {BsPencilFill, BsEyeFill} from 'react-icons/bs'
+import { BsPencilFill, BsEyeFill } from 'react-icons/bs';
 function Compose() {
   const {
     html,
@@ -25,6 +25,7 @@ function Compose() {
     togglePreview,
     imgUrl,
     setImgUrl,
+    setToInitialState,
   } = useStore();
   const text = useRef(html);
   const editorRef = useRef();
@@ -32,7 +33,7 @@ function Compose() {
 
   const { progress, editorHeight, editorWidth } = useDimensions(text.current);
   const { generateImage } = useScreenshot();
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setPreviewToFalse();
@@ -43,7 +44,12 @@ function Compose() {
       return;
     }
   }, []);
-
+  function reset() {
+    if (confirm('Do you want reset all?')) {
+      setToInitialState();
+      text.current = '';
+    }
+  }
   function handleChange(e) {
     text.current = e.target.value;
     console.log(text.current);
@@ -57,7 +63,7 @@ function Compose() {
     const generatedImgUrl = await generateImage(previewDiv, [width, height]);
     setImgUrl(generatedImgUrl);
     console.log('fatto', imgUrl);
-    router.push('/send')
+    router.push('/send');
     setLoading(false);
   }
   return (
@@ -68,10 +74,30 @@ function Compose() {
           content='initial-scale=1, viewport-fit=cover, user-scalable=no'
         />
       </Head>
-      <AppBar > 
-<Avatar/>
-<ActionBtn action={togglePreview} content={preview ? <span className='icon-btn'> <BsPencilFill/> Edit</span> : 'Preview'}outlined={preview}/>
+      <AppBar>
+        <Avatar />
+        <span className="rightside-actions">
 
+        <span className='delete' onClick={reset}>
+          reset
+        </span>
+
+        <ActionBtn
+          action={togglePreview}
+          content={
+            preview ? (
+              <span className='icon-btn'>
+                {' '}
+                <BsPencilFill /> Edit
+              </span>
+            ) : (
+              'Preview'
+            )
+          }
+          outlined={preview}
+        />
+
+        </span>
       </AppBar>
       <div className='main'>
         {preview ? (
@@ -139,8 +165,19 @@ function Compose() {
           .icon-btn {
             display: block;
             width: 3rem;
-            font-size: .9rem;
-            
+            font-size: 0.9rem;
+          }
+          .delete {
+            color: var(--selectedColor);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+          }
+
+          .rightside-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
           }
         `}
       </style>
