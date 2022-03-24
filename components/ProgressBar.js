@@ -17,7 +17,7 @@ function ProgressBar({ progress }) {
             width: 100%;
           }
           .progress-status {
-            background-color: ${overflow && fontSize <= minFontSize
+            background-color: ${overflow 
               ? 'orangered'
               : 'var(--selectedColor)'};
             height: 100%;
