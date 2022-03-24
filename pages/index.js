@@ -19,10 +19,7 @@ export default function Home() {
   return (
     <div className='container'>
       <Head>
-        <meta
-          name='viewport'
-          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
-        />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
       <header>
         <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
