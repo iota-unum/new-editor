@@ -21,7 +21,7 @@ function useScreenshot() {
       setStatus('loading')
       const [width, height] = imgSize
       const imgBase64 = await toJpeg(reference, {
-        quality: 9,
+        quality: 7,
         pixelRatio: 1.8,
         width,
         height

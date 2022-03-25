@@ -13,7 +13,8 @@ const initialState = {
     fontColor: 'white',
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',
-    
+    tweetId: '',
+    twitterName: '',
     minFontSize: 0.75,
     
 }
@@ -32,7 +33,9 @@ const store = (set) => ({
     setFontColor: color => set({fontColor: color}),
     increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.1})),
     decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize > state.minFontSize ?  state.fontSize - 0.1 : state.minFontSize})),
-    setToInitialState: (state) => set({...state, ...initialState})
+    setToInitialState: (state) => set({...state, ...initialState}),
+    setTweetId : tweetId => set({tweetId}),
+    setTwitterName: name => set({twitterName: name})
     })
 const useStore = create(persist(devtools(store)));
 

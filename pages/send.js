@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ActionBtn from '../components/ActionBtn';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
@@ -7,11 +7,14 @@ import useStore from '../store';
 import { positionCursorToEnd } from '../helpers/cursorfunction';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import TweetBtn from '../components/TweetBtn';
+import Loader from '../components/Loader';
+import { useRouter } from 'next/router';
 
 function Send() {
-  const { html, imgUrl } = useStore();
+  const { html, imgUrl, tweetId, setTweetId, twitterName, setTwitterName } = useStore();
   const [session] = useSession();
-
+  const [tweeting, setTweeting] = useState(false);
+  const router = useRouter();
   // useEffect(() => {
   //   const el = document.querySelector('.text-area');
   //   // positionCursorToEnd(el);
@@ -23,8 +26,11 @@ function Send() {
   async function handleOnTweetSubmit(e) {
     console.log('submit');
     e.preventDefault();
+    setTweeting(true);
     if (!session) {
-      alert('you must be connect your twitter account to post a tweet. Please cick on the login button to connect');
+      alert(
+        'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
+      );
       return;
     }
     if (!imgUrl) {
@@ -37,21 +43,26 @@ function Send() {
     // console.log(prefix);
     const formData = new FormData(e.currentTarget);
     const status = formData.get('status') + ' [CHIRPBIRDICON]';
-console.log('STATUS', status)
+    console.log('STATUS', status);
     const results = await fetch('/api/twitter/sendTweet', {
       method: 'POST',
       body: JSON.stringify({
-        status ,
+        status,
         twitterDataUrlFormat,
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data.id_str))
+      .then((data) => {
+        console.log(data.id_str);
+        setTwitterName(data.user.screen_name);
+        setTweetId(data.id_str);
+        router.push('/success');
+      })
       .catch((error) => {
         console.log(error);
       });
 
-    alert('Success!');
+    console.log('tweeted!');
   }
 
   return (
@@ -71,7 +82,16 @@ console.log('STATUS', status)
             </span>
           )}
         </span>
-        <TweetBtn content='tweet' form='twitter-form' type='submit'></TweetBtn>
+
+        {!tweeting && (
+          <TweetBtn
+            content='tweet'
+            form='twitter-form'
+            type='submit'
+          ></TweetBtn>
+        )}
+
+        {tweeting && <Loader />}
       </AppBar>
       <div className='section-form'>
         <div className='form'>
