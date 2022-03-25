@@ -14,7 +14,7 @@ import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
-import { BsPencilFill, BsEyeFill , } from 'react-icons/bs';
+import { BsPencilFill, BsEyeFill , BsFillCameraFill} from 'react-icons/bs';
 import { signIn, signOut, useSession, } from 'next-auth/client';
 function Compose() {
   const {
@@ -150,7 +150,7 @@ function Compose() {
         {!preview ? null : loading ? (
           <Loader />
         ) : (
-          <button onClick={handleImageGeneration}>Generate Image</button>
+          <button onClick={handleImageGeneration}><BsFillCameraFill/> <span className="text-icon">Generate Image</span></button>
         )}
       </footer>
       <style jsx>
@@ -177,7 +177,7 @@ function Compose() {
           }
 
           button {
-            display: block;
+            display: flex;
             background-color: var(--selectedColor);
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
@@ -185,18 +185,25 @@ function Compose() {
             padding: 0.5rem 6rem;
             font-weight: bolder;
             font-size: 1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
           }
           .icon-btn {
             display: block;
             width: 3rem;
             font-size: 0.9rem;
           }
+          .text-icon {
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin: 0 0.8rem;
+          }
           .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
             font-size: 0.8rem;
-            margin-right: 1rem;
+            margin: 0 1rem;
+
           }
 
           .leftside-actions,
