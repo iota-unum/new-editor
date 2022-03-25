@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/client';
 import useStore from '../store';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
-function success() {
+function Success() {
   const twitterName = useStore((state) => state.twitterName);
   const tweetId = useStore((state) => state.tweetId);
   const tweetUrl = `https://twitter.com/${twitterName}/status/${tweetId}`;
@@ -46,4 +46,4 @@ text-align: center;
   );
 }
 
-export default success;
+export default Success;
