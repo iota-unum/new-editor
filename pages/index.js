@@ -54,7 +54,7 @@ export default function Home() {
             signIn(null, { callbackUrl: `${window.location.origin}/compose` })
           }
         >
-          <span className='text-btn'> login with</span> <BsTwitter/>
+          <span className='text-btn'> login with twitter</span> <BsTwitter/>
         </button>
 
         <Link href='/compose'>
