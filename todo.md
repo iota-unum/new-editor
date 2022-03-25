@@ -1,1 +1,3 @@
 - mettere max-width on preview
+
+<blockquote class="twitter-tweet"><p lang="it" dir="ltr">la vittoria dell&#39;europeo è l&#39;extra profitto<br>e la macedonia ce lo ha tassato<a href="https://twitter.com/hashtag/ItaliaMacedoniadelNord?src=hash&amp;ref_src=twsrc%5Etfw">#ItaliaMacedoniadelNord</a></p>&mdash; Alberto Cantaloni (@AlbCantaloni) <a href="https://twitter.com/AlbCantaloni/status/1507205157318184961?ref_src=twsrc%5Etfw">March 25, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
