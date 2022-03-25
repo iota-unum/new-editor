@@ -36,12 +36,12 @@ function Send() {
     const [prefix, ...twitterDataUrlFormat] = imgUrl ? imgUrl.split(',') : null;
     // console.log(prefix);
     const formData = new FormData(e.currentTarget);
-    const status = formData.get('status');
-
+    const status = formData.get('status') + '[CHIRPBIRDICON]';
+console.log('STATUS', status)
     const results = await fetch('/api/twitter/sendTweet', {
       method: 'POST',
       body: JSON.stringify({
-        status,
+        status ,
         twitterDataUrlFormat,
       }),
     })
