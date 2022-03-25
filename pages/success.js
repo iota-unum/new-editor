@@ -4,6 +4,8 @@ import { useSession } from 'next-auth/client';
 import useStore from '../store';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
+import {BsTwitter} from 'react-icons/bs'
+
 function Success() {
   const twitterName = useStore((state) => state.twitterName);
   const tweetId = useStore((state) => state.tweetId);
@@ -14,7 +16,16 @@ function Success() {
 
       <div className='link-container'>
         <Link href={tweetUrl}>
-          <a> See your tweet</a>
+
+            
+          <a> <span className='text-btn'>see it on twitter</span>
+          
+      
+
+           <BsTwitter size='1rem'/>
+              
+   
+           </a>
         </Link>
       </div>
 
@@ -35,10 +46,20 @@ text-align: center;
           }
           a {
               display: block;
+              width: 12rem;
             font-weight: bolder;
-            text-decoration: underline;
             cursor: pointer;
-            margin: 5rem;
+            margin: 8rem auto;
+            color: var(--selectedColor);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .5rem;
+            border-radius: 3rem;
+          }
+          .text-btn {
+              margin-right: 0.4rem;
           }
         `}
       </style>
