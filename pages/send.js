@@ -1,15 +1,16 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ActionBtn from '../components/ActionBtn';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
 import Preview from '../components/Preview';
 import useStore from '../store';
-import {positionCursorToEnd} from '../helpers/cursorfunction'
-import { signIn, signOut, useSession, } from 'next-auth/client';
+import { positionCursorToEnd } from '../helpers/cursorfunction';
+import { signIn, signOut, useSession } from 'next-auth/client';
+import TweetBtn from '../components/TweetBtn';
 
 function Send() {
   const { html, imgUrl } = useStore();
-  const [session] = useSession()
+  const [session] = useSession();
 
   // useEffect(() => {
   //   const el = document.querySelector('.text-area');
@@ -18,49 +19,70 @@ function Send() {
   //   // el.scrollTop = 1000;
   //   el.blur()
   // }, []);
+
+  async function handleOnTweetSubmit(e) {
+    console.log('submit');
+    e.preventDefault();
+    if (!session) {
+      alert('you must be logged-in to tweet');
+      return;
+    }
+    if (!imgUrl) {
+      alert(
+        "You haven't uploaded any image, please click on the GENERATE button"
+      );
+      return;
+    }
+    const [prefix, ...twitterDataUrlFormat] = imgUrl ? imgUrl.split(',') : null;
+    // console.log(prefix);
+    const formData = new FormData(e.currentTarget);
+    const status = formData.get('status');
+
+    const results = await fetch('/api/twitter/sendTweet', {
+      method: 'POST',
+      body: JSON.stringify({
+        status,
+        twitterDataUrlFormat,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data.id_str))
+      .catch((error) => {
+        console.log(error);
+      });
+
+    alert('Success!');
+  }
+
   return (
     <div className='twitter-compose'>
       <AppBar>
-      <span className='leftside-actions'>
-          <Avatar 
-          img={!session ? 'default_profile.png' : session.user.image}
-          
-          />
+        <span className='leftside-actions'>
+          <Avatar img={!session ? 'default_profile.png' : session.user.image} />
 
-
-          {!session && 
-          
-          <span className='text-btn'
-          onClick={()=> signIn()}
-
-          >login</span>
-          
-        }
-          {
-            session && 
-            <span className='text-btn'
-            
-            onClick={()=> signOut()}
-            >logout</span>
-          }
+          {!session && (
+            <span className='text-btn' onClick={() => signIn()}>
+              login
+            </span>
+          )}
+          {session && (
+            <span className='text-btn' onClick={() => signOut()}>
+              logout
+            </span>
+          )}
         </span>
-        <ActionBtn
-          content='tweet'
-          action={() => {
-            alert('Cosa clicchi, ancora non funziona, bimbominkia!');
-          }}
-        />
       </AppBar>
-
       <div className='section-form'>
         <div className='form'>
-          <form onSubmit={() => {}}>
+          <form onSubmit={handleOnTweetSubmit}>
             <textarea
-            className='text-area'
+              className='text-area'
               name='status'
               placeholder='Add a comment...'
               maxLength={279}
+              id='twitter-form'
             />
+        <TweetBtn content='tweet' id='twitter-form' type='submit'></TweetBtn>
           </form>{' '}
         </div>
       </div>
@@ -69,7 +91,6 @@ function Send() {
           <img src={imgUrl} alt='' />
         </div>
       </div>
-
 
       <style jsx>
         {`
@@ -90,7 +111,7 @@ function Send() {
             flex-basis: 0%;
             flex-shrink: 1;
             overflow: hidden;
-            padding-top: .4rem;
+            padding-top: 0.4rem;
           }
           .img-container {
             width: 80%;
