@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useStore from '../store';
 import ActionBtn from '../components/ActionBtn';
-import {BsTwitter} from 'react-icons/bs'
-import { signIn, signOut, useSession, } from 'next-auth/client';
+import { BsTwitter } from 'react-icons/bs';
+import { signIn, signOut, useSession } from 'next-auth/client';
 
 export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
@@ -21,24 +21,45 @@ export default function Home() {
   return (
     <div className='container'>
       <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+        />
       </Head>
       <header>
-        <h2 > <span className=''>mucho</span><span className='thin'>twitto</span> </h2>
+        <h2>
+          {' '}
+          <span className=''>mucho</span>
+          <span className='thin'>twitto</span>{' '}
+        </h2>
       </header>
       <div className='headline'>
-        <h5>Running out of characters on <span> <BsTwitter/> </span> ? </h5>
+        <h5>
+          Running out of characters on{' '}
+          <span>
+            {' '}
+            <BsTwitter />{' '}
+          </span>{' '}
+          ?{' '}
+        </h5>
         <p>
-          Tweet your  <em>mucho texto </em> <br />
-        as a perfect-fit image!
+          Tweet your <em>mucho texto </em> <br />
+          as a perfect-fit image!
         </p>
       </div>
 
       <footer>
-    <button
-    onClick={()=>signIn(null, { callbackUrl: `${window.location.origin}/compose` })}
-    
-    >get started</button>
+        <button
+          onClick={() =>
+            signIn(null, { callbackUrl: `${window.location.origin}/compose` })
+          }
+        >
+          <span className='text-btn'> login with</span> <BsTwitter/>
+        </button>
+
+        <Link href='/compose'>
+          <p className='sub-heading'>or just try it out</p>
+        </Link>
       </footer>
 
       <style jsx>
@@ -72,8 +93,7 @@ export default function Home() {
             letter-spacing: -1px;
           }
           .thin {
-font-weight: 100;
-
+            font-weight: 100;
           }
 
           h2 {
@@ -82,7 +102,7 @@ font-weight: 100;
           }
           h5 {
             font-size: 1.3rem;
-            font-weight:lighter;
+            font-weight: lighter;
             letter-spacing: ;
           }
           p {
@@ -107,6 +127,20 @@ font-weight: 100;
             font-weight: bolder !important;
             font-size: 0.9rem;
             padding: 0.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+          }
+          .text-btn {
+          margin-right: 0.5rem;
+          }
+          .sub-heading {
+            font-size: 1rem;
+            font-weight: 200;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+            width: 70%;
+            margin: 1.5rem auto;
+            
           }
         `}
       </style>
