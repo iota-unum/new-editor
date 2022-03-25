@@ -185,7 +185,7 @@ function Compose() {
             padding: 0.5rem 6rem;
             font-weight: bolder;
             font-size: 1rem;
-            margin-bottom: 1.7rem;
+            margin-bottom: 1.2rem;
           }
           .icon-btn {
             display: block;
