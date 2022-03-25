@@ -39,7 +39,7 @@ function Compose() {
   const [session] = useSession()
 
   useEffect(() => {
-    // setPreviewToFalse();
+    setPreviewToFalse();
 
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
@@ -185,7 +185,7 @@ function Compose() {
             padding: 0.8rem 6rem;
             font-weight: bolder;
             font-size: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
           }
           .icon-btn {
             display: block;
