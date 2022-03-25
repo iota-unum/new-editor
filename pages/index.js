@@ -6,6 +6,8 @@ import Link from 'next/link';
 import useStore from '../store';
 import ActionBtn from '../components/ActionBtn';
 import {BsTwitter} from 'react-icons/bs'
+import { signIn, signOut, useSession, } from 'next-auth/client';
+
 export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
   const setWidth = useStore((state) => state.setWidth);
@@ -33,9 +35,10 @@ export default function Home() {
       </div>
 
       <footer>
-        <Link href='/compose'>
-          <a>get started</a>
-        </Link>
+    <button
+    onClick={()=>signIn(null, { callbackUrl: `${window.location.origin}/compose` })}
+    
+    >get started</button>
       </footer>
 
       <style jsx>
@@ -92,7 +95,7 @@ font-weight: 100;
             height: 20%;
             letter-spacing: 0;
           }
-          a {
+          button {
             font-family: Arial, Helvetica, sans-serif;
             background-color: white;
             border: 2px solid white;
