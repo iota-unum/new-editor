@@ -150,7 +150,7 @@ function Compose() {
         {!preview ? null : loading ? (
           <Loader />
         ) : (
-          <button onClick={handleImageGeneration}><BsFillCameraFill/> <span className="text-icon">Generate Image</span></button>
+          <button onClick={handleImageGeneration}><BsFillCameraFill color={fontColor}/> <span className="text-icon">Generate Image</span></button>
         )}
       </footer>
       <style jsx>
@@ -193,7 +193,7 @@ function Compose() {
             font-size: 0.9rem;
           }
           .text-icon {
-            color: white;
+            color: ${fontColor};
             font-weight: 700;
             font-size: 0.8rem;
             margin: 0 0.8rem;
