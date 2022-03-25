@@ -196,7 +196,7 @@ function Compose() {
             color: var(--selectedColor);
             font-weight: 700;
             font-size: 0.8rem;
-            margin-right: .4rem;
+            margin-right: 1rem;
           }
 
           .leftside-actions,
