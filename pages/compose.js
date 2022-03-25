@@ -14,7 +14,7 @@ import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
-import { BsPencilFill, BsEyeFill } from 'react-icons/bs';
+import { BsPencilFill, BsEyeFill , } from 'react-icons/bs';
 import { signIn, signOut, useSession, } from 'next-auth/client';
 function Compose() {
   const {
@@ -39,7 +39,7 @@ function Compose() {
   const [session] = useSession()
 
   useEffect(() => {
-    setPreviewToFalse();
+    // setPreviewToFalse();
 
     if (navigator && navigator.virtualKeyboard) {
       navigator.virtualKeyboard.overlaysContent = true;
@@ -182,10 +182,10 @@ function Compose() {
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
             color: ${fontColor === 'white' ? 'white' : '#15202b'};
-            width: 9rem;
-            padding: 0.5rem 0.7rem;
+            padding: 0.8rem 6rem;
             font-weight: bolder;
-            font-size: 0.8rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
           }
           .icon-btn {
             display: block;

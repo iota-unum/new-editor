@@ -6,7 +6,7 @@ const initialState = {
     html: '',
     containerWidth: '100%',
     height: 0,
-    preview: false,
+    preview: true,
     overflow: false,
     fontSize: 1,
     selectedColor:  '#7856ff',
