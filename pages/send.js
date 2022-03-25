@@ -5,9 +5,11 @@ import Avatar from '../components/Avatar';
 import Preview from '../components/Preview';
 import useStore from '../store';
 import {positionCursorToEnd} from '../helpers/cursorfunction'
+import { signIn, signOut, useSession, } from 'next-auth/client';
+
 function Send() {
   const { html, imgUrl } = useStore();
-
+  const [session] = useSession()
 
   // useEffect(() => {
   //   const el = document.querySelector('.text-area');
@@ -19,7 +21,29 @@ function Send() {
   return (
     <div className='twitter-compose'>
       <AppBar>
-        <Avatar />
+      <span className='leftside-actions'>
+          <Avatar 
+          img={!session ? 'default_profile.png' : session.user.image}
+          
+          />
+
+
+          {!session && 
+          
+          <span className='text-btn'
+          onClick={()=> signIn()}
+
+          >login</span>
+          
+        }
+          {
+            session && 
+            <span className='text-btn'
+            
+            onClick={()=> signOut()}
+            >logout</span>
+          }
+        </span>
         <ActionBtn
           content='tweet'
           action={() => {
@@ -90,6 +114,18 @@ function Send() {
             border-bottom: 1px solid rgb(82, 82, 82);
             font-size: 1.3rem;
             overflow: auto;
+          }
+          .leftside-actions,
+          .rightside-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .text-btn {
+            color: var(--selectedColor);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 1rem;
           }
         `}
       </style>

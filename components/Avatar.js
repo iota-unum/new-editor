@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Avatar() {
+function Avatar({img}) {
   return (
     <div className='avatar'>
-      <img src='avatar.jpg' alt='' />
+      <img src={img} alt='' />
 
       <style jsx>
         {`

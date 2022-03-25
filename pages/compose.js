@@ -15,6 +15,7 @@ import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
 import { BsPencilFill, BsEyeFill } from 'react-icons/bs';
+import { signIn, signOut, useSession, } from 'next-auth/client';
 function Compose() {
   const {
     html,
@@ -35,6 +36,7 @@ function Compose() {
   const { progress, editorHeight, editorWidth } = useDimensions(text.current);
   const { generateImage } = useScreenshot();
   const router = useRouter();
+  const [session] = useSession()
 
   useEffect(() => {
     setPreviewToFalse();
@@ -67,34 +69,59 @@ function Compose() {
     router.push('/send');
     setLoading(false);
   }
+
+  console.log('session', session)
   return (
     <div className='compose'>
       <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+        />
       </Head>
       <AppBar>
-        <Avatar />
-        <span className="rightside-actions">
+        <span className='leftside-actions'>
+          <Avatar 
+          img={!session ? 'default_profile.png' : session.user.image}
+          
+          />
 
-        <span className='delete' onClick={reset}>
-          reset
-        </span>
 
-        <ActionBtn
-          action={togglePreview}
-          content={
-            preview ? (
-              <span className='icon-btn'>
-                {' '}
-                <BsPencilFill /> Edit
-              </span>
-            ) : (
-              'Preview'
-            )
+          {!session && 
+          
+          <span className='text-btn'
+          onClick={()=> signIn()}
+
+          >login</span>
+          
+        }
+          {
+            session && 
+            <span className='text-btn'
+            
+            onClick={()=> signOut()}
+            >logout</span>
           }
-          outlined={preview}
-        />
+        </span>
+        <span className='rightside-actions'>
+          <span className='text-btn' onClick={reset}>
+            reset
+          </span>
 
+          <ActionBtn
+            action={togglePreview}
+            content={
+              preview ? (
+                <span className='icon-btn'>
+                  {' '}
+                  <BsPencilFill /> Edit
+                </span>
+              ) : (
+                'Preview'
+              )
+            }
+            outlined={preview}
+          />
         </span>
       </AppBar>
       <div className='main'>
@@ -154,7 +181,7 @@ function Compose() {
             background-color: var(--selectedColor);
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
-            color: ${ fontColor === 'white'? 'white' : '#15202b'};
+            color: ${fontColor === 'white' ? 'white' : '#15202b'};
             width: 9rem;
             padding: 0.5rem 0.7rem;
             font-weight: bolder;
@@ -165,13 +192,14 @@ function Compose() {
             width: 3rem;
             font-size: 0.9rem;
           }
-          .delete {
+          .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
             font-size: 0.9rem;
             margin-right: 1rem;
           }
 
+          .leftside-actions,
           .rightside-actions {
             display: flex;
             justify-content: space-between;
