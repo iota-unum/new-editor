@@ -24,7 +24,7 @@ function Send() {
     console.log('submit');
     e.preventDefault();
     if (!session) {
-      alert('you must be logged-in to tweet');
+      alert('you must be connect your twitter account to post a tweet. Please cick on the login button to connect');
       return;
     }
     if (!imgUrl) {
