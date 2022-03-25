@@ -1,12 +1,12 @@
 import React from 'react'
 import useStore from '../store'
-function TweetBtn({id, type, content}) {
+function TweetBtn({id, type, form ,content}) {
 
     const fontColor = useStore(state => state.fontColor)
   return (
     <div className='tweet-btn' >
 
-<button id={id} type={type}>{content}</button>
+<button form={form} type={type}>{content}</button>
 <style jsx>
         {`
           .tweet-btn button {

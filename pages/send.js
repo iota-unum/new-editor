@@ -71,18 +71,17 @@ function Send() {
             </span>
           )}
         </span>
+        <TweetBtn content='tweet' form='twitter-form' type='submit'></TweetBtn>
       </AppBar>
       <div className='section-form'>
         <div className='form'>
-          <form onSubmit={handleOnTweetSubmit}>
+          <form onSubmit={handleOnTweetSubmit} id='twitter-form'>
             <textarea
               className='text-area'
               name='status'
               placeholder='Add a comment...'
               maxLength={279}
-              id='twitter-form'
             />
-        <TweetBtn content='tweet' id='twitter-form' type='submit'></TweetBtn>
           </form>{' '}
         </div>
       </div>
