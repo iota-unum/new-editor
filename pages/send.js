@@ -31,6 +31,7 @@ function Send() {
       alert(
         'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
       );
+      setTweeting(false)
       return;
     }
     if (!imgUrl) {
@@ -56,6 +57,7 @@ function Send() {
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
+        setTweeting(false)
         router.push('/success');
       })
       .catch((error) => {
