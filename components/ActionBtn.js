@@ -23,8 +23,7 @@ function ActionBtn({ action, content, outlined, id, type }) {
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            height: 2.1rem;
-            padding: 0 1rem;
+            padding: 0.2rem 1rem;
             font-weight: bolder;
             font-size: 0.8rem;
             width: 7rem;
