@@ -75,7 +75,10 @@ function Compose() {
     <div className='compose'>
       <Head>
         <title>muchotwitto</title>
-        <meta name='viewport' content='width=device-width, height=device-height, initial-scale:1, user-scalable=no' />
+        <meta
+          name='viewport'
+          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
+        />
 
       </Head>
       <AppBar>
