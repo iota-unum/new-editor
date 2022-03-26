@@ -30,7 +30,7 @@ function Selector({ color, target }) {
             border-radius: 100%;
           }
           .background {
-            border: ${color === selectedColor && '2px solid white'};
+            border: ${color === selectedColor && '.17rem solid white'};
           }
           .font {
             border: ${color === fontColor && `2px solid ${selectedColor}`};

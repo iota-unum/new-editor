@@ -11,6 +11,7 @@ import { signIn, signOut, useSession } from 'next-auth/client';
 export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
   const setWidth = useStore((state) => state.setWidth);
+  const selectedColor = useStore(state => state.selectedColor)
   useEffect(() => {
     const container = document.querySelector('.container');
     const height = container.offsetHeight;
@@ -64,10 +65,14 @@ export default function Home() {
 
       <style jsx>
         {`
+
+        :root {
+        }
           header {
             height: 20%;
           }
           .container {
+          --color:  ${selectedColor === '#ffd400' ? '#333' : 'white'};
             background-color: var(--selectedColor);
             margin: 0;
             display: flex;
@@ -76,8 +81,8 @@ export default function Home() {
             justify-content: space-around;
             width: var(--containerWidth);
             height: 100%;
+      color: var(--color);
             font-family: Comfortaa, cursive;
-            color: white;
             width: 100vw;
             overflow: hidden;
             letter-spacing: -3px;
@@ -117,9 +122,9 @@ export default function Home() {
           }
           button {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
-            border: 2px solid white;
+            background-color: var(--color);
             border-radius: 1.5rem;
+            border: none;
             color: ${'#15202b'};
             font-weight: bolder;
             font-size: 0.8rem;
@@ -136,7 +141,7 @@ export default function Home() {
           .sub-heading {
             font-size: 1rem;
             font-weight: 200;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid var(--color);
             cursor: pointer;
             width: 70%;
             margin: 1.5rem auto;
