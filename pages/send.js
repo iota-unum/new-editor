@@ -74,12 +74,12 @@ function Send() {
           <Avatar img={!session ? 'default_profile.png' : session.user.image} />
 
           {!session && (
-            <span className='text-btn' onClick={() => signIn()}>
+            <span className='text-btn' onClick={() => signIn('twitter')}>
               login
             </span>
           )}
           {session && (
-            <span className='text-btn' onClick={() => signOut()}>
+            <span className='text-btn' onClick={() => signOut('twitter')}>
               logout
             </span>
           )}

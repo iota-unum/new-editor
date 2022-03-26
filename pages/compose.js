@@ -74,7 +74,9 @@ function Compose() {
   return (
     <div className='compose'>
       <Head>
+        <title>muchotwitto</title>
         <meta
+       
           name='viewport'
           content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
         />
@@ -90,7 +92,7 @@ function Compose() {
           {!session && 
           
           <span className='text-btn'
-          onClick={()=> signIn()}
+          onClick={()=> signIn('twitter')}
 
           >login</span>
           
@@ -99,7 +101,7 @@ function Compose() {
             session && 
             <span className='text-btn'
             
-            onClick={()=> signOut()}
+            onClick={()=> signOut('twitter')}
             >logout</span>
           }
         </span>

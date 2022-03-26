@@ -51,7 +51,7 @@ export default function Home() {
       <footer>
         <button
           onClick={() =>
-            signIn(null, { callbackUrl: `${window.location.origin}/compose` })
+            signIn('twitter', { callbackUrl: `${window.location.origin}/compose` })
           }
         >
           <span className='text-btn'> login with twitter</span> <BsTwitter/>
