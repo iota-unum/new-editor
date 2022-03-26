@@ -22,7 +22,7 @@ function ProgressBar({ progress }) {
               : 'var(--selectedColor)'};
             height: 100%;
             padding: 0.2rem;
-            display: ${progress < 0.43 ? 'none' : 'block'};
+            display: ${progress < 0.48 ? 'none' : 'block'};
             width: ${progress > 1 ? '100%' : progress * 100 + '%'};
             color: ${overflow && fontSize <= minFontSize ? 'white' : '#15202b'};
             font-size: 0.8rem;
