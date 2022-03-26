@@ -182,7 +182,7 @@ function Compose() {
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
             color: ${fontColor === 'white' ? 'white' : '#15202b'};
-            padding: 0.5rem 6rem;
+            padding: 0.5rem 3rem;
             font-weight: bolder;
             font-size: 1rem;
             margin-bottom: 1rem;
