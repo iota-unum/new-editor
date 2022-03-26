@@ -24,9 +24,13 @@ function ActionBtn({ action, content, outlined, id, type }) {
               ? 'white'
               : '#15202b'};
             height: 2.1rem;
-            padding: 0 2rem;
+            padding: 0 1rem;
             font-weight: bolder;
             font-size: 0.8rem;
+            width: 7rem;
+            display:flex;
+            align-items:center;
+            justify-content: center;
           }
         `}
       </style>

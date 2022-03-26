@@ -116,10 +116,13 @@ function Compose() {
               preview ? (
                 <span className='icon-btn'>
                   {' '}
-                  <BsPencilFill /> Edit
+                  <BsPencilFill /> <span>Edit</span>
                 </span>
               ) : (
-                'Preview'
+                <span className='icon-btn'>
+                  {' '}
+                  <BsEyeFill /> <span>Preview</span>
+                </span>
               )
             }
             outlined={preview}
@@ -190,8 +193,7 @@ function Compose() {
             margin-bottom: 1rem;
           }
           .icon-btn {
-            display: block;
-            width: 3rem;
+
             font-size: 0.9rem;
           }
           .text-icon {
