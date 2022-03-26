@@ -8,7 +8,7 @@
 @media (min-width: 768px) {
   :root {
     --containerWidth: 80vw;
-    font-size: 24px;
+    font-size: 16px;
   }
 }
 @media (min-width: 992px) {
@@ -28,13 +28,13 @@
 }
 @media (min-width: 1900px) {
   :root {
-    --containerWidth: 35vw;
-    font-size: 30px;
+    --containerWidth: 22vw;
+    font-size: 20px;
   }
 }
 @media (min-width: 2100px) {
   :root {
-    --containerWidth: 28vw;
+    --containerWidth: 25vw;
   }
 }
 
