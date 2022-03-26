@@ -11,7 +11,7 @@ import { signIn, signOut, useSession } from 'next-auth/client';
 export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
   const setWidth = useStore((state) => state.setWidth);
-  const selectedColor = useStore(state => state.selectedColor)
+  const selectedColor = useStore((state) => state.selectedColor);
   useEffect(() => {
     const container = document.querySelector('.container');
     const height = container.offsetHeight;
@@ -52,10 +52,12 @@ export default function Home() {
       <footer>
         <button
           onClick={() =>
-            signIn('twitter', { callbackUrl: `${window.location.origin}/compose` })
+            signIn('twitter', {
+              callbackUrl: `${window.location.origin}/compose`,
+            })
           }
         >
-          <span className='text-btn'> login with twitter</span> <BsTwitter/>
+          <span className='text-btn'> login with twitter</span> <BsTwitter />
         </button>
 
         <Link href='/compose'>
@@ -65,14 +67,13 @@ export default function Home() {
 
       <style jsx>
         {`
-
-        :root {
-        }
+          :root {
+          }
           header {
             height: 20%;
           }
           .container {
-          --color:  ${selectedColor === '#ffd400' ? '#333' : 'white'};
+            --color: ${selectedColor === '#ffd400' ? '#333' : 'white'};
             background-color: var(--selectedColor);
             margin: 0;
             display: flex;
@@ -81,7 +82,7 @@ export default function Home() {
             justify-content: space-around;
             width: var(--containerWidth);
             height: 100%;
-      color: var(--color);
+            color: var(--color);
             font-family: Comfortaa, cursive;
             width: 100vw;
             overflow: hidden;
@@ -136,16 +137,36 @@ export default function Home() {
             justify-content: space-between;
           }
           .text-btn {
-          margin-right: 0.5rem;
+            margin-right: 0.5rem;
           }
           .sub-heading {
             font-size: 1rem;
             font-weight: 200;
-            border-bottom: 1px solid var(--color);
             cursor: pointer;
             width: 70%;
             margin: 1.5rem auto;
-            
+            overflow: hidden;
+            text-align: center;
+          }
+
+          .sub-heading:before,
+          .sub-heading:after {
+            background-color: var(--color);
+            content: '';
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 50%;
+          }
+
+          .sub-heading:before {
+            right: 0.5em;
+            margin-left: -50%;
+          }
+          .sub-heading:after {
+            left: 0.5em;
+            margin-right: -50%;
           }
         `}
       </style>
