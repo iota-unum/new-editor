@@ -17,24 +17,46 @@ function Layout(props) {
           height: 100%;
           outline: none;
         }
+        .main { position: relative;
+        
+        display: flex;
+        flex-direction: column;
+        
+        }
+
+        .editor, .preview {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
         .editor {
           outline: none;
           min-height: calc(var(--containerWidth) * 0.5625);
-          max-height: ${preview
-            ? `calc(var(--containerWidth) * 1.333333333)`
-            : `calc(var(--containerWidth) * 0.5625)`};
+          max-height : calc(var(--containerWidth) * 0.5625);
           background-color: var(--selectedColor);
-          overflow: ${preview ? 'hidden' : 'auto'};
+          overflow: auto;
           padding: 0.5rem;
           font-size: ${fontSize}rem;
           color: ${fontColor};
           overflow-wrap: break-word;
+          visibility:${preview ? `hidden` : `visible`};
+        }
+
+
+        .preview {
+          background-color: red;
+          z-index: ;
+          overflow: hidden;
+          max-height: calc(var(--containerWidth) * 1.333333333);
+          visibility:${preview ? `visible` : `hidden`};
         }
         .editor span,
         h1 {
           font-size: ${fontSize}rem !important;
           //without the font doesnt increase or decrease
         }
+
         h1 {
           font-size: ${fontSize * 2}rem !important;
           margin: 0;

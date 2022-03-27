@@ -33,7 +33,7 @@ function Compose() {
   const editorRef = useRef();
   const [loading, setLoading] = useState(false);
 
-  const { progress, editorHeight, editorWidth } = useDimensions(text.current);
+  const { progress, editorHeight, editorWidth } = useDimensions();
   const { generateImage } = useScreenshot();
   const router = useRouter();
   const [session] = useSession()
@@ -130,14 +130,14 @@ function Compose() {
         </span>
       </AppBar>
       <div className='main'>
-        {preview ? (
+       
           <Preview
             overflow={overflow}
             progress={progress}
             preview={preview}
             content={text.current}
           />
-        ) : (
+  
           <Editor
             ref={editorRef}
             handleChange={handleChange}
@@ -146,10 +146,14 @@ function Compose() {
             preview={preview}
             content={text.current}
           />
-        )}
+     <div className="bars">
+
         {!preview && <EditBar />}
         {!preview && <ColorBar />}
         {!preview && <ProgressBar overflow={overflow} progress={progress} />}
+
+
+     </div>
       </div>
       <footer>
         {!preview ? null : loading ? (
@@ -215,6 +219,11 @@ function Compose() {
             display: flex;
             justify-content: space-between;
             align-items: center;
+          }
+          .bars {
+            position: absolute;
+            width: 100%;
+            top: calc(var(--containerWidth) * 0.5625);
           }
         `}
       </style>

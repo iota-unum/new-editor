@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import useStore from '../store';
-export default function useDimensions(content) {
+export default function useDimensions() {
 
     const {fontSize, setFontSize, overflow, setOverflow, minFontSize, preview, html} = useStore();
     const [scrollHeight, setScrollHeight] = useState(0);
@@ -9,7 +9,7 @@ export default function useDimensions(content) {
     const [editorHeight, setEditorHeight] = useState(0)
 
 useEffect(() => {
-    const editor = document.querySelector('.editor');
+    const editor = document.querySelector('.preview');
     const lastChild = editor.lastChild
     const editorWidth = editor.offsetWidth;
     const editorHeight = editor.offsetHeight;
@@ -29,7 +29,7 @@ useEffect(() => {
     setScrollHeight(scrollHeight)
     setEditorHeight(editorHeight)
     setEditorWidth(editorWidth)
-  }, [ content, progress, overflow, scrollHeight, fontSize, preview, html]);
+  }, [  progress, overflow, scrollHeight, fontSize, preview, html]);
 
 
 
