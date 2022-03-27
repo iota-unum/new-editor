@@ -5,36 +5,50 @@
   --containerWidth: 100vw;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   :root {
     --containerWidth: 80vw;
-    font-size: 16px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 669px) {
+  :root {
+    --containerWidth: 60vw;
+    font-size: 20px;
+  }
+}
+@media (min-width:810px) {
+  :root {
+    --containerWidth: 50vw;
+    font-size: 20px;
   }
 }
 @media (min-width: 992px) {
   :root {
-    --containerWidth: 60vw;
+    --containerWidth: 45vw;
   }
 }
-@media (min-width: 1200px) {
-  :root {
-    --containerWidth: 50vw;
-  }
-}
-@media (min-width: 1500px) {
+@media (min-width: 1080px) {
   :root {
     --containerWidth: 40vw;
   }
 }
-@media (min-width: 1900px) {
+@media (min-width: 1200px) {
   :root {
-    --containerWidth: 22vw;
+    --containerWidth: 35vw;
     font-size: 20px;
   }
 }
-@media (min-width: 2100px) {
+@media (min-width: 1440px) {
   :root {
-    --containerWidth: 25vw;
+    --containerWidth: 30vw;
+    font-size: 22px;
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --containerWidth: 23vw;
+    font-size: 22px;
   }
 }
 
@@ -56,6 +70,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     /* font-family: 'Quicksand', sans-serif; */
     height: 100%;
+    background-color: var(--mainColor);
   
   }
 

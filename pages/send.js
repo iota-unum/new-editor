@@ -120,6 +120,8 @@ function Send() {
             height: 100%;
             display: flex;
             flex-direction: column;
+            width: var(--containerWidth);
+            margin: 0 auto;
           }
 
           .section-form {
