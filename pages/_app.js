@@ -1,3 +1,4 @@
+import 'normalize.css/normalize.css';
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import Head from 'next/head';
@@ -16,11 +17,10 @@ function MyApp({ Component, pageProps }) {
     <Provider session={pageProps.session}>
       <Layout>
         <Head>
-        <meta
-          name='viewport'
-          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
-        />
-
+          <meta
+            name='viewport'
+            content='initial-scale=1, viewport-fit=cover, user-scalable=no'
+          />
         </Head>
 
         <Component {...pageProps} />

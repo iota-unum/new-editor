@@ -30,13 +30,13 @@
 }
 @media only screen and (min-width: 1500px) {
   :root {
-    --containerWidth: 40vw;
+    --containerWidth: 30vw;
   }
 }
 @media only screen and (min-width: 1900px) {
   :root {
-    --containerWidth: 35vw;
-    font-size: 20px;
+    --containerWidth: 25vw;
+    font-size: 22px;
   }
 }
 @media only screen and (min-width: 2100px) {
