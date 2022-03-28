@@ -11,7 +11,7 @@ function AppBar({children}) {
         {`
           .appbar {
             height: 3rem;
-            width: var(--containerWidth);
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;

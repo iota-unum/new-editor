@@ -20,7 +20,7 @@ const initialState = {
 }
 const store = (set) => ({
     ...initialState,
-    
+    setContainerWidth: width => set({containerWidth: width}),
     setHtml: newHtml => set({html: newHtml}),
     setImgUrl: url => set({imgUrl: url}),
     setWidth: width => set({containerWidth: width}),

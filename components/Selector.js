@@ -33,7 +33,7 @@ function Selector({ color, target }) {
             border: ${color === selectedColor && '.17rem solid white'};
           }
           .font {
-            border: ${color === fontColor && `2px solid ${selectedColor}`};
+            border: ${color === fontColor && `.17rem solid ${selectedColor}`};
           }
         `}
       </style>

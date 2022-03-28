@@ -1,9 +1,19 @@
-import react from 'react';
+import react, {useEffect} from 'react';
 import useStore from '../store';
 
 function Layout(props) {
  
-  const {selectedColor, preview, fontSize, fontColor,} = useStore()
+  const {selectedColor, preview, fontSize, fontColor,containerWidth, setContainerWidth} = useStore()
+
+  useEffect(()=>{
+    const windowHeight = window.innerHeight
+    const windowWidth = window.innerWidth;
+
+
+    const width = windowHeight * 0.562218891 > windowWidth ? '100vw' : windowHeight * 0.562218891 + 'px'
+    setContainerWidth (width)
+
+  }, [])
   return (
     <div className='page-layout'>
       {props.children}
@@ -11,11 +21,14 @@ function Layout(props) {
         :root {
           --selectedColor: ${selectedColor};
           --mainColor: #15202b;
-          --fontColor: ${fontColor}
+          --fontColor: ${fontColor};
+          --containerWidth: ${containerWidth};
         }
         .page-layout {
           height: 100%;
           outline: none;
+          width: var(--containerWidth);
+          margin: 0 auto;
         }
         .editor {
           outline: none;
