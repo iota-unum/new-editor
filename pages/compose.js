@@ -60,7 +60,7 @@ function Compose() {
   }
   async function handleImageGeneration() {
     setLoading(true);
-    const previewDiv = document.querySelector('.preview');
+    const previewDiv = await document.querySelector('.preview');
     const width = previewDiv.offsetWidth;
     const height = previewDiv.offsetHeight;
     const generatedImgUrl = await generateImage(previewDiv, [width, height]);
