@@ -1,11 +1,21 @@
 import react from 'react';
 import useStore from '../store';
-
+import Head from 'next/head';
 function Layout(props) {
  
   const {selectedColor, preview, fontSize, fontColor,} = useStore()
   return (
     <div className='page-layout'>
+       <Head>
+        <title>muchotwitto</title>
+        <meta
+          name='viewport'
+          content='initial-scale=1, viewport-fit=cover, user-scalable=no'
+        />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Dongle:wght@400;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet"></link>
+      </Head>
       {props.children}
       <style jsx global>{`
         :root {
