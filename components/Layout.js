@@ -13,7 +13,7 @@ function Layout(props) {
           content='initial-scale=1, viewport-fit=cover, user-scalable=no'
         />
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Dongle:wght@400;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet"></link>
       </Head>
       {props.children}
