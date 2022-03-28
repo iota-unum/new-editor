@@ -98,7 +98,7 @@ export default function Home() {
             justify-content: center;
             letter-spacing: -1px;
           }
-          .thin 
+          .thin {
             font-weight: 100;
           }
 
