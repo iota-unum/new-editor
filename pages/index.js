@@ -83,7 +83,7 @@ export default function Home() {
             width: var(--containerWidth);
             height: 100%;
             color: var(--color);
-            font-family: Comfortaa, sans-serif;
+            font-family: Comfortaa, Quicksand;
             width: 100vw;
             overflow: hidden;
             letter-spacing: -3px;

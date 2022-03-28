@@ -29,7 +29,7 @@ function Success() {
         {`
           .success {
             --color:  ${selectedColor === '#ffd400' ? '#333' : 'white'};
-            font-family: Comfortaa, cursive;
+            font-family: Comfortaa, Quicksand;
             background-color: var(--selectedColor);
             color: var(--color);
             text-align: center;
