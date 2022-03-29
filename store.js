@@ -4,7 +4,7 @@ import {persist, devtools} from 'zustand/middleware'
 const initialState = {
 
     html: '',
-    containerWidth: '100%',
+    containerWidth: '',
     height: 0,
     preview: false,
     overflow: false,
@@ -20,7 +20,7 @@ const initialState = {
 }
 const store = (set) => ({
     ...initialState,
-    
+    setContainerWidth: width => set({containerWidth: width}),
     setHtml: newHtml => set({html: newHtml}),
     setImgUrl: url => set({imgUrl: url}),
     setWidth: width => set({containerWidth: width}),

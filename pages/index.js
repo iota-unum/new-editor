@@ -80,7 +80,6 @@ export default function Home() {
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            width: var(--containerWidth);
             height: 100%;
             color: var(--color);
             font-family: Comfortaa, Quicksand;

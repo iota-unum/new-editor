@@ -1,9 +1,19 @@
-import react from 'react';
+import react, {useEffect} from 'react';
 import useStore from '../store';
 import Head from 'next/head';
 function Layout(props) {
  
-  const {selectedColor, preview, fontSize, fontColor,} = useStore()
+  const {selectedColor, preview, fontSize, fontColor,containerWidth, setContainerWidth} = useStore()
+
+  useEffect(()=>{
+    const windowHeight = window.innerHeight
+    const windowWidth = window.innerWidth;
+
+console.log('EFFECT')
+    const width = windowHeight * 0.562218891 > windowWidth ? '100vw' : windowHeight * 0.562218891 + 'px'
+    setContainerWidth (width)
+
+  }, [containerWidth])
   return (
     <div className='page-layout'>
        <Head>
@@ -21,11 +31,14 @@ function Layout(props) {
         :root {
           --selectedColor: ${selectedColor};
           --mainColor: #15202b;
-          --fontColor: ${fontColor}
+          --fontColor: ${fontColor};
+          --containerWidth: ${containerWidth};
         }
         .page-layout {
           height: 100%;
           outline: none;
+          width: 100%;
+          margin: 0 auto;
         }
         .editor {
           outline: none;
@@ -55,8 +68,11 @@ function Layout(props) {
         }
         @media (min-width: 768px) {
           .editor {
-            overflow: hidden;
+            overflow: auto;
             max-height: calc(var(--containerWidth) * 1.33333);
+          }
+          .preview {
+            overflow: hidden;
           }
         }
       `}</style>
