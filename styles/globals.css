@@ -43,9 +43,8 @@
     --containerWidth: 23vw;
     font-size: 22px;
   }
-} */
-:root {
 }
+
 
 @media (min-width: 576px) {
   :root {
@@ -62,14 +61,8 @@
     font-size: 20px;
   }
 }
-@media (min-width: 992px) {
-  :root {
-  }
-}
-@media only screen and (min-width: 1500px) {
-  :root {
-  }
-}
+
+
 @media only screen and (min-width: 1900px) {
   :root {
     font-size: 22px;
