@@ -4,7 +4,7 @@ import {persist, devtools} from 'zustand/middleware'
 const initialState = {
 
     html: '',
-    containerWidth: '100%',
+    containerWidth: '',
     height: 0,
     preview: false,
     overflow: false,

@@ -9,11 +9,11 @@ function Layout(props) {
     const windowHeight = window.innerHeight
     const windowWidth = window.innerWidth;
 
-
+console.log('EFFECT')
     const width = windowHeight * 0.562218891 > windowWidth ? '100vw' : windowHeight * 0.562218891 + 'px'
     setContainerWidth (width)
 
-  }, [])
+  }, [containerWidth])
   return (
     <div className='page-layout'>
       {props.children}
@@ -27,7 +27,7 @@ function Layout(props) {
         .page-layout {
           height: 100%;
           outline: none;
-          width: var(--containerWidth);
+          width: 100%;
           margin: 0 auto;
         }
         .editor {
@@ -58,8 +58,11 @@ function Layout(props) {
         }
         @media (min-width: 768px) {
           .editor {
-            overflow: hidden;
+            overflow: auto;
             max-height: calc(var(--containerWidth) * 1.33333);
+          }
+          .preview {
+            overflow: hidden;
           }
         }
       `}</style>
