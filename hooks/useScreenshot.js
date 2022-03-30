@@ -11,6 +11,7 @@ function useScreenshot() {
 const pixelRatio = window.devicePixelRatio
   async function generateImage(reference, imgSize) {
     console.log('outer function')
+    
     // console.log('REFERENCE', reference)
     if (!reference) {
       // console.log('DIV NOT MOUNTED YET')
@@ -20,14 +21,15 @@ const pixelRatio = window.devicePixelRatio
       console.log('inizio')
       setStatus('loading')
       const [width, height] = imgSize
+      console.log(width, height)
       const imgBase64 = await toJpeg(reference, {
         quality: 0.95,
         pixelRatio: pixelRatio,
         width,
         height
         ,
-        // canvasWidth: width * 2,
-        // canvasHeight: height * 2,
+        canvasWidth: width,
+        canvasHeight: height,
       })
       setStatus('success')
       console.log('success')
