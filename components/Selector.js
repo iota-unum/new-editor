@@ -23,17 +23,17 @@ function Selector({ color, target }) {
       <style jsx>
         {`
           .selector {
-            width: 1rem;
-            height: 1rem;
+            width: 1em;
+            height: 1em;
             background-color: ${color};
-            margin: 0.4rem;
+            margin: 0.4em;
             border-radius: 100%;
           }
           .background {
-            border: ${color === selectedColor && '.17rem solid white'};
+            border: ${color === selectedColor && '.17em solid white'};
           }
           .font {
-            border: ${color === fontColor && `.17rem solid ${selectedColor}`};
+            border: ${color === fontColor && `.17em solid ${selectedColor}`};
           }
         `}
       </style>

@@ -29,11 +29,12 @@ function ColorBar({}) {
       <style jsx>
         {`
           .colorbar {
-            height: 2.5rem;
+            height: 2.5em;
             width: 100%;
+            max-width: 100%;
             background-color: #273340;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
           }
         `}
