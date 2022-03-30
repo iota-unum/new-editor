@@ -15,6 +15,7 @@ function AppBar({children}) {
             justify-content: space-between;
             align-items: center;
             padding: 1em 0.5em;
+            background-color: #273340;
           }
         
         `}
