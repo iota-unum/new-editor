@@ -12,10 +12,14 @@ export default function Home() {
   const containerWidth = useStore((state) => state.containerWidth);
   const setWidth = useStore((state) => state.setWidth);
   const selectedColor = useStore((state) => state.selectedColor);
+  const [pixelratio, setPixelratio] = useState(0)
   useEffect(() => {
+
+    const pxRatio = window.devicePixelRatio
     const container = document.querySelector('.container');
     const height = container.offsetHeight;
     const width = container.offsetWidth;
+    setPixelratio(pxRatio)
     setWidth(width);
   }, []);
 
@@ -43,6 +47,7 @@ export default function Home() {
           </span>{' '}
           ?{' '}
         </h5>
+      <h2 > pxRatio: {pixelratio}</h2>
         <p>
           Tweet your <em>mucho texto </em> <br />
           as a perfect-fit image!
