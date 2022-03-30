@@ -8,7 +8,7 @@ function useScreenshot() {
   const captureRef = React.useRef()
 
   const [status, setStatus] = React.useState('idle')
-
+const pixelRatio = window.devicePixelRatio
   async function generateImage(reference, imgSize) {
     console.log('outer function')
     // console.log('REFERENCE', reference)
@@ -22,7 +22,7 @@ function useScreenshot() {
       const [width, height] = imgSize
       const imgBase64 = await toJpeg(reference, {
         quality: 0.95,
-        pixelRatio: 1,
+        pixelRatio: pixelRatio,
         width,
         height
         ,
