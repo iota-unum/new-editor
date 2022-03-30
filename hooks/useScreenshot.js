@@ -26,8 +26,8 @@ const pixelRatio = window.devicePixelRatio
         width,
         height
         ,
-        canvasWidth: width * 2,
-        canvasHeight: height * 2,
+        // canvasWidth: width * 2,
+        // canvasHeight: height * 2,
       })
       setStatus('success')
       console.log('success')
