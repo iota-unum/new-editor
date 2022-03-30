@@ -10,12 +10,11 @@ function AppBar({children}) {
       <style jsx>
         {`
           .appbar {
-            height: 3rem;
-            width: 100%;
+            height: 3em;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0.5rem;
+            padding: 1em 0.5em;
           }
         
         `}

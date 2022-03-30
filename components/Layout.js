@@ -10,9 +10,12 @@ function Layout(props) {
     const windowWidth = window.innerWidth;
 
 console.log('EFFECT')
-    const width = windowHeight * 0.562218891 > windowWidth ? '100vw' : windowHeight * 0.562218891 + 'px'
+    const width = windowHeight * 0.562218891 > windowWidth ? windowWidth + 'px' : windowHeight * 0.562218891 + 'px'
     setContainerWidth (width)
-
+    
+    console.log('width', width)
+    console.log('winheigh', windowHeight)
+    console.log('winwidth', windowWidth)
   }, [containerWidth])
   return (
     <div className='page-layout'>

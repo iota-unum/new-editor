@@ -35,7 +35,7 @@ function EditButton({ cmd, arg, name, children }) {
            background-color: var(--mainColor);
            color: white;
            border: none;
-           padding: .5rem;
+           padding: .5em;
 
           }
 

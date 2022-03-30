@@ -16,17 +16,16 @@ function ActionBtn({ action, content, outlined, id, type }) {
               ? 'transparent'
               : 'var(--selectedColor)'};
             border: 2px solid var(--selectedColor);
-            border-radius: 1.5rem;
-            margin: 0.4rem;
+            border-radius: 1.5em;
+            margin: 0.4em;
             color: ${outlined
               ? 'var(--selectedColor)'
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            padding: 0.2rem 1rem;
+            padding: 0.2em 1em;
             font-weight: bolder;
-            font-size: 0.8rem;
-            width: 7rem;
+            font-size: 0.8em;
             display:flex;
             align-items:center;
             justify-content: center;

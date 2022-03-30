@@ -1,60 +1,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-:root {
-  --containerWidth: 100vw;
-}
 
-@media (min-width: 576px) {
-  :root {
-    --containerWidth: 80vw;
-    font-size: 18px;
-  }
-}
-@media (min-width: 669px) {
-  :root {
-    --containerWidth: 60vw;
-    font-size: 20px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  :root {
-    --containerWidth: 50vw;
-    font-size: 20px;
-  }
-}
-@media (min-width: 992px) {
-  :root {
-    --containerWidth: 45vw;
-  }
-}
-@media only screen and (min-width: 1500px) {
-  :root {
-    --containerWidth: 30vw;
-  }
-}
-@media only screen and (min-width: 1900px) {
-  :root {
-    --containerWidth: 25vw;
-    font-size: 22px;
-  }
-}
-@media only screen and (min-width: 2100px) {
-  :root {
-    --containerWidth: 23vw;
-    font-size: 22px;
-  }
-} */
 :root {
 }
 
 @media (min-width: 576px) {
   :root {
-    font-size: 18px;
+    /* font-size: 18px; */
   }
 }
 @media (min-width: 669px) {
   :root {
-    font-size: 20px;
+    /* font-size: 28px; */
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -72,12 +29,12 @@
 }
 @media only screen and (min-width: 1900px) {
   :root {
-    font-size: 22px;
+    /* font-size: 22px; */
   }
 }
 @media only screen and (min-width: 2100px) {
   :root {
-    font-size: 22px;
+    /* font-size: 22px; */
   }
 }
 

@@ -187,26 +187,26 @@ function Compose() {
             border: 1px solid var(--selectedColor);
             border-radius: 1.5rem;
             color: ${fontColor === 'white' ? 'white' : '#15202b'};
-            padding: 0.5rem 3rem;
+            padding: 0.5em 3em;
             font-weight: bolder;
             font-size: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1em;
           }
           .icon-btn {
 
-            font-size: 0.9rem;
+            font-size: 0.9em;
           }
           .text-icon {
             color: ${fontColor};
             font-weight: 700;
-            font-size: 0.8rem;
-            margin: 0 0.8rem;
+            font-size: 0.8em;
+            margin: 0 0.8em;
           }
           .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
-            font-size: 0.8rem;
-            margin: 0 1rem;
+            font-size: 0.8em;
+            margin: 0 1em;
 
           }
 
