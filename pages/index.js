@@ -32,7 +32,7 @@ export default function Home() {
       <header>
         <h2>
           {' '}
-          <span className=''>mucho</span>
+          <span className='bold'>mucho</span>
           <span className='thin'>twitto</span>{' '}
         </h2>
       </header>
@@ -101,6 +101,9 @@ export default function Home() {
           }
           .thin {
             font-weight: 100;
+          }
+          .bold {
+            font-weight: 900;
           }
 
           h2 {
