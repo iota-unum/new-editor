@@ -75,7 +75,7 @@ export default function Home() {
             height: 20%;
           }
           .container {
-            --color: ${selectedColor === '#ffd400' ? '#333' : 'white'};
+            --color: ${selectedColor === '#ffd400' ? '#444' : 'white'};
             background-color: var(--selectedColor);
             margin: 0;
             display: flex;
