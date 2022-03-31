@@ -9,7 +9,6 @@ function Avatar({img}) {
         {`
           .avatar {
             width: 2em;
-            margin: 0 0.5em;
           }
           img {
             width: 100%;

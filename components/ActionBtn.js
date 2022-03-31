@@ -17,13 +17,13 @@ function ActionBtn({ action, content, outlined, id, type }) {
               : 'var(--selectedColor)'};
             border: 2px solid var(--selectedColor);
             border-radius: 1.5em;
-            margin: 0.4em;
             color: ${outlined
               ? 'var(--selectedColor)'
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            padding: 0.2em 1em;
+            padding: 0.3em 1em;
+            min-width: 7em;
             font-weight: bolder;
             font-size: 0.8em;
             display:flex;

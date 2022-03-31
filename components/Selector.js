@@ -26,7 +26,6 @@ function Selector({ color, target }) {
             width: 1em;
             height: 1em;
             background-color: ${color};
-            margin: 0.4em;
             border-radius: 100%;
           }
           .background {

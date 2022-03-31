@@ -30,7 +30,6 @@ function ColorBar({}) {
         {`
           .colorbar {
             height: 2.5em;
-            width: 100%;
             max-width: 100%;
             background-color: #273340;
             display: flex;

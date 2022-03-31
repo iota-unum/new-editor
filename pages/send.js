@@ -167,8 +167,8 @@ function Send() {
           .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
-            font-size: 0.9rem;
-            margin-right: 1rem;
+            font-size: 0.8rem;
+            margin: 1em;
           }
         `}
       </style>

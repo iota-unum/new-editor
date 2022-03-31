@@ -13,12 +13,11 @@ function TweetBtn({id, type, form ,content}) {
             background-color: var(--selectedColor);
             border: 2px solid var(--selectedColor);
             border-radius: 1.5rem;
-            margin: 0.4rem;
             color: ${ fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            height: 2.1rem;
-            padding: 0 2rem;
+             padding: 0.3em 1em;
+            min-width: 7em;
             font-weight: bolder;
             font-size: 0.8rem;
           }
