@@ -14,8 +14,9 @@ import Loader from '../components/Loader';
 import useScreenshot from '../hooks/useScreenshot';
 import Avatar from '../components/Avatar';
 import ActionBtn from '../components/ActionBtn';
-import { BsPencilFill, BsEyeFill , BsFillCameraFill} from 'react-icons/bs';
-import { signIn, signOut, useSession, } from 'next-auth/client';
+import { BsPencilFill, BsEyeFill, BsFillCameraFill } from 'react-icons/bs';
+import { signIn, signOut, useSession } from 'next-auth/client';
+import Modal from '../components/Modal';
 function Compose() {
   const {
     html,
@@ -34,11 +35,11 @@ function Compose() {
   const text = useRef(html);
   const editorRef = useRef();
   const [loading, setLoading] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
   const { progress, editorHeight, editorWidth } = useDimensions(text.current);
   const { generateImage } = useScreenshot();
   const router = useRouter();
-  const [session] = useSession()
+  const [session] = useSession();
 
   useEffect(() => {
     setPreviewToFalse();
@@ -50,10 +51,11 @@ function Compose() {
     }
   }, []);
   function reset() {
-    if (confirm('Do you want delete and reset everything to initial state?')) {
+   
       setToInitialState();
       text.current = '';
-    }
+      setShowModal(false)
+    
   }
   function handleChange(e) {
     const editor = document.querySelector('.editor')
@@ -79,6 +81,7 @@ function Compose() {
     setLoading(false);
   }
 
+  console.log('session', session);
   return (
     <div className='compose'>
       <Head>
@@ -87,34 +90,24 @@ function Compose() {
           name='viewport'
           content='initial-scale=1, viewport-fit=cover, user-scalable=no'
         />
-
       </Head>
       <AppBar>
         <span className='leftside-actions'>
-          <Avatar 
-          img={!session ? 'default_profile.png' : session.user.image}
-          
-          />
+          <Avatar img={!session ? 'default_profile.png' : session.user.image} />
 
-
-          {!session && 
-          
-          <span className='text-btn'
-          onClick={()=> signIn('twitter')}
-
-          >login</span>
-          
-        }
-          {
-            session && 
-            <span className='text-btn'
-            
-            onClick={()=> signOut('twitter')}
-            >logout</span>
-          }
+          {!session && (
+            <span className='text-btn' onClick={() => signIn('twitter')}>
+              login
+            </span>
+          )}
+          {session && (
+            <span className='text-btn' onClick={() => signOut('twitter')}>
+              logout
+            </span>
+          )}
         </span>
         <span className='rightside-actions'>
-          <span className='text-btn' onClick={reset}>
+          <span className='text-btn' onClick={()=>setShowModal(true)}>
             reset
           </span>
 
@@ -162,9 +155,13 @@ function Compose() {
         {!preview ? null : loading ? (
           <Loader />
         ) : (
-          <button onClick={handleImageGeneration}><BsFillCameraFill color={fontColor}/> <span className="text-icon">Generate Image</span></button>
+          <button onClick={handleImageGeneration}>
+            <BsFillCameraFill color={fontColor} />{' '}
+            <span className='text-icon'>Generate Image</span>
+          </button>
         )}
       </footer>
+      {showModal && <Modal setShowModal={setShowModal} confirmFunction={reset}/>}
       <style jsx>
         {`
           .compose {
@@ -200,7 +197,6 @@ function Compose() {
             margin-bottom: 1em;
           }
           .icon-btn {
-
             font-size: 0.9em;
           }
           .text-icon {
@@ -214,7 +210,6 @@ function Compose() {
             font-weight: 700;
             font-size: 0.8em;
             margin: 0 1em;
-
           }
 
           .leftside-actions,
