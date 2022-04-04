@@ -23,6 +23,7 @@ function Compose() {
     setHtml,
     overflow,
     fontColor,
+    selectedColor,
     preview,
     setPreviewToFalse,
     togglePreview,
@@ -40,7 +41,6 @@ function Compose() {
   const { generateImage } = useScreenshot();
   const router = useRouter();
   const [session] = useSession();
-
   useEffect(() => {
     setPreviewToFalse();
 
@@ -161,7 +161,24 @@ function Compose() {
           </button>
         )}
       </footer>
-      {showModal && <Modal setShowModal={setShowModal} confirmFunction={reset}/>}
+      {showModal && <Modal setShowModal={setShowModal} color={selectedColor} bgColor='#15202b' confirmFunction={reset}> 
+      <Modal.Title>Titolo</Modal.Title>
+      <Modal.Content>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, quidem dicta quae libero, facilis assumenda culpa quibusdam quia dolore minima cupiditate atque? Deleniti corrupti quae facere fugit quas quisquam alias.
+      </Modal.Content>
+      <Modal.Footer>
+
+        <Modal.Button type='dismiss' onClick={()=>setShowModal(false)}> 
+        Dismisss
+        </Modal.Button>
+        <Modal.Button type='accept' onClick={reset} > 
+        Confirm
+        </Modal.Button>
+      </Modal.Footer>
+      
+      </Modal>
+      
+      }
       <style jsx>
         {`
           .compose {
