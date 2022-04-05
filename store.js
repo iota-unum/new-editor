@@ -15,7 +15,7 @@ const initialState = {
     imgUrl: '',
     tweetId: '',
     twitterName: '',
-    minFontSize: 0.75,
+    minFontSize: 0.8,
     
 }
 const store = (set) => ({
