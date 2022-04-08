@@ -22,7 +22,7 @@ useEffect(() => {
     // console.log('contentHEIGHT', content);
 
     if(overflow ) {
-        setFontSize(state => ({fontSize: state.fontSize - 0.02 >= minFontSize ? state.fontSize - 0.01 : state.minFontSize }))
+        setFontSize(state => ({fontSize: state.fontSize - 0.01 > minFontSize ? state.fontSize - 0.01 : state.minFontSize }))
     }
     setProgress(scrollHeight / maxHeight);
     setOverflow(progress >= 1);
