@@ -7,7 +7,6 @@ function Selector({ color, target }) {
   const setFontColor = useStore((state) => state.setFontColor);
   const fontColor = useStore((state) => state.fontColor);
   const selectedColor = useStore((state) => state.selectedColor);
-  console.log('selected', selectedColor)
   function handleClick(e) {
 
     const editor = document.querySelector(".editor")

@@ -20,11 +20,12 @@ const pixelRatio = window.devicePixelRatio
     try {
       console.log('inizio')
       setStatus('loading')
+      console.log('pixelratio' , pixelRatio)
       const [width, height] = imgSize
       console.log(width, height)
       const imgBase64 = await toJpeg(reference, {
-        quality: 0.1,
-        pixelRatio: 4,
+        quality: 0.8,
+        pixelRatio: pixelRatio || 1,
         width,
         height
         ,

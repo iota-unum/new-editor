@@ -18,7 +18,6 @@ useEffect(() => {
     const contentHeight = ( lastChildTop - editorTop) || 0
     const maxHeight = editorWidth * 1.333333333;
     const scrollHeight = editor.scrollHeight;
-    console.log('lastCHildTop', lastChildTop)
     // console.log('contentHEIGHT', content);
 
     if(overflow ) {

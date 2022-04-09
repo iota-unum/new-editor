@@ -65,12 +65,10 @@ function Compose() {
     const height = previewDiv.offsetHeight;
     const generatedImgUrl = await generateImage(previewDiv, [width, height]);
     setImgUrl(generatedImgUrl);
-    console.log('fatto', imgUrl);
     router.push('/send');
     setLoading(false);
   }
 
-  console.log('session', session)
   return (
     <div className='compose'>
       <Head>
@@ -139,7 +137,6 @@ function Compose() {
           />
         ) : (
           <Editor
-            ref={editorRef}
             handleChange={handleChange}
             overflow={overflow}
             progress={progress}
