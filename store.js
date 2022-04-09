@@ -16,6 +16,8 @@ const initialState = {
     tweetId: '',
     twitterName: '',
     minFontSize: 0.77,
+    imgWidth: null,
+    imgHeight: null,
     
 }
 const store = (set) => ({
@@ -35,7 +37,9 @@ const store = (set) => ({
     decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize - 0.02 > state.minFontSize ?  state.fontSize - 0.02 : state.minFontSize})),
     setToInitialState: (state) => set({...state, ...initialState}),
     setTweetId : tweetId => set({tweetId}),
-    setTwitterName: name => set({twitterName: name})
+    setTwitterName: name => set({twitterName: name}), 
+    setImgWidth: width => set({imgWidth: width}),
+    setImgHeight: height => set({imgHeight: height})
     })
 const useStore = create(persist(devtools(store)));
 

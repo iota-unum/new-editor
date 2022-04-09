@@ -28,6 +28,8 @@ function Compose() {
     imgUrl,
     setImgUrl,
     setToInitialState,
+    setImgHeight,
+    setImgWidth,
   } = useStore();
   const text = useRef(html);
   const editorRef = useRef();
@@ -63,6 +65,8 @@ function Compose() {
     const previewDiv = await document.querySelector('.preview');
     const width = previewDiv.offsetWidth;
     const height = previewDiv.offsetHeight;
+    setImgWidth(width)
+    setImgHeight(height)
     const generatedImgUrl = await generateImage(previewDiv, [width, height]);
     setImgUrl(generatedImgUrl);
     router.push('/send');

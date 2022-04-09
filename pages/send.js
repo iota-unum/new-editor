@@ -9,9 +9,10 @@ import { signIn, signOut, useSession } from 'next-auth/client';
 import TweetBtn from '../components/TweetBtn';
 import Loader from '../components/Loader';
 import { useRouter } from 'next/router';
+import Image from 'next/image'
 
 function Send() {
-  const { html, imgUrl, tweetId, setTweetId, twitterName, setTwitterName } = useStore();
+  const { html, imgUrl, tweetId, setTweetId, twitterName, setTwitterName, imgWidth, imgHeight } = useStore();
   const [session] = useSession();
   const [tweeting, setTweeting] = useState(false);
   const router = useRouter();
@@ -109,7 +110,7 @@ function Send() {
       </div>
       <div className='section-img'>
         <div className='img-container'>
-          <img src={imgUrl} alt='' />
+          <img src={imgUrl} alt='text generated image' />
         </div>
       </div>
 
@@ -144,6 +145,7 @@ function Send() {
           .img-container img {
             border-radius: 10px;
             width: 100%;
+            object-fit: cover;
           }
           textarea {
             width: 100%;
