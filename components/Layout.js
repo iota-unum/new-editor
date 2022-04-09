@@ -6,7 +6,7 @@ function Layout(props) {
   const {selectedColor, preview, fontSize, fontColor,containerWidth, setContainerWidth} = useStore()
 
   useEffect(()=>{
-    const windowHeight = window.innerHeight
+    const windowHeight = window.innerHeight;
     const windowWidth = window.innerWidth;
 
 console.log('EFFECT')
