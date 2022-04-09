@@ -8,7 +8,7 @@ function Avatar({img}) {
       <style jsx>
         {`
           .avatar {
-            width: 2em;
+            width: 2.5em;
           }
           img {
             width: 100%;

@@ -186,7 +186,7 @@ function Send() {
             font-family: Arial, Helvetica, sans-serif;
             padding: 0 0.5rem;
             border-bottom: 1px solid rgb(82, 82, 82);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             border: none !important;
             resize: none;
             overflow: hidden;
