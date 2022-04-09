@@ -31,8 +31,8 @@ const store = (set) => ({
     setFontSize: (fontSize) => set(fontSize),
     setSelectedColor: color => set({selectedColor: color}),
     setFontColor: color => set({fontColor: color}),
-    increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.1})),
-    decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize - 0.1 > state.minFontSize ?  state.fontSize - 0.1 : state.minFontSize})),
+    increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.02})),
+    decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize - 0.02 > state.minFontSize ?  state.fontSize - 0.02 : state.minFontSize})),
     setToInitialState: (state) => set({...state, ...initialState}),
     setTweetId : tweetId => set({tweetId}),
     setTwitterName: name => set({twitterName: name})
