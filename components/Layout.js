@@ -55,19 +55,10 @@ console.log('EFFECT')
           color: ${fontColor};
           overflow-wrap: break-word;
         }
-        .editor span,
-        h1 {
-          font-size: ${fontSize}rem !important;
-          //without the font doesnt increase or decrease
-        }
-        h1 {
-          font-size: ${fontSize * 2}rem !important;
-          margin: 0;
-        }
-        h1 span {
-          font-size: ${fontSize * 2}rem !important;
-          margin: 0;
-        }
+     
+    h1{
+      margin: 0;
+    }
         @media (min-width: 768px) {
           .editor {
             overflow: auto;
