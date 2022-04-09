@@ -9,10 +9,21 @@ import { signIn, signOut, useSession } from 'next-auth/client';
 import TweetBtn from '../components/TweetBtn';
 import Loader from '../components/Loader';
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import Image from 'next/image';
+import TextareaAutosize from 'react-textarea-autosize';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 function Send() {
-  const { html, imgUrl, tweetId, setTweetId, twitterName, setTwitterName, imgWidth, imgHeight } = useStore();
+  const {
+    html,
+    imgUrl,
+    tweetId,
+    setTweetId,
+    twitterName,
+    setTwitterName,
+    imgWidth,
+    imgHeight,
+  } = useStore();
   const [session] = useSession();
   const [tweeting, setTweeting] = useState(false);
   const router = useRouter();
@@ -32,7 +43,7 @@ function Send() {
       alert(
         'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
       );
-      setTweeting(false)
+      setTweeting(false);
       return;
     }
     if (!imgUrl) {
@@ -58,7 +69,7 @@ function Send() {
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
-        setTweeting(false)
+        setTweeting(false);
         router.push('/success');
       })
       .catch((error) => {
@@ -72,7 +83,11 @@ function Send() {
     <div className='twitter-compose'>
       <AppBar>
         <span className='leftside-actions'>
-          <Avatar img={!session ? 'default_profile.png' : session.user.image} />
+          <BsArrowLeftShort
+            color='white'
+            size={'1.6rem'}
+            onClick={() => router.push('/compose')}
+          />
 
           {!session && (
             <span className='text-btn' onClick={() => signIn('twitter')}>
@@ -97,9 +112,16 @@ function Send() {
         {tweeting && <Loader />}
       </AppBar>
       <div className='section-form'>
+        <Avatar img={!session ? 'default_profile.png' : session.user.image} />
         <div className='form'>
           <form onSubmit={handleOnTweetSubmit} id='twitter-form'>
-            <textarea
+            {/* <textarea
+              className='text-area'
+              name='status'
+              placeholder='Add a comment...'
+              maxLength={279}
+            /> */}
+            <TextareaAutosize
               className='text-area'
               name='status'
               placeholder='Add a comment...'
@@ -123,9 +145,17 @@ function Send() {
             flex-direction: column;
             width: var(--containerWidth);
             margin: 0 auto;
+            overflow: auto;
           }
 
           .section-form {
+            display: flex;
+            padding-top: 1rem;
+            justify-content: space-around;
+            width: 100%;
+          }
+          .form {
+            width: 80%;
           }
           .section-img {
             height: 100%;
@@ -147,18 +177,19 @@ function Send() {
             width: 100%;
             object-fit: cover;
           }
-          textarea {
+          .form :global(.text-area) {
             width: 100%;
-            height: 20vh;
             background-color: var(--mainColor);
             border: none;
             outline: 0;
             color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
-            padding: 1rem;
+            padding: 0 0.5rem;
             border-bottom: 1px solid rgb(82, 82, 82);
-            font-size: 1.3rem;
-            overflow: auto;
+            font-size: 0.9rem;
+            border: none !important;
+            resize: none;
+            overflow: hidden;
           }
           .leftside-actions,
           .rightside-actions {
