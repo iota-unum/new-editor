@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import useStore from '../store';
 export default function useDimensions(content) {
 
-    const {fontSize, decreaseFontsize, overflow, setOverflow, minFontSize, preview, html} = useStore();
+    const {fontSize, decreaseFontsize, overflow, setOverflow, minFontSize, preview, html, commandState} = useStore();
     const [scrollHeight, setScrollHeight] = useState(0);
     const [progress, setProgress] = useState(0);
     const [editorWidth, setEditorWidth] = useState(0)
@@ -10,9 +10,6 @@ export default function useDimensions(content) {
 
 useEffect(() => {
     
-        if(overflow ) {
-            decreaseFontsize()
-        }
     const editor = document.querySelector('.editor');
     const lastChild = editor.lastChild
     const editorWidth = editor.offsetWidth;
@@ -28,7 +25,11 @@ useEffect(() => {
     setScrollHeight(scrollHeight)
     setEditorHeight(editorHeight)
     setEditorWidth(editorWidth)
-  }, [ content, progress, overflow, scrollHeight, fontSize, preview, html]);
+    if(overflow ) {
+        decreaseFontsize()
+        setOverflow(progress > 1)
+    }
+  }, [ content, progress, overflow, scrollHeight, fontSize, preview, html, commandState]);
 
 
 
