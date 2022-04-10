@@ -73,6 +73,7 @@ export default function Home() {
           }
           header {
             height: 20%;
+            padding: 3em;
           }
           .container {
             --color: ${selectedColor === '#ffd400' ? '#444' : 'white'};
