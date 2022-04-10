@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import TextareaAutosize from 'react-textarea-autosize';
 import { BsArrowLeftShort } from 'react-icons/bs';
+import useMentions from '../hooks/useMentions';
 
 function Send() {
   const {
@@ -27,6 +28,27 @@ function Send() {
   const [session] = useSession();
   const [tweeting, setTweeting] = useState(false);
   const router = useRouter();
+  useEffect(() => {
+    document.designMode='on'
+    function handleMentions(e) {
+      const char = e.key
+      
+      if(char === '@' || char === '#') {
+        document.execCommand(document.execCommand('foreColor', true, '000000'))      }
+      if(char === ' ') {
+        document.execCommand(document.execCommand('foreColor', true, 'FFFFFF'))      }
+
+    }
+  
+     
+
+    document.querySelector('.text-area').addEventListener('keypress', handleMentions)
+    
+    
+    return () => {
+      document.querySelector('.text-area').removeEventListener('keypress', handleMentions)
+    }
+  }, [])
   // useEffect(() => {
   //   const el = document.querySelector('.text-area');
   //   // positionCursorToEnd(el);
@@ -121,12 +143,16 @@ function Send() {
               placeholder='Add a comment...'
               maxLength={279}
             /> */}
+            <div contentEditable> 
             <TextareaAutosize
               className='text-area'
               name='status'
               placeholder='Add a comment...'
               maxLength={279}
+              contenEditable
             />
+
+            </div>
           </form>{' '}
         </div>
       </div>
@@ -182,7 +208,6 @@ function Send() {
             background-color: var(--mainColor);
             border: none;
             outline: 0;
-            color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
             padding: 0 0.5rem;
             border-bottom: 1px solid rgb(82, 82, 82);

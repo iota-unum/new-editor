@@ -3,10 +3,13 @@ import ProgressBar from './ProgressBar';
 import useStore from '../store';
 import { positionCursorToEnd } from '../helpers/cursorfunction';
 import ContentEditable from 'react-contenteditable';
+import {maxlengthContentEditable} from 'maxlength-contenteditable';
+
 function Editor({ handleChange, content, overflow, progress, preview }) {
+  
+  maxlengthContentEditable();
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
     useStore();
-
   const refEditor = useRef();
 
   useEffect(() => {
@@ -43,6 +46,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
   return (
     <div className='prova'>
       <ContentEditable
+      data-max-length="10"
         ref={refEditor}
         className='editor'
         spellCheck={!preview}

@@ -56,8 +56,14 @@ function Compose() {
     }
   }
   function handleChange(e) {
+    const editor = document.querySelector('.editor')
     text.current = e.target.value;
-    console.log(text.current);
+    if(editor.dataset.maxLength < text.current.length) {
+      console.log('BABBBAABBABBAAAAA!!!!!')
+    }
+    console.log(text.current.length)
+    console.log(editor.dataset.maxLength)
+
     setHtml(text.current);
   }
   async function handleImageGeneration() {
