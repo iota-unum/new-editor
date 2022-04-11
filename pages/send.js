@@ -12,6 +12,7 @@ import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import LoginModal from '../components/LoginModal';
 import {BsArrowLeftShort} from 'react-icons/bs'
+import ContentEditable from 'react-contenteditable';
 
 function Send() {
   const {
@@ -24,7 +25,7 @@ function Send() {
     selectedColor,
   } = useStore();
   const [session] = useSession();
-  const [tweeting, setTweeting] = useState(false);
+  const [tweetStatus, setTweetStatus] = useState('normal');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 const tweetMaxLength = 180
@@ -81,7 +82,7 @@ const tweetMaxLength = 180
       // alert(
       //   'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
       // );
-      setTweeting(false);
+      setTweetStatus('disabled');
       return;
     }
     if (!imgUrl) {
@@ -108,7 +109,7 @@ const tweetMaxLength = 180
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
-        setTweeting(false);
+        setTweetStatus("disabled")
         setShowModal(false);
         router.push('/success');
       })
