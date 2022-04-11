@@ -28,7 +28,7 @@ function Send() {
   const [tweetStatus, setTweetStatus] = useState('normal');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
-const tweetMaxLength = 180
+const tweetMaxLength = 10
   useEffect(() => {
     
     function handleMentions(e) {
