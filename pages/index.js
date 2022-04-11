@@ -61,7 +61,6 @@ export default function Home() {
         >
           <span className='text-btn'> login with twitter</span> <BsTwitter />
         </button>
-
         <Link href='/compose'>
           <p className='sub-heading'>or just try it out</p>
         </Link>

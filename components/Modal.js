@@ -31,8 +31,9 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           background-color: var(--background-color);
           padding: 3em 3em 3em;
           position: relative;
-          color: var(--color);
-          background-color: var(--background-color);
+          color: white;
+          background-color: #273340;
+          border-radius: 0.5em;
         }
 
         .close-button {
@@ -44,10 +45,12 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         .title {
           text-align: center;
           font-size: 1.8rem;
-          color: var(--color);
+          color: white;
         }
         .modal-content {
           padding: 3em 0;
+          text-align: center;
+          
 
           overflow: auto;
         }
@@ -63,29 +66,30 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           border-radius: 2em;
           margin: 0.5em;
           font-weight: bolder;
+          background-color: white;
           
         }
 
         .accept {
-          background-color: var(--color);
+          background-color: white;
           color: var(--background-color);
           border: none;
         }
 
         .dismiss {
-          border: 2px solid var(--color);
-          background-color: var(--background-color);
-          color: var(--color);
+          border: 2px solid white;
+          background-color: #273340;
+          color: white;
         }
 
         @media (min-width: 760px) {
           .modal-container {
-            max-width: 60%;
+            max-width: 50%;
           }
         }
         @media (min-width: 1200px) {
           .modal-container {
-            max-width: 40%;
+            max-width: 30%;
           }
         }
       `}
