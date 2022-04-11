@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ActionBtn from '../components/ActionBtn';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import TextareaAutosize from 'react-textarea-autosize';
 import { BsArrowLeftShort } from 'react-icons/bs';
+import ContentEditable from 'react-contenteditable';
 import useMentions from '../hooks/useMentions';
 
 function Send() {
@@ -24,43 +25,59 @@ function Send() {
     setTwitterName,
     imgWidth,
     imgHeight,
+    selectedColor,
   } = useStore();
   const [session] = useSession();
-  const [tweeting, setTweeting] = useState(false);
+  const [tweetStatus, setTweetStatus] = useState('normal');
   const router = useRouter();
+const tweetMaxLength = 180
   useEffect(() => {
-    document.designMode='on'
+    
     function handleMentions(e) {
       const char = e.key
-      
+     
       if(char === '@' || char === '#') {
-        document.execCommand(document.execCommand('foreColor', true, '000000'))      }
+        document.execCommand(document.execCommand('foreColor', true, selectedColor))      }
       if(char === ' ') {
-        document.execCommand(document.execCommand('foreColor', true, 'FFFFFF'))      }
+        document.execCommand(document.execCommand('foreColor', false, 'FFFFFF'))      }
+
+       
 
     }
   
-     
+  
 
     document.querySelector('.text-area').addEventListener('keypress', handleMentions)
     
     
     return () => {
-      document.querySelector('.text-area').removeEventListener('keypress', handleMentions)
+      document.removeEventListener('keypress', handleMentions)
     }
-  }, [])
-  // useEffect(() => {
-  //   const el = document.querySelector('.text-area');
-  //   // positionCursorToEnd(el);
-  //   el.focus();
-  //   // el.scrollTop = 1000;
-  //   el.blur()
-  // }, []);
+  }, [text])
+  useEffect(() => {
+    const el = document.querySelector('.text-area');
+    // positionCursorToEnd(el);
+    el.focus();
+    // el.scrollTop = 1000;
+    el.blur()
+  }, []);
+  const text = useRef('');
 
-  async function handleOnTweetSubmit(e) {
+  const handleChange = evt => {
+      // text.current = evt.target.value;
+      text.current = evt.currentTarget.textContent;
+      if (text.current.length >= tweetMaxLength) {
+        document.execCommand(document.execCommand('hiliteColor', true, 'rgb(146, 3, 12)'))
+        setTweetStatus('disabled')
+      } else (
+        setTweetStatus('normal')
+      )
+
+      console.table(text.current.length)
+  };
+  async function handleOnTweetSubmit() {
     console.log('submit');
-    e.preventDefault();
-    setTweeting(true);
+    setTweetStatus('tweeting');
     if (!session) {
       alert(
         'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
@@ -76,8 +93,9 @@ function Send() {
     }
     const [prefix, ...twitterDataUrlFormat] = imgUrl ? imgUrl.split(',') : null;
     // console.log(prefix);
-    const formData = new FormData(e.currentTarget);
-    const status = formData.get('status') + ' [CHIRPBIRDICON]';
+    // const formData = new FormData(e.currentTarget);
+    // const status = formData.get('status') + ' [CHIRPBIRDICON]';
+    const status = text.current + ' [CHIRPBIRDICON]'
     console.log('STATUS', status);
     const results = await fetch('/api/twitter/sendTweet', {
       method: 'POST',
@@ -91,7 +109,7 @@ function Send() {
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
-        setTweeting(false);
+        setTweetStatus('disabled');
         router.push('/success');
       })
       .catch((error) => {
@@ -123,26 +141,22 @@ function Send() {
           )}
         </span>
 
-        {!tweeting && (
+        {tweetStatus !== 'tweeting' && (
           <TweetBtn
+          disabled={tweetStatus === 'disabled'}
             content='tweet'
-            form='twitter-form'
-            type='submit'
+            onClick={handleOnTweetSubmit}
+            type="button"
           ></TweetBtn>
         )}
 
-        {tweeting && <Loader />}
+        {tweetStatus === 'tweeting' && <Loader />}
       </AppBar>
       <div className='section-form'>
         <Avatar img={!session ? 'default_profile.png' : session.user.image} />
         <div className='form'>
-          <form onSubmit={handleOnTweetSubmit} id='twitter-form'>
-            {/* <textarea
-              className='text-area'
-              name='status'
-              placeholder='Add a comment...'
-              maxLength={279}
-            /> */}
+          {/* <form onSubmit={handleOnTweetSubmit} id='twitter-form'>
+           
             <div contentEditable> 
             <TextareaAutosize
               className='text-area'
@@ -153,7 +167,10 @@ function Send() {
             />
 
             </div>
-          </form>{' '}
+          </form>{' '} */}
+          <ContentEditable html={text.current}  onChange={handleChange} className='text-area'       data-max-length="10"
+     
+/>
         </div>
       </div>
       <div className='section-img'>
@@ -215,6 +232,7 @@ function Send() {
             border: none !important;
             resize: none;
             overflow: hidden;
+            color: white;
           }
           .leftside-actions,
           .rightside-actions {
