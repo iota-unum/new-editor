@@ -10,15 +10,8 @@ import TweetBtn from '../components/TweetBtn';
 import Loader from '../components/Loader';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
-<<<<<<< HEAD
-import Image from 'next/image';
-import TextareaAutosize from 'react-textarea-autosize';
-import { BsArrowLeftShort } from 'react-icons/bs';
-import ContentEditable from 'react-contenteditable';
-import useMentions from '../hooks/useMentions';
-=======
 import LoginModal from '../components/LoginModal';
->>>>>>> 5828db0 (modal working without animations)
+import {BsArrowLeftShort} from 'react-icons/bs'
 
 function Send() {
   const {
@@ -28,20 +21,11 @@ function Send() {
     setTweetId,
     twitterName,
     setTwitterName,
-<<<<<<< HEAD
-    imgWidth,
-    imgHeight,
-    selectedColor,
-  } = useStore();
-  const [session] = useSession();
-  const [tweetStatus, setTweetStatus] = useState('normal');
-=======
     selectedColor,
   } = useStore();
   const [session] = useSession();
   const [tweeting, setTweeting] = useState(false);
   const [showModal, setShowModal] = useState(false);
->>>>>>> 5828db0 (modal working without animations)
   const router = useRouter();
 const tweetMaxLength = 180
   useEffect(() => {
@@ -92,17 +76,11 @@ const tweetMaxLength = 180
     console.log('submit');
     setTweetStatus('tweeting');
     if (!session) {
-<<<<<<< HEAD
-      alert(
-        'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
-      );
-=======
       setShowModal(true);
       console.log(showModal);
       // alert(
       //   'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
       // );
->>>>>>> 5828db0 (modal working without animations)
       setTweeting(false);
       return;
     }
@@ -130,12 +108,8 @@ const tweetMaxLength = 180
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
-<<<<<<< HEAD
-        setTweetStatus('disabled');
-=======
         setTweeting(false);
         setShowModal(false);
->>>>>>> 5828db0 (modal working without animations)
         router.push('/success');
       })
       .catch((error) => {
