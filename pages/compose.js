@@ -165,7 +165,7 @@ function Compose() {
       <Modal.Title>Reset</Modal.Title>
       <Modal.Content>
         <p>
-This will erase everything you've written.
+This will erase everything you have written so far
         </p>
        <br></br>
        Do you want to reset?
