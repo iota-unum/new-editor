@@ -59,12 +59,12 @@ export default function Home() {
             })
           }
         >
-          <span className='text-btn'> login with twitter</span> <BsTwitter />
+          <span className='text-btn'> login with twitter</span> <span className='icon-twtr'> <BsTwitter /> </span>
         </button>
 
         <Link href='/compose'>
         <button className='secondary'>
-          <span className=''> or just try it out!</span>
+          <span className='text-btn'> or just try it out!</span>
           {/* <p className='sub-heading'>or just try it out</p> */}
         </button>
         </Link>
@@ -157,7 +157,7 @@ export default function Home() {
             color: var(--color)
           }
           .text-btn {
-            margin-right: 0.5rem;
+            margin: auto ;
           }
           .sub-heading {
             font-size: 1rem;
@@ -187,6 +187,9 @@ export default function Home() {
           .sub-heading:after {
             left: 0.5em;
             margin-right: -50%;
+          }
+          .icon-twtr {
+            margin: auto .3em;
           }
         `}
       </style>
