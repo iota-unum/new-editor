@@ -10,6 +10,7 @@ function AppBar({children}) {
       <style jsx>
         {`
           .appbar {
+            width: 100%;
             height: 3em;
             display: flex;
             justify-content: space-between;

@@ -1,8 +1,5 @@
-
-
 :root {
 }
-
 
 @media (min-width: 576px) {
   :root {
@@ -34,7 +31,6 @@
   }
 }
 
-
 @media only screen and (min-width: 1000px) {
   :root {
     font-size: 20px;
@@ -57,27 +53,20 @@
   }
 }
 
-
-
-
-
-
 #__next {
   height: 100%;
 }
 
 html,
 body {
-
   padding: 0;
   margin: 0;
-  font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    /* font-family: 'Quicksand', sans-serif; */
-    height: 100%;
-    background-color: var(--mainColor);
-  
-  }
+  font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
+  height: 100%;
+  background-color: var(--mainColor);
+}
 
 a {
   color: inherit;
@@ -89,3 +78,13 @@ a {
   margin: 0;
   padding: 0;
 }
+
+.leftside-actions,
+.rightside-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+.leftside-actions {
+    width: 30%}

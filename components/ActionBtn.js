@@ -30,6 +30,12 @@ function ActionBtn({ action, content, outlined, id, type }) {
             align-items:center;
             justify-content: center;
           }
+          .action-btn button:active {
+            font-size: 0.79em;
+          }
+          .action-btn button:hover {
+            opacity:0.9;
+          }
         `}
       </style>
     </div>

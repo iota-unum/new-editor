@@ -233,12 +233,7 @@ This will erase everything you have written so far
             margin: 0 1em;
           }
 
-          .leftside-actions,
-          .rightside-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
+       
           .compose :global(.action-btn) {
             color: red;
           }

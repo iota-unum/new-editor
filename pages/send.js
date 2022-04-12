@@ -253,12 +253,8 @@ if(tweetLength >= tweetMaxLength) {
             overflow: hidden;
             color: white;
           }
-          .leftside-actions,
-          .rightside-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
+         
+         
           .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
