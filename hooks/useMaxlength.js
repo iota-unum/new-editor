@@ -5,11 +5,13 @@ const useMaxlength = () => {
   
   useEffect(() => {
       const editor = document.querySelector('.text-area');
-   editor.addEventListener('keyup', () => {
-       setLength(editor.innerText.length)
-        // console.table('maxxxxx', editor.innerHTML.length, editor.innerHTML );
-        console.log('HTML', editor.innerHTML)
-      })
+      function handleLength(){
+        setLength(editor.innerText.length)
+         // console.table('maxxxxx', editor.innerHTML.length, editor.innerHTML );
+         console.log('HTML', editor.innerHTML)
+       }
+   editor.addEventListener('keyup',handleLength)
+   editor.addEventListener('keydown',handleLength)
   }, []);
 useEffect(()=>{
     console.log('statelength', length)
