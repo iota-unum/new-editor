@@ -127,11 +127,11 @@ export default function Home() {
             font-weight: 700;
           }
           footer {
-            height: 20%;
+            height: 25%;
             letter-spacing: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
           }
           button {
             font-family: Arial, Helvetica, sans-serif;
