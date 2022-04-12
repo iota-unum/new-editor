@@ -61,9 +61,14 @@ export default function Home() {
         >
           <span className='text-btn'> login with twitter</span> <BsTwitter />
         </button>
+        <button className='secondary'>
+
         <Link href='/compose'>
-          <p className='sub-heading'>or just try it out</p>
+          <span className=''> or just try it out!</span>
+          {/* <p className='sub-heading'>or just try it out</p> */}
         </Link>
+
+        </button>
       </footer>
 
       <style jsx>
@@ -124,6 +129,9 @@ export default function Home() {
           footer {
             height: 20%;
             letter-spacing: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
           }
           button {
             font-family: Arial, Helvetica, sans-serif;
@@ -139,6 +147,11 @@ export default function Home() {
             padding: 0.5rem 5rem;
             display: flex;
             justify-content: space-between;
+          }
+          .secondary {
+            background-color: var(--selectedColor);
+            border: .1em solid var(--color);
+            color: var(--color)
           }
           .text-btn {
             margin-right: 0.5rem;
