@@ -9,9 +9,11 @@ const useMaxlength = () => {
         setLength(editor.innerText.length)
          // console.table('maxxxxx', editor.innerHTML.length, editor.innerHTML );
          console.log('HTML', editor.innerHTML)
+         console.log('innerlength', length)
        }
    editor.addEventListener('keyup',handleLength)
    editor.addEventListener('keydown',handleLength)
+   editor.addEventListener('paste',handleLength)
   }, []);
 useEffect(()=>{
     console.log('statelength', length)
