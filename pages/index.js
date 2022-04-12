@@ -137,7 +137,7 @@ export default function Home() {
             font-family: Arial, Helvetica, sans-serif;
             background-color: var(--color);
             border-radius: 1.5rem;
-            border: none;
+            border:
             color: ${'#15202b'};
             font-weight: bolder;
             font-size: 0.8rem;
@@ -147,6 +147,9 @@ export default function Home() {
             padding: 0.5rem 5rem;
             display: flex;
             justify-content: space-between;
+            border: .1em solid var(--color);
+            
+
           }
           .secondary {
             background-color: var(--selectedColor);
