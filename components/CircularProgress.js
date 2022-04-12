@@ -34,7 +34,7 @@ console.log('rotella', length-maxLength > -20)
   stroke: rgb(218, 23, 23);
 }
 .CircularProgressbar-text {
-    font-size: 1.8em !important;
+    font-size: 2em !important;
   fill: ${length - maxLength < 0 ? 'var(--selectedColor)' : 'red'} !important;
 }
 .CircularProgressbar-background {
