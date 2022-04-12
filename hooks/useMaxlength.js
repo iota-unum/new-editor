@@ -6,8 +6,9 @@ const useMaxlength = () => {
   useEffect(() => {
       const editor = document.querySelector('.text-area');
    editor.addEventListener('keyup', () => {
-       setLength(editor.innerHTML.length)
+       setLength(editor.innerText.length)
         // console.table('maxxxxx', editor.innerHTML.length, editor.innerHTML );
+        console.log('HTML', editor.innerHTML)
       })
   }, []);
 useEffect(()=>{

@@ -37,7 +37,7 @@ console.log('tweetLength', tweetLength)
 useEffect(()=>{
 setTweetStatus(tweetLength > tweetMaxLength ? 'disabled' : 'normal')
 if(tweetLength >= tweetMaxLength) {
-  document.execCommand('hiliteColor', true , 'red')
+  document.execCommand('hiliteColor', true , '#910303')
 }
 
 }, [tweetLength])
