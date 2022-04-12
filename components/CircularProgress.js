@@ -28,14 +28,14 @@ console.log('rotella', length-maxLength > -20)
   }
   
   .CircularProgressbar-path {
-  stroke: ${percentage >= 100 ? "red": "var(--selectedColor)"} !important;
+  stroke: ${percentage > 100 ? "red": "var(--selectedColor)"} !important;
 }
 .CircularProgressbar-trail {
   stroke: rgb(218, 23, 23);
 }
 .CircularProgressbar-text {
     font-size: 2em !important;
-  fill: ${length - maxLength < 0 ? 'var(--selectedColor)' : 'red'} !important;
+  fill: ${length - maxLength <= 0 ? 'var(--selectedColor)' : 'red'} !important;
 }
 .CircularProgressbar-background {
   fill: green;
