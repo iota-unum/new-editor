@@ -14,6 +14,7 @@ import LoginModal from '../components/LoginModal';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import ContentEditable from 'react-contenteditable';
 import useMaxlength from '../hooks/useMaxlength';
+import CircularProgress from '../components/CircularProgress';
 
 function Send() {
   const {
@@ -29,7 +30,7 @@ function Send() {
   const [tweetStatus, setTweetStatus] = useState('normal');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
-  const tweetMaxLength = 10;
+  const tweetMaxLength = 50;
 const tweetLength = useMaxlength()
 console.log('tweetLength', tweetLength)
 
@@ -150,7 +151,8 @@ if(tweetLength >= tweetMaxLength) {
             </span>
           )}
         </span>
-
+<span className="rightside-actions">
+<CircularProgress length={tweetLength} maxLength={tweetMaxLength}/>
         {tweetStatus !== 'tweeting' && (
           <TweetBtn
             disabled={tweetStatus === 'disabled'}
@@ -161,6 +163,8 @@ if(tweetLength >= tweetMaxLength) {
         )}
 
         {tweetStatus === 'tweeting' && <Loader />}
+
+</span>
       </AppBar>
       <div className='section-form'>
         <Avatar img={!session ? 'default_profile.png' : session.user.image} />
