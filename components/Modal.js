@@ -15,7 +15,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
     <style jsx global>
       {`
         .modal {
-          background-color: #bfbabdc8;
+          background-color: rgba(0, 0, 0, 0.761);
           position: fixed;
           top: 0;
           left: 0;
@@ -26,14 +26,13 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           align-items: center;
           --color: ${color};
           --background-color: ${bgColor};
+          --text-color: ${color === '#ffd400' ? '#000000df' : 'white'};
         }
         .modal-container {
-          background-color: var(--background-color);
+          background-color: var(--color);
           padding: 3em 3em 3em;
           position: relative;
-          color: white;
-          background-color: #273340;
-          border-radius: 0.5em;
+          color: var(--text-color);
         }
 
         .close-button {
@@ -45,7 +44,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         .title {
           text-align: center;
           font-size: 1.8rem;
-          color: white;
+          color: var(--text-color);
         }
         .modal-content {
           padding: 3em 0;
@@ -66,25 +65,26 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           border-radius: 2em;
           margin: 0.5em;
           font-weight: bolder;
-          background-color: white;
           
         }
 
         .accept {
-          background-color: white;
-          color: var(--background-color);
+          background-color: var(--text-color);
+          color: var(--color);
           border: none;
         }
 
         .dismiss {
-          border: 2px solid white;
-          background-color: #273340;
-          color: white;
+          border: 2px solid var(--text-color);
+          background-color: var(--color);
+          color: var(--text-color);
         }
 
         @media (min-width: 760px) {
           .modal-container {
             max-width: 50%;
+            border-radius: 0.5em;
+
           }
         }
         @media (min-width: 1200px) {

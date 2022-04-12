@@ -3,7 +3,7 @@ import Modal from './Modal';
 function LoginModal({ color, setShowModal, signIn }) {
   return (
     <Modal color={color} bgColor='#15202b' setShowModal={setShowModal}>
-      <Modal.Title>You &apos re not logged-in</Modal.Title>
+      <Modal.Title>You&apos;re not logged-in</Modal.Title>
       <Modal.Content>
        
         <p style={{textAlign:'center'}}>In order to tweet you must be logged-in with a twitter account.</p>
