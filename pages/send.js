@@ -11,8 +11,9 @@ import Loader from '../components/Loader';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import LoginModal from '../components/LoginModal';
-import {BsArrowLeftShort} from 'react-icons/bs'
+import { BsArrowLeftShort } from 'react-icons/bs';
 import ContentEditable from 'react-contenteditable';
+import useMaxlength from '../hooks/useMaxlength';
 
 function Send() {
   const {
@@ -28,50 +29,58 @@ function Send() {
   const [tweetStatus, setTweetStatus] = useState('normal');
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
-const tweetMaxLength = 10
-  useEffect(() => {
-    
-    function handleMentions(e) {
-      const char = e.key
-     
-      if(char === '@' || char === '#') {
-        document.execCommand(document.execCommand('foreColor', true, selectedColor))      }
-      if(char === ' ') {
-        document.execCommand(document.execCommand('foreColor', false, 'FFFFFF'))      }
+  const tweetMaxLength = 10;
+const tweetLength = useMaxlength()
+console.log('tweetLength', tweetLength)
 
-       
 
-    }
-  
-  
+useEffect(()=>{
+setTweetStatus(tweetLength > tweetMaxLength ? 'disabled' : 'normal')
+if(tweetLength >= tweetMaxLength) {
+  document.execCommand('hiliteColor', true , 'red')
+}
 
-    document.querySelector('.text-area').addEventListener('keypress', handleMentions)
-    
-    
-    return () => {
-      document.removeEventListener('keypress', handleMentions)
-    }
-  }, [text])
+}, [tweetLength])
+// useEffect(() => {
+
+  //   function handleMentions(e) {
+  //     const char = e.key
+
+  //     if(char === '@' || char === '#') {
+  //       document.execCommand(document.execCommand('foreColor', true, selectedColor))      }
+  //     if(char === ' ') {
+  //       document.execCommand(document.execCommand('foreColor', false, 'FFFFFF'))      }
+
+  //   }
+
+  //   document.querySelector('.text-area').addEventListener('keypress', handleMentions)
+
+  //   return () => {
+  //     document.removeEventListener('keypress', handleMentions)
+  //   }
+  // }, [text])
   useEffect(() => {
     const el = document.querySelector('.text-area');
     // positionCursorToEnd(el);
     el.focus();
     // el.scrollTop = 1000;
-    el.blur()
+    el.blur();
   }, []);
   const text = useRef('');
 
-  const handleChange = evt => {
-      // text.current = evt.target.value;
-      text.current = evt.currentTarget.textContent;
-      if (text.current.length >= tweetMaxLength) {
-        document.execCommand(document.execCommand('hiliteColor', true, 'rgb(146, 3, 12)'))
-        setTweetStatus('disabled')
-      } else (
-        setTweetStatus('normal')
-      )
+  const handleChange = (evt) => {
+    // text.current = evt.target.value;
+    text.current = evt.currentTarget.innerHTML;
+    // setTweetStatus(text.current.length > tweetMaxLength ? 'disabled': 'normal')
 
-      console.table(text.current.length)
+    //  else {
+
+    //   text.current = evt.currentTarget.innerHTML
+
+    //   setTweetStatus('normal')
+    // }
+
+    // console.table(text.current.length, text.current)
   };
   async function handleOnTweetSubmit() {
     console.log('submit');
@@ -95,7 +104,7 @@ const tweetMaxLength = 10
     // console.log(prefix);
     // const formData = new FormData(e.currentTarget);
     // const status = formData.get('status') + ' [CHIRPBIRDICON]';
-    const status = text.current + ' [CHIRPBIRDICON]'
+    const status = text.current + ' [CHIRPBIRDICON]';
     console.log('STATUS', status);
     const results = await fetch('/api/twitter/sendTweet', {
       method: 'POST',
@@ -109,7 +118,7 @@ const tweetMaxLength = 10
         console.log(data.id_str);
         setTwitterName(data.user.screen_name);
         setTweetId(data.id_str);
-        setTweetStatus("disabled")
+        setTweetStatus('disabled');
         setShowModal(false);
         router.push('/success');
       })
@@ -144,10 +153,10 @@ const tweetMaxLength = 10
 
         {tweetStatus !== 'tweeting' && (
           <TweetBtn
-          disabled={tweetStatus === 'disabled'}
+            disabled={tweetStatus === 'disabled'}
             content='tweet'
             onClick={handleOnTweetSubmit}
-            type="button"
+            type='button'
           ></TweetBtn>
         )}
 
@@ -169,9 +178,11 @@ const tweetMaxLength = 10
 
             </div>
           </form>{' '} */}
-          <ContentEditable html={text.current}  onChange={handleChange} className='text-area'       data-max-length="10"
-     
-/>
+          <ContentEditable
+            html={text.current}
+            onChange={handleChange}
+            className='text-area'
+          />
         </div>
       </div>
       <div className='section-img'>
@@ -254,7 +265,6 @@ const tweetMaxLength = 10
             font-size: 0.8rem;
             margin: 1em;
           }
-         
         `}
       </style>
     </div>
