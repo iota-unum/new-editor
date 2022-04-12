@@ -61,14 +61,14 @@ export default function Home() {
         >
           <span className='text-btn'> login with twitter</span> <BsTwitter />
         </button>
-        <button className='secondary'>
 
         <Link href='/compose'>
+        <button className='secondary'>
           <span className=''> or just try it out!</span>
           {/* <p className='sub-heading'>or just try it out</p> */}
+        </button>
         </Link>
 
-        </button>
       </footer>
 
       <style jsx>
