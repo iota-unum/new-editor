@@ -147,13 +147,13 @@ export default function Home() {
             padding: 0.5rem 5rem;
             display: flex;
             justify-content: space-between;
-            border: .1em solid var(--color);
+            border: .15em solid var(--color);
             
 
           }
           .secondary {
             background-color: var(--selectedColor);
-            border: .1em solid var(--color);
+            border: .15em solid var(--color);
             color: var(--color)
           }
           .text-btn {
