@@ -37,10 +37,11 @@ function Send() {
 
 
 useEffect(()=>{
-  console.log('execcommand')
+  console.log('newEffectlength', tweetLength)
 tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'disabled' : 'normal')
-if(tweetLength >= tweetMaxLength) {
-  document.execCommand('hiliteColor', true , '#910303')
+if(tweetStatus === 'disabled') {
+  console.log('FIRE')
+  document.execCommand('foreColor', true , '#910303')
 }
 
 }, [tweetLength])
@@ -70,9 +71,9 @@ if(tweetLength >= tweetMaxLength) {
     el.blur();
   }, []);
   const text = useRef('');
-  useEffect(()=>{
-    console.log('effectLength', tweetLength)
-  }, [tweetLength])
+  // useEffect(()=>{
+  //   console.log('effectLength', tweetLength)
+  // }, [tweetLength])
   const handleChange = (evt) => {
     // text.current = evt.target.value;
     console.log(evt)
