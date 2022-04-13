@@ -224,7 +224,6 @@ if(tweetLength >= tweetMaxLength) {
             width: 80%;
           }
           .section-img {
-            height: 100%;
             display: flex;
             justify-content: end;
             flex-grow: 1;
@@ -248,6 +247,7 @@ if(tweetLength >= tweetMaxLength) {
             background-color: var(--mainColor);
             border: none;
             outline: 0;
+            min-height: 18vh;
             font-family: Arial, Helvetica, sans-serif;
             padding: 0 0.5rem;
             border-bottom: 1px solid rgb(82, 82, 82);
