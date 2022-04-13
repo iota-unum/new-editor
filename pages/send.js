@@ -186,6 +186,7 @@ if(tweetLength >= tweetMaxLength) {
             html={text.current}
             onChange={handleChange}
             className='text-area'
+            placeholder={'Add a comment...'}
           />
         </div>
       </div>
@@ -247,7 +248,7 @@ if(tweetLength >= tweetMaxLength) {
             background-color: var(--mainColor);
             border: none;
             outline: 0;
-            min-height: 18vh;
+            min-height: 15vh;
             font-family: Arial, Helvetica, sans-serif;
             padding: 0 0.5rem;
             border-bottom: 1px solid rgb(82, 82, 82);
@@ -265,8 +266,12 @@ if(tweetLength >= tweetMaxLength) {
             font-size: 0.8rem;
             margin: 1em;
           }
+          
+        
+
         `}
       </style>
+ 
     </div>
   );
 }

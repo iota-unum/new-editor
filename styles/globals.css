@@ -88,4 +88,11 @@ a {
 }
 .leftside-actions {
     width: 30%}
+
+    [contenteditable='true']:empty:before {
+      content: attr(placeholder);
+      display: block;
+      color: rgb(135, 135, 135);
+      font-size: 1.3rem;
+    }
     
