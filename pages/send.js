@@ -29,13 +29,15 @@ function Send() {
   const [session] = useSession();
   const [tweetStatus, setTweetStatus] = useState('normal');
   const [showModal, setShowModal] = useState(false);
+  const [tweetLength , setTweetLength] = useState(0) 
   const router = useRouter();
   const tweetMaxLength = 50;
-const tweetLength = useMaxlength()
-console.log('tweetLength', tweetLength)
+// const tweetLength = useMaxlength()
+// console.log('tweetLength', tweetLength)
 
 
 useEffect(()=>{
+  console.log('execcommand')
 tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'disabled' : 'normal')
 if(tweetLength >= tweetMaxLength) {
   document.execCommand('hiliteColor', true , '#910303')
@@ -68,10 +70,17 @@ if(tweetLength >= tweetMaxLength) {
     el.blur();
   }, []);
   const text = useRef('');
-
+  useEffect(()=>{
+    console.log('effectLength', tweetLength)
+  }, [tweetLength])
   const handleChange = (evt) => {
     // text.current = evt.target.value;
-    text.current = evt.currentTarget.innerHTML;
+    console.log(evt)
+    text.current = evt.currentTarget.innerText;
+    console.log(text.current.length )
+    setTweetLength(text.current.length)
+    console.log('statelength', tweetLength)
+    // console.log(text.current)
     // setTweetStatus(text.current.length > tweetMaxLength ? 'disabled': 'normal')
 
     //  else {
