@@ -13,8 +13,7 @@ const initialState = {
     fontColor: 'white',
     commandState: {bold: false, italic: false, heading: false, text: true, left: true, center: false},
     imgUrl: '',
-    tweetId: '',
-    twitterName: '',
+    tweetResponse: {},
     minFontSize: 0.77,
     imgWidth: null,
     imgHeight: null,
@@ -36,8 +35,8 @@ const store = (set) => ({
     increaseFontsize: ()=> set(state => ({fontSize: state.fontSize + 0.02})),
     decreaseFontsize: ()=> set(state => ({fontSize: state.fontSize - 0.02 > state.minFontSize ?  state.fontSize - 0.02 : state.minFontSize})),
     setToInitialState: (state) => set({...state, ...initialState}),
-    setTweetId : tweetId => set({tweetId}),
-    setTwitterName: name => set({twitterName: name}), 
+    setTweetResponse : data => set({tweetResponse: data}),
+    // setTwitterName: name => set({twitterName: name}), 
     setImgWidth: width => set({imgWidth: width}),
     setImgHeight: height => set({imgHeight: height})
     })

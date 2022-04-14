@@ -2,9 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import ActionBtn from '../components/ActionBtn';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
-import Preview from '../components/Preview';
 import useStore from '../store';
-import { positionCursorToEnd } from '../helpers/cursorfunction';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import TweetBtn from '../components/TweetBtn';
 import Loader from '../components/Loader';
@@ -13,17 +11,13 @@ import { useRouter } from 'next/router';
 import LoginModal from '../components/LoginModal';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import ContentEditable from 'react-contenteditable';
-import useMaxlength from '../hooks/useMaxlength';
 import CircularProgress from '../components/CircularProgress';
 
 function Send() {
   const {
     html,
     imgUrl,
-    tweetId,
-    setTweetId,
-    twitterName,
-    setTwitterName,
+   setTweetResponse,
     selectedColor,
   } = useStore();
   const [session] = useSession();
@@ -32,8 +26,7 @@ function Send() {
   const [tweetLength , setTweetLength] = useState(0) 
   const router = useRouter();
   const tweetMaxLength = 50;
-// const tweetLength = useMaxlength()
-// console.log('tweetLength', tweetLength)
+
 
 
 useEffect(()=>{
@@ -126,9 +119,10 @@ if(tweetStatus === 'disabled') {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.id_str);
-        setTwitterName(data.user.screen_name);
-        setTweetId(data.id_str);
+        // console.log(data);
+        setTweetResponse(data)
+        // setTwitterName(data.user.screen_name);
+        // setTweetId(data.id_str);
         setTweetStatus('disabled');
         setShowModal(false);
         router.push('/success');

@@ -5,16 +5,19 @@ import useStore from '../store';
 import AppBar from '../components/AppBar';
 import Avatar from '../components/Avatar';
 import { BsTwitter } from 'react-icons/bs';
+import TwitterCard from '../components/TwitterCard';
 
 function Success() {
-  const twitterName = useStore((state) => state.twitterName);
+
+  const tweetResponse = useStore(state => state.tweetResponse)
   const selectedColor = useStore(state => state.selectedColor)
-  const tweetId = useStore((state) => state.tweetId);
-  const tweetUrl = `https://twitter.com/${twitterName}/status/${tweetId}`;
+  // const tweetId = useStore((state) => state.tweetId);
+  const tweetUrl = `https://twitter.com/lalala/status/${tweetResponse.id_str}`;
   return (
     <div className='success'>
-      <h2>Congratulations, your tweet has been sent!</h2>
 
+      <h2 className='heading'>Congratulations, your tweet has been sent!</h2>
+<TwitterCard tweet={tweetResponse}/>
       <div className='link-container'>
         <Link href={tweetUrl}>
           <a>
@@ -35,9 +38,13 @@ function Success() {
             text-align: center;
             width: 100%;
             height: 100vh;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            width: var(--containerWidth);
+            margin: 0 auto;
+          }
+          .heading {
+            padding: 2em;
           }
           .link-container {
           }
