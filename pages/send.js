@@ -66,9 +66,9 @@ if(tweetStatus === 'disabled') {
   useEffect(() => {
     const el = document.querySelector('.text-area');
     // positionCursorToEnd(el);
-    el.focus();
+    // el.focus();
     // el.scrollTop = 1000;
-    el.blur();
+    // el.blur();
   }, []);
   const text = useRef('');
   // useEffect(()=>{
