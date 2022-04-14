@@ -50,7 +50,7 @@ function Success() {
           }
           a {
             display: block;
-            width: 12rem;
+            width:80%;
             font-weight: bolder;
             cursor: pointer;
             margin: 8rem auto;
@@ -64,6 +64,7 @@ function Success() {
           }
           .text-btn {
             margin-right: 0.4rem;
+            font-weight: 900;
           }
         `}
       </style>

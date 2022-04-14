@@ -55,7 +55,7 @@ const tweetImage = tweet.extended_entities.media[0].media_url_https
         {`
           .twitter-card {
             border-radius: 0.8em;
-            width: 70%;
+            width: 95%;
             display: flex;
             flex-direction: column;
             background-color: white;
