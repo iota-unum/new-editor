@@ -21,7 +21,7 @@ disabled ={disabled}
               ? 'white'
               : '#15202b'};
              padding: 0.3em 1em;
-            min-width: 7em;
+            width: 8em;
             font-weight: bolder;
             font-size: 0.8rem;
             opacity: ${disabled ? '0.4' : '1'}

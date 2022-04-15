@@ -165,7 +165,11 @@ function Compose() {
           <Loader />
         ) : (
           <button onClick={handleImageGeneration}>
+            <span className="icon-btn-icon">
+
             <BsFillCameraFill color={fontColor} />{' '}
+
+            </span>
             <span className='text-icon'>Generate Image</span>
           </button>
         )}
@@ -234,18 +238,28 @@ This will erase everything you have written so far
 
           .icon-btn-icon {
             padding: 0 .3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
-        
+        .icon-btn-text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
           .text-icon {
             color: ${fontColor};
             font-weight: 700;
             
           }
           .text-btn {
+           
+
             color: var(--selectedColor);
             font-weight: 700;
-            margin: 0 1em;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            margin: 1.5em;
+
           }
 
        

@@ -24,7 +24,7 @@ function ActionBtn({ action, content, outlined, id, type }) {
               : '#15202b'};
             font-weight: bolder;
             display:flex;
-            min-width: 7em;
+            width: 8em;
             align-items:center;
             justify-content: space-around;
 

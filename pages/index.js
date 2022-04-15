@@ -101,7 +101,7 @@ export default function Home() {
             flex-shrink: 1;
             flex-basis: 0%;
             height: 100%;
-            justify-content: space-around;
+            justify-content: center;
             letter-spacing: -1px;
           }
           .thin {
@@ -119,6 +119,7 @@ export default function Home() {
             font-size: 1.3rem;
             font-weight: lighter;
             letter-spacing: ;
+            padding: 1.1em 0;
           }
           p {
             text-align: center;

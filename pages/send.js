@@ -138,11 +138,16 @@ if(tweetStatus === 'disabled') {
     <div className='twitter-compose'>
       <AppBar>
         <span className='leftside-actions'>
+
+          <span className="left-arrow">
+
           <BsArrowLeftShort
             color='white'
             size={'1.6rem'}
             onClick={() => router.push('/compose')}
           />
+
+          </span>
 
           {!session && (
             <span className='text-btn' onClick={() => signIn('twitter')}>
@@ -272,7 +277,12 @@ if(tweetStatus === 'disabled') {
             margin: 1em;
           }
           
-        
+        .left-arrow {
+          width: 2.5em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
         `}
       </style>
