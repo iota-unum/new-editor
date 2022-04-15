@@ -32,10 +32,10 @@ function Send() {
 useEffect(()=>{
   console.log('newEffectlength', tweetLength)
 tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'disabled' : 'normal')
-if(tweetStatus === 'disabled') {
-  console.log('FIRE')
-  document.execCommand('foreColor', true , '#910303')
-}
+// if(tweetStatus === 'disabled') {
+//   console.log('FIRE')
+//   document.execCommand('foreColor', true , '#910303')
+// }
 
 }, [tweetLength])
 // useEffect(() => {
@@ -70,9 +70,10 @@ if(tweetStatus === 'disabled') {
   const handleChange = (evt) => {
     // text.current = evt.target.value;
     console.log(evt)
-    text.current = evt.currentTarget.innerText;
-    console.log(text.current.length )
-    setTweetLength(text.current.length)
+    text.current = evt.currentTarget.innerHTML;
+    const length = evt.currentTarget.innerText.length
+    console.log('lengthhhhh',length)
+    setTweetLength(length)
     console.log('statelength', tweetLength)
     // console.log(text.current)
     // setTweetStatus(text.current.length > tweetMaxLength ? 'disabled': 'normal')
