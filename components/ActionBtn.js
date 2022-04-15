@@ -15,19 +15,26 @@ function ActionBtn({ action, content, outlined, id, type }) {
             background-color: ${outlined
               ? 'transparent'
               : 'var(--selectedColor)'};
-            border: 2px solid var(--selectedColor);
+            border: 3px solid var(--selectedColor);
             border-radius: 1.5em;
             color: ${outlined
               ? 'var(--selectedColor)'
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            padding: 0.3em .4em;
             font-weight: bolder;
             display:flex;
             min-width: 7em;
             align-items:center;
             justify-content: space-around;
+
+
+          
+        
+           padding: 0.3em 1em;
+          font-weight: bolder;
+          font-size: 0.8rem;
+
           }
      
           .action-btn button:hover {
