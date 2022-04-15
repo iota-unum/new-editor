@@ -14,7 +14,7 @@ const pixelRatio = window.devicePixelRatio
     
     // console.log('REFERENCE', reference)
     if (!reference) {
-      // console.log('DIV NOT MOUNTED YET')
+      console.log('DIV NOT MOUNTED YET')
       return
     }
     try {

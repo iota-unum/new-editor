@@ -15,7 +15,7 @@ function ActionBtn({ action, content, outlined, id, type }) {
             background-color: ${outlined
               ? 'transparent'
               : 'var(--selectedColor)'};
-            border: 3px solid var(--selectedColor);
+            border: .2em solid var(--selectedColor);
             border-radius: 1.5em;
             color: ${outlined
               ? 'var(--selectedColor)'
