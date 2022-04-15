@@ -122,7 +122,12 @@ function Compose() {
               ) : (
                 <span className='icon-btn'>
                   {' '}
-                  <BsEyeFill /> <span>Preview</span>
+                  <span> 
+                  <BsEyeFill /> 
+
+                  </span>
+                  
+                  <span>Preview</span>
                 </span>
               )
             }
@@ -165,7 +170,8 @@ function Compose() {
       <Modal.Title>Reset</Modal.Title>
       <Modal.Content>
         <p>
-This will erase everything you have written so far
+This will erase everything you have written so far 
+
         </p>
        <br></br>
        Do you want to reset?
@@ -219,6 +225,9 @@ This will erase everything you have written so far
           }
           .icon-btn {
             font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
           }
           .text-icon {
             color: ${fontColor};

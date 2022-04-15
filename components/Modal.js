@@ -33,6 +33,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           padding: 3em 3em 3em;
           position: relative;
           color: var(--text-color);
+          max-height: 60vh;
         }
 
         .close-button {

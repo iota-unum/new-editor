@@ -1,7 +1,6 @@
 import react, {useEffect} from 'react';
 import useStore from '../store';
 import Head from 'next/head';
-import 'normalize.css/normalize.css';
 
 function Layout(props) {
  

@@ -1,3 +1,6 @@
+import '@nextcss/reset';
+
+
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import Head from 'next/head';

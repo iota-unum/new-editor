@@ -22,13 +22,14 @@ function ActionBtn({ action, content, outlined, id, type }) {
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            padding: 0.3em 1em;
+            padding: 0.3em 2em;
             min-width: 7em;
             font-weight: bolder;
-            font-size: 0.8em;
+            font-size: 0.9em;
             display:flex;
             align-items:center;
             justify-content: center;
+            width: em;
           }
           .action-btn button:active {
             font-size: 0.79em;
