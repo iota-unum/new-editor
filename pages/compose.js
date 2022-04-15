@@ -117,17 +117,21 @@ function Compose() {
               preview ? (
                 <span className='icon-btn'>
                   {' '}
-                  <BsPencilFill /> <span>Edit</span>
+                  <span className="icon-btn-icon">
+                  <BsPencilFill /> 
+
+                  </span>
+                  <span className='icon-btn-text'>Edit</span>
                 </span>
               ) : (
                 <span className='icon-btn'>
                   {' '}
-                  <span> 
+                  <span className='icon-btn-icon'> 
                   <BsEyeFill /> 
 
                   </span>
                   
-                  <span>Preview</span>
+                  <span className='icon-btn-text'>Preview</span>
                 </span>
               )
             }
@@ -220,32 +224,32 @@ This will erase everything you have written so far
             color: ${fontColor === 'white' ? 'white' : '#15202b'};
             padding: 0.5em 3em;
             font-weight: bolder;
-            font-size: 1rem;
             margin-bottom: 1em;
           }
           .icon-btn {
-            font-size: 0.9em;
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
           }
+
+          .icon-btn-icon {
+            padding: 0 .3em;
+          }
+        
           .text-icon {
             color: ${fontColor};
             font-weight: 700;
-            font-size: 0.8em;
-            margin: 0 0.8em;
+            
           }
           .text-btn {
             color: var(--selectedColor);
             font-weight: 700;
-            font-size: 0.8em;
             margin: 0 1em;
+            font-size: 0.9rem;
           }
 
        
-          .compose :global(.action-btn) {
-            color: red;
-          }
+         
         `}
       </style>
     </div>

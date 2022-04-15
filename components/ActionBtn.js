@@ -22,18 +22,14 @@ function ActionBtn({ action, content, outlined, id, type }) {
               : fontColor === 'white'
               ? 'white'
               : '#15202b'};
-            padding: 0.3em 2em;
-            min-width: 7em;
+            padding: 0.3em .4em;
             font-weight: bolder;
-            font-size: 0.9em;
             display:flex;
+            min-width: 7em;
             align-items:center;
-            justify-content: center;
-            width: em;
+            justify-content: space-around;
           }
-          .action-btn button:active {
-            font-size: 0.79em;
-          }
+     
           .action-btn button:hover {
             opacity:0.9;
           }

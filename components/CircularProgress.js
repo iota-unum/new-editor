@@ -16,7 +16,7 @@ function CircularProgress({ length, maxLength }) {
           .circular-progress {
             width: 1.8em;
             height: 1.8em;
-            margin-right: 0;
+            margin-right: 1em;
           }
 
           .CircularProgressbar-path {

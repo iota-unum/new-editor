@@ -156,6 +156,7 @@ if(tweetStatus === 'disabled') {
           )}
         </span>
 <span className="rightside-actions">
+  
 <CircularProgress length={tweetLength} maxLength={tweetMaxLength}/>
         {tweetStatus !== 'tweeting' && (
           <TweetBtn

@@ -17,6 +17,7 @@ function AppBar({children}) {
             align-items: center;
             padding: 1.8em 0.5em;
             background-color: #273340;
+            font-size: 1rem;
           }
         
         `}

@@ -1,4 +1,5 @@
 :root {
+  font-size: 16px;
 }
 
 @media (min-width: 576px) {
@@ -27,7 +28,7 @@
 }
 @media only screen and (min-height: 1100px) {
   :root {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
@@ -38,7 +39,7 @@
 }
 @media only screen and (min-width: 1200px) {
   :root {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -66,29 +67,35 @@ body {
   /* font-family: 'Quicksand', sans-serif; */
   height: 100%;
   background-color: var(--mainColor);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
+h1{
+  font-size: 2em;
+}
+svg {
+  display: inline-block;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
+button {
+  font-size: 1rem;
+}
 .leftside-actions,
 .rightside-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+
 }
-.leftside-actions {
-    width: 30%}
+
 
     [contenteditable='true']:empty:before {
       content: attr(placeholder);

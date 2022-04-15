@@ -101,7 +101,7 @@ export default function Home() {
             flex-shrink: 1;
             flex-basis: 0%;
             height: 100%;
-            justify-content: center;
+            justify-content: space-around;
             letter-spacing: -1px;
           }
           .thin {
