@@ -51,7 +51,7 @@ console.log('EFFECT')
             : `calc(var(--containerWidth) * 0.5625)`};
           background-color: var(--selectedColor);
           overflow: ${preview ? 'hidden' : 'auto'};
-          padding: 0.5rem;
+          padding: 0.8rem;
           font-size: calc(var(--containerWidth) / 24 *${fontSize}) ;
           color: ${fontColor};
           overflow-wrap: break-word;
