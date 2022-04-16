@@ -52,9 +52,14 @@ console.log('EFFECT')
           background-color: var(--selectedColor);
           overflow: ${preview ? 'hidden' : 'auto'};
           padding: 0.8rem;
-          font-size: calc(var(--containerWidth) / 24 *${fontSize}) ;
           color: ${fontColor};
           overflow-wrap: break-word;
+        }
+
+        .editor, .editor div, .editor span {
+
+          font-size: calc(var(--containerWidth) / 24 *${fontSize}) !important;
+
         }
      
     h1{
