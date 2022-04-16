@@ -68,6 +68,7 @@ body {
   height: 100%;
   background-color: var(--mainColor);
   font-size: 1rem;
+  line-height: 1.15;
 }
 
 a {
