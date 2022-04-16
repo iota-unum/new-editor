@@ -61,8 +61,9 @@ console.log('EFFECT')
           font-size: calc(var(--containerWidth) / 24 *${fontSize}) !important;
 
         }
+
      
-  .editor  h1 span{
+  .editor h1, .editor  h1 span{
       margin: 0;
       font-size: calc(var(--containerWidth) / 12 *${fontSize}) !important;
       font-weight: bolder !important;
