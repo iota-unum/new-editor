@@ -77,6 +77,11 @@ console.log('EFFECT')
             overflow: hidden;
           }
         }
+
+
+        .editor::-webkit-scrollbar {
+  display: none;
+}
       `}</style>
     </div>
   );
