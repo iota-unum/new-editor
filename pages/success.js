@@ -64,7 +64,13 @@ function Success() {
           }
           .text-btn {
             margin-right: 0.4rem;
-            font-weight: 900;
+            font-weight: bolder;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0;
+
+
+
           }
         `}
       </style>
