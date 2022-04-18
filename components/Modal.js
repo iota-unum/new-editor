@@ -30,10 +30,12 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         }
         .modal-container {
           background-color: var(--color);
-          padding: 3em 3em 3em;
+          padding:1em;
           position: relative;
           color: var(--text-color);
           max-height: 60vh;
+          max-width: 80%;
+            border-radius: 0.5em;
         }
 
         .close-button {
@@ -46,9 +48,10 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           text-align: center;
           font-size: 1.8rem;
           color: var(--text-color);
+          padding: 1em;
         }
         .modal-content {
-          padding: 3em 0;
+          padding:  ;
           text-align: center;
           
 
@@ -59,6 +62,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           justify-content: space-around;
           width: 50%;
           margin: 0 auto;
+          padding-top: 1em;;
         }
 
         button {
@@ -84,7 +88,6 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         @media (min-width: 760px) {
           .modal-container {
             max-width: 50%;
-            border-radius: 0.5em;
 
           }
         }
