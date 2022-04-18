@@ -26,6 +26,7 @@ function Selector({ color, target }) {
             height: 1em;
             background-color: ${color};
             border-radius: 100%;
+            cursor: pointer;
           }
           .background {
             border: ${color === selectedColor && '.17em solid white'};

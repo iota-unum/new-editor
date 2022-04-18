@@ -40,10 +40,12 @@ function FontGroup() {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
           }
           .symbol {
             margin: 0.5rem;
             height: 1rem;
+            cursor: pointer;
           }
         `}
       </style>
