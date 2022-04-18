@@ -12,6 +12,7 @@ import LoginModal from '../components/LoginModal';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import ContentEditable from 'react-contenteditable';
 import CircularProgress from '../components/CircularProgress';
+import { AnimatePresence } from 'framer-motion';
 
 function Send() {
   const {
@@ -206,6 +207,8 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
           <img src={imgUrl} alt='text generated image' />
         </div>
       </div>
+      <AnimatePresence>
+
       {showModal && (
         <LoginModal
           color={selectedColor}
@@ -213,6 +216,8 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
           signIn={signIn}
         />
       )}
+
+      </AnimatePresence>
 
       <style jsx>
         {`

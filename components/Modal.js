@@ -1,6 +1,17 @@
+import {motion, AnimatePresence} from 'framer-motion'
+
 const Modal = ({ children, color, bgColor, setShowModal }) => (
-  <div className='modal'>
-    <div className='modal-container'>
+  <motion.div className='modal' initial={{opacity:0,}}
+  animate={{opacity: 1, }}
+  transition={{
+    // duration: 1,
+  }}
+  exit={{
+    opacity: 0, 
+  }}>
+    <motion.div className='modal-container'  initial={{scale:0}}
+      animate={{scale:1}}
+      exit={{scale:0}}>
       <div
         className='close-button'
         onClick={() => {
@@ -10,12 +21,12 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         X
       </div>
       {children}
-    </div>
+    </motion.div>
 
     <style jsx global>
       {`
         .modal {
-          background-color: rgba(0, 0, 0, 0.761);
+          background-color: rgba(0, 0, 0, 0.8);
           position: fixed;
           top: 0;
           left: 0;
@@ -98,7 +109,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
         }
       `}
     </style>
-  </div>
+  </motion.div>
 );
 
 const Title = ({ children }) => <h2 className='title'>{children}</h2>;

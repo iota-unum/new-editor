@@ -17,6 +17,7 @@ import ActionBtn from '../components/ActionBtn';
 import { BsPencilFill, BsEyeFill, BsFillCameraFill } from 'react-icons/bs';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import Modal from '../components/Modal';
+import { AnimatePresence } from 'framer-motion';
 function Compose() {
   const {
     html,
@@ -174,6 +175,7 @@ function Compose() {
           </button>
         )}
       </footer>
+      <AnimatePresence>
       {showModal && <Modal setShowModal={setShowModal} color={selectedColor} bgColor='#15202b' confirmFunction={reset}> 
       <Modal.Title>Reset</Modal.Title>
       <Modal.Content>
@@ -197,6 +199,7 @@ This will erase everything you have written so far
       </Modal>
       
       }
+      </AnimatePresence>
       <style jsx>
         {`
           .compose {
