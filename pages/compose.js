@@ -227,11 +227,18 @@ This will erase everything you have written so far
             display: flex;
             background-color: var(--selectedColor);
             border: 1px solid var(--selectedColor);
-            border-radius: 1.5rem;
             color: ${fontColor === 'white' ? 'white' : '#15202b'};
-            padding: 0.5em 3em;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 1.5rem;
             font-weight: bolder;
+            font-size: 0.8rem;
+            font-weight: bolder !important;
+            font-size: 0.9rem;
+            padding: 0.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 1em;
+       
           }
           .icon-btn {
             display: flex;
