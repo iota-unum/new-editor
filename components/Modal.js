@@ -45,7 +45,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           position: relative;
           color: var(--text-color);
           max-height: 60vh;
-          max-width: 80%;
+          max-width: calc(var(--containerWidth)*0.85);
             border-radius: 0.5em;
         }
 
@@ -96,17 +96,7 @@ const Modal = ({ children, color, bgColor, setShowModal }) => (
           color: var(--text-color);
         }
 
-        @media (min-width: 760px) {
-          .modal-container {
-            max-width: 50%;
-
-          }
-        }
-        @media (min-width: 1200px) {
-          .modal-container {
-            max-width: 30%;
-          }
-        }
+    
       `}
     </style>
   </motion.div>

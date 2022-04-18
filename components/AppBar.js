@@ -4,6 +4,7 @@ import Avatar from './Avatar';
 function AppBar({children}) {
   const { preview, togglePreview } = useStore();
   return (
+    
     <div className='appbar'>
      {children}
 

@@ -103,6 +103,7 @@ button {
   cursor:pointer;
 }
 
+
     [contenteditable='true']:empty:before {
       content: attr(placeholder);
       display: block;

@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
             name='viewport'
             content='initial-scale=1, viewport-fit=cover, user-scalable=no'
           />
+            <link rel='icon' href='/favicon.svg'/>
         </Head>
 
         <Component {...pageProps} />
