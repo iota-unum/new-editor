@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar';
 import useStore from '../store';
 import { positionCursorToEnd } from '../helpers/cursorfunction';
 import ContentEditable from 'react-contenteditable';
-import sanitizeHtml from 'sanitize-html';
+
 function Editor({ handleChange, content, overflow, progress, preview }) {
   
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
@@ -52,8 +52,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
         // value={content}
         onSelect={handleSelect}
         onPaste={handlePaste}
-        // html={content}
-        html={sanitizeHtml( content)}
+        html={content}
         onChange={(e) => handleChange(e)}
         placeholder={'Type or paste your text here...'}
       ></ContentEditable>
