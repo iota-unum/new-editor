@@ -16,7 +16,7 @@ const TwitterCard = ({tweet}) => {
 //   };
 const {created_at, id_str, text, user:{name, screen_name, profile_image_url}} = tweet
 const status = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-const tweetImage = tweet.extended_entities.media[0].media_url_https
+const tweetImage = tweet.extended_entities?.media[0].media_url_https
   console.log(id_str, screen_name)
   return (
     <div className='twitter-card'>

@@ -26,7 +26,7 @@ function Send() {
   const [showModal, setShowModal] = useState(false);
   const [tweetLength , setTweetLength] = useState(0) 
   const router = useRouter();
-  const tweetMaxLength = 50;
+  const tweetMaxLength = 200;
 
 
 
@@ -39,35 +39,13 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
 // }
 
 }, [tweetLength])
-// useEffect(() => {
 
-  //   function handleMentions(e) {
-  //     const char = e.key
-
-  //     if(char === '@' || char === '#') {
-  //       document.execCommand(document.execCommand('foreColor', true, selectedColor))      }
-  //     if(char === ' ') {
-  //       document.execCommand(document.execCommand('foreColor', false, 'FFFFFF'))      }
-
-  //   }
-
-  //   document.querySelector('.text-area').addEventListener('keypress', handleMentions)
-
-  //   return () => {
-  //     document.removeEventListener('keypress', handleMentions)
-  //   }
-  // }, [text])
   useEffect(() => {
     const el = document.querySelector('.text-area');
-    // positionCursorToEnd(el);
-    // el.focus();
-    // el.scrollTop = 1000;
-    // el.blur();
+
   }, []);
   const text = useRef('');
-  // useEffect(()=>{
-  //   console.log('effectLength', tweetLength)
-  // }, [tweetLength])
+
   const handleChange = (evt) => {
     // text.current = evt.target.value;
     console.log(evt)
@@ -76,27 +54,30 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
     console.log('lengthhhhh',length)
     setTweetLength(length)
     console.log('statelength', tweetLength)
-    // console.log(text.current)
-    // setTweetStatus(text.current.length > tweetMaxLength ? 'disabled': 'normal')
+    console.log(text.current)
 
-    //  else {
-
-    //   text.current = evt.currentTarget.innerHTML
-
-    //   setTweetStatus('normal')
-    // }
-
-    // console.table(text.current.length, text.current)
   };
+  function handlePaste(e) {
+    e.preventDefault();
+    const text = e.clipboardData.getData('text/plain');
+    document.execCommand('insertHTML', false, text);
+  
+  }
+  const cleanText = text => {
+    return text
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    
+    .replace(/<\/?[^>]+(>|$)/g, " ")
+    
+  }
   async function handleOnTweetSubmit() {
     console.log('submit');
     setTweetStatus('tweeting');
     if (!session) {
       setShowModal(true);
       console.log(showModal);
-      // alert(
-      //   'you must be connect your twitter account to post a tweet. Please cick on the login button to connect'
-      // );
+  
       setTweetStatus('disabled');
       return;
     }
@@ -107,10 +88,8 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
       return;
     }
     const [prefix, ...twitterDataUrlFormat] = imgUrl ? imgUrl.split(',') : null;
-    // console.log(prefix);
-    // const formData = new FormData(e.currentTarget);
-    // const status = formData.get('status') + ' [CHIRPBIRDICON]';
-    const status = text.current + ' [CHIRPBIRDICON]';
+
+    const status = cleanText (text.current) + ' [CHIRPBIRDICON]';
     console.log('STATUS', status);
     const results = await fetch('/api/twitter/sendTweet', {
       method: 'POST',
@@ -181,22 +160,11 @@ tweetStatus !== 'tweeting' && setTweetStatus(tweetLength > tweetMaxLength ? 'dis
       <div className='section-form'>
         <Avatar img={!session ? 'default_profile.png' : session.user.image} />
         <div className='form'>
-          {/* <form onSubmit={handleOnTweetSubmit} id='twitter-form'>
-           
-            <div contentEditable> 
-            <TextareaAutosize
-              className='text-area'
-              name='status'
-              placeholder='Add a comment...'
-              maxLength={279}
-              contenEditable
-            />
-
-            </div>
-          </form>{' '} */}
+    
           <ContentEditable
             html={text.current}
             onChange={handleChange}
+            onPaste={handlePaste}
             className='text-area'
             placeholder={'Add a comment...'}
           />
