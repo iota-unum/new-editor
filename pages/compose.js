@@ -17,6 +17,7 @@ import ActionBtn from '../components/ActionBtn';
 import { BsPencilFill, BsEyeFill, BsFillCameraFill } from 'react-icons/bs';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import Modal from '../components/Modal';
+import sanitizeHtml from 'sanitize-html';
 import { AnimatePresence } from 'framer-motion';
 function Compose() {
   const {
@@ -67,7 +68,7 @@ function Compose() {
     console.log(text.current.length)
     console.log(editor.dataset.maxLength)
 
-    setHtml(text.current);
+    setHtml(sanitizeHtml(text.current));
   }
   async function handleImageGeneration() {
     setLoading(true);
@@ -154,6 +155,7 @@ function Compose() {
             overflow={overflow}
             progress={progress}
             preview={preview}
+            // content={sanitizeHtml(text.current)}
             content={text.current}
           />
         )}
