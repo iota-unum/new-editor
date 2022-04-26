@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar';
 import useStore from '../store';
 import { positionCursorToEnd } from '../helpers/cursorfunction';
 import ContentEditable from 'react-contenteditable';
-
+import sanitizeHtml from 'sanitize-html';
 function Editor({ handleChange, content, overflow, progress, preview }) {
   
   const { selectedColor, fontColor, fontSize, commandState, setCommandState } =
@@ -16,6 +16,7 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
     el.scrollTop = 1000;
     el.focus();
   }, [preview]);
+
 
   function handleSelect() {
     const selectState = {
@@ -34,7 +35,8 @@ function Editor({ handleChange, content, overflow, progress, preview }) {
 
   function handlePaste(e) {
     e.preventDefault();
-    const text = e.clipboardData.getData('text/plain');
+    const clipboard = e.clipboardData.getData('text/plain');
+    const text = sanitizeHtml(clipboard)
     document.execCommand('insertHTML', false, text);
     const editor = document.querySelector('.editor');
     positionCursorToEnd(editor);

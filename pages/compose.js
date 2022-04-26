@@ -68,7 +68,8 @@ function Compose() {
     console.log(text.current.length)
     console.log(editor.dataset.maxLength)
 
-    setHtml(sanitizeHtml(text.current));
+    // setHtml(sanitizeHtml(text.current));
+    setHtml(text.current)
   }
   async function handleImageGeneration() {
     setLoading(true);
