@@ -25,6 +25,7 @@ export default async (req, res) => {
     const thepost = await client.v1.post('statuses/update.json', {
         status: status,
         media_ids: [mediaIdStr],
+        tweet_mode:"extended"
     });
     console.log('THIIIIS', thepost);
     res.send(thepost);

@@ -14,8 +14,8 @@ const TwitterCard = ({tweet}) => {
 //     created_at:"Tue Feb 27 21:11:40 +0000 2018",
 //     user: '',
 //   };
-const {created_at, id_str, text, user:{name, screen_name, profile_image_url}} = tweet
-const status = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+const {created_at, id_str, full_text, user:{name, screen_name, profile_image_url}} = tweet
+const status = full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
 const tweetImage = tweet.extended_entities?.media[0].media_url_https
   console.log(id_str, screen_name)
   return (

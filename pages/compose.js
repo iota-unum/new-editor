@@ -78,7 +78,7 @@ function Compose() {
     const height = previewDiv.offsetHeight;
     setImgWidth(width)
     setImgHeight(height)
-    const generatedImgUrl = await generateImage(previewDiv, [width, height]);
+    const generatedImgUrl = await generateImage(previewDiv, [width , height]);
     setImgUrl(generatedImgUrl);
     router.push('/send');
     setLoading(false);
