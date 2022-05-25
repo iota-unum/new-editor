@@ -30,7 +30,7 @@ export default async (req, res) => {
 
         console.log('DATA1', data);
         console.log('ERRORE1', err);
-        // console.log('RESPONSE1', response);
+        console.log('RESPONSE1', data);
 
         var mediaIdStr = data.media_id_string;
         var meta_params = { media_id: mediaIdStr };
@@ -39,21 +39,21 @@ export default async (req, res) => {
           'media/metadata/create',
           meta_params,
           function (err, data, response) {
-            console.log('DATA2', data);
-            console.log('ERRORE2', err);
+            // console.log('DATA2', data);
+            // console.log('ERRORE2', err);
             // console.log('RESPONSE2', response);
             if (!err) {
               // now we can reference the media and post a tweet (media will attach to the tweet)
               var params = { status: body.status , media_ids: [mediaIdStr] };
 
               T.post('statuses/update', params, function (err, data, response) {
-                console.log('DATA3', data);
+                // console.log('DATA3', data);
                 console.log('ERRORE3', err);
                 // console.log('RESPONSE3', response);
 
              
                 if (data) {
-                  console.log('DATI56', data);
+                //   console.log('DATI56', data);
                   res.send(data)
                   // response.status(200).send('tuttobene')
                 } else {
