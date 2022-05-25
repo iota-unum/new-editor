@@ -2,7 +2,6 @@ import jwt from 'next-auth/jwt';
 import { TwitterApi } from 'twitter-api-v2';
 
 const secret = process.env.SECRET;
-let buff = new Buffer(data);
 export default async (req, res) => {
   const token = await jwt.getToken({ req, secret });
   try {
