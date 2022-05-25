@@ -1,8 +1,9 @@
 import jwt from 'next-auth/jwt';
+import Twit from 'twit';
 import { TwitterApi } from 'twitter-api-v2';
 
 const secret = process.env.SECRET;
-let buff = new Buffer(data);
+
 export default async (req, res) => {
   const token = await jwt.getToken({ req, secret });
   try {
@@ -12,24 +13,19 @@ export default async (req, res) => {
     const client = new TwitterApi({
       appKey: process.env.TWITTER_CONSUMER_KEY,
       appSecret: process.env.TWITTER_CONSUMER_SECRET,
-
+  
       accessToken: token.accessToken,
       accessSecret: token.accessTokenSecret,
     });
+    
+
 
     const json = await client.v1.post(
       'media/upload.json',
-      { media_data: twitterDataUrlFormat },
-      { prefix: 'https://upload.twitter.com/1.1/' }
+      {media_data: twitterDataUrlFormat},
+      {prefix: 'https://upload.twitter.com/1.1/'}
     );
-    console.log('DA QUIIII', json);
-    const mediaIdStr = json.media_id_string;
-    const thepost = await client.v1.post('statuses/update.json', {
-      status: status,
-      media_ids: [mediaIdStr],
-    });
-    console.log('THIIIIS', thepost);
-    res.send(thepost);
+    console.log(json);
   } catch (error) {
     // Not Signed in
     console.log(error);
